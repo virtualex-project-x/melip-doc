@@ -1,0 +1,1178 @@
+﻿# A5:ER FORMAT:09
+# A5:ER ENCODING:UTF8
+# A5:ER Mk-1 Copyright (C)2007 m.matsubara
+# A5:SQL Mk-2 Copyright (C)1997 m.matsubara
+#  http://www.wind.sannet.ne.jp/m_matsu/developer/a5m2/
+
+[Manager]
+ProjectName=ProjectX
+Author=
+MaxEntityRowShow=1000
+ReadOnlyRecommend=0
+Page=okaka_main
+PageInfo="okaka_main",3,"A3Landscape",$FFFFFF
+Page=okaka_sub
+PageInfo="okaka_sub",3,"A3Landscape",$FFFFFF
+Domain=PK=INT unsigned auto_increment
+Domain=FK=INT unsigned
+Domain=CD=CHAR(8)
+Domain=SHORT_TXT=VARCHAR(400)
+Domain=MEDIUM_TXT=VARCHAR(1000)
+Domain=LONG_TXT=VARCHAR(4000)
+Domain==
+LogicalView=1
+DecodeDomain=0
+ViewModePageIndividually=1
+ViewMode=3
+ViewFormat=0
+UseNondependenceDashLine=0
+FontName=Tahoma
+FontSize=6
+PaperSize=A4Landscape
+HeaderLeft=
+HeaderCenter=
+HeaderRight=
+FooterLeft=
+FooterCenter=
+FooterRight=
+ShowPageoutRelation=1
+RDBMSType=5
+RDBMSTypeName=MySQL
+GenerateDropTableStatement=1
+DropTableIfExists=1
+DefaultPkName=%0:s_PKC
+DefaultPkIndexName=%0:s_PKI
+DefaultIndexName=%0:s_IX%1:d
+DefaultFkName=%0:s_FK%1:d
+SqlSeparator=0
+ShowTag=1
+ShowCommonAttributes=1
+
+[Entity]
+PName=M_CD_GRP
+LName=コードグループ
+Comment=
+TableOption=
+Page=okaka_sub
+Left=100
+Top=100
+Field="コードグループID","CD_GRP_ID","*PK","NOT NULL",0,"","",$FFFFFFFF,""
+Field="登録日時","CREATE_DATETIME","TIMESTAMP","NOT NULL",,"","",$00808080,""
+Field="登録者","CREATE_USER","*FK","NOT NULL",,"","",$00808080,""
+Field="更新日時","UPDATE_DATETIME","TIMESTAMP","NOT NULL",,"","",$00808080,""
+Field="更新者","UPDATE_USER","*FK","NOT NULL",,"","",$00808080,""
+Field="ステータス","STS","*CD","NOT NULL",,"","",$00808080,""
+Field="名称","NM","*SHORT_TXT","NOT NULL",,"","",$FFFFFFFF,""
+Field="概要","SUMMARY","*MEDIUM_TXT",,,"","",$00000000,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20150108174333
+Position="okaka_sub",100,100
+
+[Entity]
+PName=M_CD_VAL
+LName=コード値
+Comment=
+TableOption=
+Page=okaka_sub
+Left=500
+Top=100
+Field="コード値ID","CD_VAL_ID","*PK","NOT NULL",0,"","",$FFFFFFFF,""
+Field="登録日時","CREATE_DATETIME","TIMESTAMP","NOT NULL",,"","",$00808080,""
+Field="登録者","CREATE_USER","*FK","NOT NULL",,"","",$00808080,""
+Field="更新日時","UPDATE_DATETIME","TIMESTAMP","NOT NULL",,"","",$00808080,""
+Field="更新者","UPDATE_USER","*FK","NOT NULL",,"","",$00808080,""
+Field="ステータス","STS","*CD","NOT NULL",,"","",$00808080,""
+Field="コードグループID","CD_GRP_ID","*FK","NOT NULL",,"","",$FFFFFFFF,""
+Field="コード","CD","*CD","NOT NULL",,"","",$00000000,""
+Field="コードエイリアス","CD_ALIAS","*SHORT_TXT","NOT NULL",,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20150108174343
+Position="okaka_sub",500,100
+
+[Entity]
+PName=M_CD_VAL_LANG
+LName=コード値_多言語
+Comment=
+TableOption=
+Page=okaka_sub
+Left=1000
+Top=100
+Field="コード値_多言語ID","CD_VAL_LANG_ID","*PK","NOT NULL",0,"","",$FFFFFFFF,""
+Field="登録日時","CREATE_DATETIME","TIMESTAMP","NOT NULL",,"","",$00808080,""
+Field="登録者","CREATE_USER","*FK","NOT NULL",,"","",$00808080,""
+Field="更新日時","UPDATE_DATETIME","TIMESTAMP","NOT NULL",,"","",$00808080,""
+Field="更新者","UPDATE_USER","*FK","NOT NULL",,"","",$00808080,""
+Field="ステータス","STS","*CD","NOT NULL",,"","",$00808080,""
+Field="言語区分","LANG_DIV","*FK","NOT NULL",,"","",$FFFFFFFF,""
+Field="名称","NM","*SHORT_TXT","NOT NULL",,"","",$00000000,""
+Field="コード値ID","CD_VAL_ID","*FK","NOT NULL",,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20150108174351
+Position="okaka_sub",1000,100
+
+[Relation]
+Entity1=M_CD_GRP
+Entity2=M_CD_VAL
+RelationType1=2
+RelationType2=3
+Fields1=CD_GRP_ID
+Fields2=CD_GRP_ID
+Cardinarity1=
+Cardinarity2=
+Position="OKAKA_SUB",0,4953,3746,4403,R,R
+Dependence=0
+Caption=
+PName=
+LineMode=0
+Bar1=495
+Bar2=375
+Bar3=440
+TermPos1=R
+TermPos2=R
+
+[Relation]
+Entity1=M_CD_VAL
+Entity2=M_CD_VAL_LANG
+RelationType1=1
+RelationType2=3
+Fields1=CD_VAL_ID
+Fields2=CD_VAL_ID
+Cardinarity1=
+Cardinarity2=
+Position="OKAKA_SUB",0,4403,6878,4403,R,R
+Dependence=0
+Caption=
+PName=
+LineMode=0
+Bar1=440
+Bar2=688
+Bar3=440
+TermPos1=R
+TermPos2=R
+
+[Relation]
+Entity1=M_LAYOUT_OBJ
+Entity2=M_SCREEN_OBJ
+RelationType1=2
+RelationType2=3
+Fields1=LAYOUT_OBJ_ID
+Fields2=LAYOUT_OBJ_ID
+Cardinarity1=
+Cardinarity2=
+Position="OKAKA_MAIN",0,3531,6903,2968,R,R
+Dependence=0
+Caption=
+PName=
+LineMode=0
+Bar1=353
+Bar2=690
+Bar3=297
+TermPos1=R
+TermPos2=R
+
+[Relation]
+Entity1=M_SCREEN
+Entity2=M_SCREEN_OBJ
+RelationType1=2
+RelationType2=3
+Fields1=SCREEN_ID
+Fields2=SCREEN_ID
+Cardinarity1=
+Cardinarity2=
+Position="OKAKA_MAIN",0,3901,8026,3546,R,R
+Dependence=0
+Caption=
+PName=
+LineMode=0
+Bar1=390
+Bar2=803
+Bar3=355
+TermPos1=R
+TermPos2=R
+
+[Entity]
+PName=M_SCREEN_OBJ
+LName=スクリーン_オブジェクト
+Comment=
+TableOption=
+Page=OKAKA_MAIN
+Left=1000
+Top=500
+Field="スクリーン_オブジェクトID","SCREEN_OBJ_ID","*PK","NOT NULL",0,"","",$FFFFFFFF,""
+Field="登録日時","CREATE_DATETIME","TIMESTAMP","NOT NULL",,"","",$00808080,""
+Field="登録者","CREATE_USER","*FK","NOT NULL",,"","",$00808080,""
+Field="更新日時","UPDATE_DATETIME","TIMESTAMP","NOT NULL",,"","",$00808080,""
+Field="更新者","UPDATE_USER","*FK","NOT NULL",,"","",$00808080,""
+Field="ステータス","STS","*CD","NOT NULL",,"","",$00808080,""
+Field="スクリーンID","SCREEN_ID","*FK","NOT NULL",,"","",$FFFFFFFF,""
+Field="レイアウト_オブジェクト_ID","LAYOUT_OBJ_ID","*FK","NOT NULL",,"","",$FFFFFFFF,""
+Field="エンティティ","ENTITY","*CD","NOT NULL",,"","",$FFFFFFFF,""
+Field="属性ID","ATTR_ID","*FK","NOT NULL",,"","",$FFFFFFFF,""
+Field="遷移先スクリーン_ID","TARGET_SCREEN_ID","*FK",,,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20150108174002
+Position="OKAKA_MAIN",1000,500
+
+[Relation]
+Entity1=M_LAYOUT
+Entity2=M_SCREEN
+RelationType1=2
+RelationType2=3
+Fields1=LAYOUT_ID
+Fields2=LAYOUT_ID
+Cardinarity1=
+Cardinarity2=
+Position="OKAKA_MAIN",0,4204,5814,4204,R,R
+Dependence=0
+Caption=
+PName=
+LineMode=0
+Bar1=420
+Bar2=581
+Bar3=420
+TermPos1=R
+TermPos2=R
+
+[Relation]
+Entity1=M_REGION
+Entity2=M_SCREEN
+RelationType1=2
+RelationType2=3
+Fields1=REGION_ID
+Fields2=REGION_ID
+Cardinarity1=
+Cardinarity2=
+Position="OKAKA_MAIN",0,4217,8159,4217,R,R
+Dependence=0
+Caption=
+PName=
+LineMode=0
+Bar1=422
+Bar2=816
+Bar3=422
+TermPos1=R
+TermPos2=R
+
+[Entity]
+PName=M_SCREEN
+LName=スクリーン
+Comment=
+TableOption=
+Page=OKAKA_MAIN
+Left=100
+Top=500
+Field="スクリーンID","SCREEN_ID","*PK","NOT NULL",0,"","",$FFFFFFFF,""
+Field="登録日時","CREATE_DATETIME","TIMESTAMP","NOT NULL",,"","",$00808080,""
+Field="登録者","CREATE_USER","*FK","NOT NULL",,"","",$00808080,""
+Field="更新日時","UPDATE_DATETIME","TIMESTAMP","NOT NULL",,"","",$00808080,""
+Field="更新者","UPDATE_USER","*FK","NOT NULL",,"","",$00808080,""
+Field="ステータス","STS","*CD","NOT NULL",,"","",$00808080,""
+Field="地域ID","REGION_ID","*FK","NOT NULL",,"","",$FFFFFFFF,""
+Field="レイアウトID","LAYOUT_ID","*FK","NOT NULL",,"","",$FFFFFFFF,""
+Field="対象エンティティ","TARGET_ENTITY","*CD","NOT NULL",,"","",$FFFFFFFF,""
+Field="名称","NM","*SHORT_TXT","NOT NULL",,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20150108173656
+Position="OKAKA_MAIN",100,500
+
+[Relation]
+Entity1=M_LAYOUT
+Entity2=M_LAYOUT_OBJ
+RelationType1=1
+RelationType2=3
+Fields1=LAYOUT_ID
+Fields2=LAYOUT_ID
+Cardinarity1=
+Cardinarity2=
+Position="OKAKA_MAIN",0,4937,9233,4388,R,R
+Dependence=0
+Caption=
+PName=
+LineMode=0
+Bar1=494
+Bar2=923
+Bar3=439
+TermPos1=R
+TermPos2=R
+
+[Entity]
+PName=M_LAYOUT_OBJ
+LName=レイアウト_オブジェクト
+Comment=
+TableOption=
+Page=OKAKA_MAIN
+Left=1000
+Top=100
+Field="レイアウト_オブジェクトID","LAYOUT_OBJ_ID","*PK","NOT NULL",0,"","",$FFFFFFFF,""
+Field="登録日時","CREATE_DATETIME","TIMESTAMP","NOT NULL",,"","",$00808080,""
+Field="登録者","CREATE_USER","*FK","NOT NULL",,"","",$00808080,""
+Field="更新日時","UPDATE_DATETIME","TIMESTAMP","NOT NULL",,"","",$00808080,""
+Field="更新者","UPDATE_USER","*FK","NOT NULL",,"","",$00808080,""
+Field="ステータス","STS","*CD","NOT NULL",,"","",$00808080,""
+Field="レイアウトID","LAYOUT_ID","*FK","NOT NULL",,"","",$FFFFFFFF,""
+Field="名称","NM","*SHORT_TXT","NOT NULL",,"","",$FFFFFFFF,""
+Field="種別","TYPE","*CD","NOT NULL",,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20150108173711
+Position="OKAKA_MAIN",1000,100
+
+[Entity]
+PName=M_LAYOUT
+LName=レイアウト
+Comment=
+TableOption=
+Page=OKAKA_MAIN
+Left=100
+Top=100
+Field="レイアウトID","LAYOUT_ID","*PK","NOT NULL",0,"","",$FFFFFFFF,""
+Field="登録日時","CREATE_DATETIME","TIMESTAMP","NOT NULL",,"","",$00808080,""
+Field="登録者","CREATE_USER","*FK","NOT NULL",,"","",$00808080,""
+Field="更新日時","UPDATE_DATETIME","TIMESTAMP","NOT NULL",,"","",$00808080,""
+Field="更新者","UPDATE_USER","*FK","NOT NULL",,"","",$00808080,""
+Field="ステータス","STS","*CD","NOT NULL",,"","",$00808080,""
+Field="名称","NM","*SHORT_TXT","NOT NULL",,"","",$FFFFFFFF,""
+Field="種別","TYPE","*CD","NOT NULL",,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20150108173719
+Position="OKAKA_MAIN",100,100
+
+[Relation]
+Entity1=M_FACILITY_GRP
+Entity2=M_FACILITY_GRP_ATTR_VAL
+RelationType1=1
+RelationType2=3
+Fields1=FACILITY_GRP_ID
+Fields2=FACILITY_GRP_ID
+Cardinarity1=
+Cardinarity2=
+Position="OKAKA_MAIN",0,4178,3771,2626,R,R
+Dependence=0
+Caption=
+PName=
+LineMode=0
+Bar1=418
+Bar2=377
+Bar3=263
+TermPos1=R
+TermPos2=R
+
+[Relation]
+Entity1=M_FACILITY_FACILITY_GRP_LINK
+Entity2=M_FACILITY_FACILITY_GRP_LINK_ATTR_VAL
+RelationType1=1
+RelationType2=3
+Fields1=FACILITY_FACILITY_GRP_LINK_ID
+Fields2=FACILITY_FACILITY_GRP_LINK_ID
+Cardinarity1=
+Cardinarity2=
+Position="OKAKA_MAIN",0,3110,4413,2045,R,R
+Dependence=0
+Caption=
+PName=
+LineMode=0
+Bar1=311
+Bar2=441
+Bar3=204
+TermPos1=R
+TermPos2=R
+
+[Relation]
+Entity1=M_FACILITY
+Entity2=M_FACILITY_ATTR_VAL
+RelationType1=1
+RelationType2=3
+Fields1=FACILITY_ID
+Fields2=FACILITY_ID
+Cardinarity1=
+Cardinarity2=
+Position="OKAKA_MAIN",0,4218,5027,3246,R,R
+Dependence=0
+Caption=
+PName=
+LineMode=0
+Bar1=422
+Bar2=503
+Bar3=325
+TermPos1=R
+TermPos2=R
+
+[Relation]
+Entity1=M_REGION
+Entity2=M_REGION_ATTR_VAL
+RelationType1=1
+RelationType2=3
+Fields1=REGION_ID
+Fields2=REGION_ID
+Cardinarity1=
+Cardinarity2=
+Position="OKAKA_MAIN",0,4194,7586,3228,R,R
+Dependence=0
+Caption=
+PName=
+LineMode=0
+Bar1=419
+Bar2=759
+Bar3=323
+TermPos1=R
+TermPos2=R
+
+[Relation]
+Entity1=M_FACILITY_GRP
+Entity2=M_FACILITY_FACILITY_GRP_LINK
+RelationType1=1
+RelationType2=3
+Fields1=FACILITY_GRP_ID
+Fields2=FACILITY_GRP_ID
+Cardinarity1=
+Cardinarity2=
+Position="OKAKA_MAIN",0,5681,3479,4971,R,R
+Dependence=0
+Caption=
+PName=
+LineMode=0
+Bar1=568
+Bar2=348
+Bar3=497
+TermPos1=R
+TermPos2=R
+
+[Relation]
+Entity1=M_FACILITY
+Entity2=M_FACILITY_FACILITY_GRP_LINK
+RelationType1=1
+RelationType2=3
+Fields1=FACILITY_ID
+Fields2=FACILITY_ID
+Cardinarity1=
+Cardinarity2=
+Position="OKAKA_MAIN",0,4971,3538,4971,R,R
+Dependence=0
+Caption=
+PName=
+LineMode=0
+Bar1=497
+Bar2=354
+Bar3=497
+TermPos1=R
+TermPos2=R
+
+[Entity]
+PName=M_REGION
+LName=地域
+Comment=
+TableOption=
+Page=OKAKA_MAIN
+Left=100
+Top=900
+Field="地域ID","REGION_ID","*PK","NOT NULL",0,"","",$FFFFFFFF,""
+Field="登録日時","CREATE_DATETIME","TIMESTAMP","NOT NULL",,"","",$00808080,""
+Field="登録者","CREATE_USER","*FK","NOT NULL",,"","",$00808080,""
+Field="更新日時","UPDATE_DATETIME","TIMESTAMP","NOT NULL",,"","",$00808080,""
+Field="更新者","UPDATE_USER","*FK","NOT NULL",,"","",$00808080,""
+Field="ステータス","STS","*CD","NOT NULL",,"","",$00808080,""
+Field="テンプレートID","TEMPLATE_ID","*FK","NOT NULL",,"","",$FFFFFFFF,""
+Field="公開ステータス","PUBLISH_STS","*CD","NOT NULL",,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20150108174007
+Position="OKAKA_MAIN",100,900
+
+[Entity]
+PName=M_FACILITY
+LName=施設
+Comment=
+TableOption=
+Page=OKAKA_MAIN
+Left=1000
+Top=900
+Field="施設ID","FACILITY_ID","*PK","NOT NULL",0,"","",$FFFFFFFF,""
+Field="登録日時","CREATE_DATETIME","TIMESTAMP","NOT NULL",,"","",$00808080,""
+Field="登録者","CREATE_USER","*FK","NOT NULL",,"","",$00808080,""
+Field="更新日時","UPDATE_DATETIME","TIMESTAMP","NOT NULL",,"","",$00808080,""
+Field="更新者","UPDATE_USER","*FK","NOT NULL",,"","",$00808080,""
+Field="ステータス","STS","*CD","NOT NULL",,"","",$00808080,""
+Field="地域ID","REGION_ID","*FK","NOT NULL",,"","",$FFFFFFFF,""
+Field="公開ステータス","PUBLISH_STS","*CD","NOT NULL",,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20150108174108
+Position="OKAKA_MAIN",1000,900
+
+[Relation]
+Entity1=M_REGION
+Entity2=M_FACILITY
+RelationType1=2
+RelationType2=3
+Fields1=REGION_ID
+Fields2=REGION_ID
+Cardinarity1=
+Cardinarity2=
+Position="OKAKA_MAIN",0,4971,6774,4971,R,R
+Dependence=0
+Caption=
+PName=
+LineMode=0
+Bar1=497
+Bar2=677
+Bar3=497
+TermPos1=R
+TermPos2=R
+
+[Entity]
+PName=M_REGION_ATTR_GRP_LANG
+LName=地域_属性グループ_多言語
+Comment=
+TableOption=
+Page=OKAKA_MAIN
+Left=500
+Top=1700
+Field="地域_属性グループ_多言語ID","REGION_ATTR_GRP_LANG_ID","*PK","NOT NULL",0,"","",$FFFFFFFF,""
+Field="登録日時","CREATE_DATETIME","TIMESTAMP","NOT NULL",,"","",$00808080,""
+Field="登録者","CREATE_USER","*FK","NOT NULL",,"","",$00808080,""
+Field="更新日時","UPDATE_DATETIME","TIMESTAMP","NOT NULL",,"","",$00808080,""
+Field="更新者","UPDATE_USER","*FK","NOT NULL",,"","",$00808080,""
+Field="ステータス","STS","*CD","NOT NULL",,"","",$00808080,""
+Field="地域_属性グループID","REGION_ATTR_GRP_ID","*FK","NOT NULL",,"","",$FFFFFFFF,""
+Field="言語区分","LANG_DIV","*CD","NOT NULL",,"","",$FFFFFFFF,""
+Field="名称","NM","*SHORT_TXT","NOT NULL",,"","",$00000000,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20150108174056
+Position="OKAKA_MAIN",500,1700
+
+[Entity]
+PName=M_REGION_ATTR_GRP
+LName=地域_属性グループ
+Comment=
+TableOption=
+Page=OKAKA_MAIN
+Left=100
+Top=1700
+Field="地域_属性グループID","REGION_ATTR_GRP_ID","*PK","NOT NULL",0,"","",$FFFFFFFF,""
+Field="登録日時","CREATE_DATETIME","TIMESTAMP","NOT NULL",,"","",$00808080,""
+Field="登録者","CREATE_USER","*FK","NOT NULL",,"","",$00808080,""
+Field="更新日時","UPDATE_DATETIME","TIMESTAMP","NOT NULL",,"","",$00808080,""
+Field="更新者","UPDATE_USER","*FK","NOT NULL",,"","",$00808080,""
+Field="ステータス","STS","*CD","NOT NULL",,"","",$00808080,""
+Field="種別","TYPE","*CD","NOT NULL",,"","",$FFFFFFFF,""
+Field="コードグループID","CD_GRP_ID","*FK",,,"","",$00000000,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20150108174649
+Position="OKAKA_MAIN",100,1700
+
+[Relation]
+Entity1=M_REGION_ATTR_GRP
+Entity2=M_REGION_ATTR_GRP_LANG
+RelationType1=2
+RelationType2=3
+Fields1=REGION_ATTR_GRP_ID
+Fields2=REGION_ATTR_GRP_ID
+Cardinarity1=
+Cardinarity2=
+Position="OKAKA_MAIN",0,4953,5459,4403,R,R
+Dependence=0
+Caption=
+PName=
+LineMode=0
+Bar1=495
+Bar2=546
+Bar3=440
+TermPos1=R
+TermPos2=R
+
+[Entity]
+PName=M_REGION_ATTR_VAL
+LName=地域_属性値
+Comment=
+TableOption=
+Page=OKAKA_MAIN
+Left=100
+Top=1300
+Field="地域_属性値ID","REGION_ATTR_VAL_ID","*PK","NOT NULL",0,"","",$FFFFFFFF,""
+Field="登録日時","CREATE_DATETIME","TIMESTAMP","NOT NULL",,"","",$00808080,""
+Field="登録者","CREATE_USER","*FK","NOT NULL",,"","",$00808080,""
+Field="更新日時","UPDATE_DATETIME","TIMESTAMP","NOT NULL",,"","",$00808080,""
+Field="更新者","UPDATE_USER","*FK","NOT NULL",,"","",$00808080,""
+Field="ステータス","STS","*CD","NOT NULL",,"","",$00808080,""
+Field="地域_属性グループID","REGION_ATTR_GRP_ID","*FK","NOT NULL",,"","",$FFFFFFFF,""
+Field="地域ID","REGION_ID","*FK","NOT NULL",,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20150108174016
+Position="OKAKA_MAIN",100,1300
+
+[Relation]
+Entity1=M_REGION_ATTR_GRP
+Entity2=M_REGION_ATTR_VAL
+RelationType1=2
+RelationType2=3
+Fields1=REGION_ATTR_GRP_ID
+Fields2=REGION_ATTR_GRP_ID
+Cardinarity1=
+Cardinarity2=
+Position="OKAKA_MAIN",0,3728,5566,3208,R,R
+Dependence=0
+Caption=
+PName=
+LineMode=0
+Bar1=373
+Bar2=557
+Bar3=321
+TermPos1=R
+TermPos2=R
+
+[Entity]
+PName=M_REGION_ATTR_VAL_LANG
+LName=地域_属性値_多言語
+Comment=
+TableOption=
+Page=OKAKA_MAIN
+Left=500
+Top=1300
+Field="地域_属性値_多言語ID","REGION_ATTR_VAL_LANG_ID","*PK","NOT NULL",0,"","",$FFFFFFFF,""
+Field="登録日時","CREATE_DATETIME","TIMESTAMP","NOT NULL",,"","",$00808080,""
+Field="登録者","CREATE_USER","*FK","NOT NULL",,"","",$00808080,""
+Field="更新日時","UPDATE_DATETIME","TIMESTAMP","NOT NULL",,"","",$00808080,""
+Field="更新者","UPDATE_USER","*FK","NOT NULL",,"","",$00808080,""
+Field="ステータス","STS","*CD","NOT NULL",,"","",$00808080,""
+Field="地域_属性値ID","REGION_ATTR_VAL_ID","*FK","NOT NULL",,"","",$FFFFFFFF,""
+Field="言語区分","LANG_DIV","*CD","NOT NULL",,"","",$FFFFFFFF,""
+Field="値","VAL","*SHORT_TXT","NOT NULL",,"","",$00000000,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20150108174032
+Position="OKAKA_MAIN",500,1300
+
+[Relation]
+Entity1=M_REGION_ATTR_VAL
+Entity2=M_REGION_ATTR_VAL_LANG
+RelationType1=2
+RelationType2=3
+Fields1=REGION_ATTR_VAL_ID
+Fields2=REGION_ATTR_VAL_ID
+Cardinarity1=
+Cardinarity2=
+Position="OKAKA_MAIN",0,4889,6856,4346,R,R
+Dependence=0
+Caption=
+PName=
+LineMode=0
+Bar1=489
+Bar2=686
+Bar3=435
+TermPos1=R
+TermPos2=R
+
+[Relation]
+Entity1=M_FACILITY_ATTR_VAL
+Entity2=M_FACILITY_ATTR_VAL_LANG
+RelationType1=2
+RelationType2=3
+Fields1=FACILITY_ATTR_VAL_ID
+Fields2=FACILITY_ATTR_VAL_ID
+Cardinarity1=
+Cardinarity2=
+Position="OKAKA_MAIN",0,5642,1698,5006,R,R
+Dependence=0
+Caption=
+PName=
+LineMode=0
+Bar1=564
+Bar2=170
+Bar3=501
+TermPos1=R
+TermPos2=R
+
+[Entity]
+PName=M_FACILITY_ATTR_VAL_LANG
+LName=施設_属性値_多言語
+Comment=
+TableOption=
+Page=OKAKA_MAIN
+Left=1400
+Top=1300
+Field="施設_属性値_多言語ID","FACILITY_ATTR_VAL_LANG_ID","*PK","NOT NULL",0,"","",$FFFFFFFF,""
+Field="登録日時","CREATE_DATETIME","TIMESTAMP","NOT NULL",,"","",$00808080,""
+Field="登録者","CREATE_USER","*FK","NOT NULL",,"","",$00808080,""
+Field="更新日時","UPDATE_DATETIME","TIMESTAMP","NOT NULL",,"","",$00808080,""
+Field="更新者","UPDATE_USER","*FK","NOT NULL",,"","",$00808080,""
+Field="ステータス","STS","*CD","NOT NULL",,"","",$00808080,""
+Field="施設_属性値ID","FACILITY_ATTR_VAL_ID","*FK","NOT NULL",,"","",$FFFFFFFF,""
+Field="言語区分","LANG_DIV","*CD","NOT NULL",,"","",$FFFFFFFF,""
+Field="値","VAL","*SHORT_TXT","NOT NULL",,"","",$00000000,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20150108174124
+Position="OKAKA_MAIN",1400,1300,310,229
+
+[Relation]
+Entity1=M_FACILITY_ATTR_GRP
+Entity2=M_FACILITY_ATTR_VAL
+RelationType1=2
+RelationType2=3
+Fields1=FACILITY_ATTR_GRP_ID
+Fields2=FACILITY_ATTR_GRP_ID
+Cardinarity1=
+Cardinarity2=
+Position="OKAKA_MAIN",0,3773,5566,3246,R,R
+Dependence=0
+Caption=
+PName=
+LineMode=0
+Bar1=377
+Bar2=557
+Bar3=325
+TermPos1=R
+TermPos2=R
+
+[Entity]
+PName=M_FACILITY_ATTR_VAL
+LName=施設_属性値
+Comment=
+TableOption=
+Page=OKAKA_MAIN
+Left=1000
+Top=1300
+Field="施設_属性値ID","FACILITY_ATTR_VAL_ID","*PK","NOT NULL",0,"","",$FFFFFFFF,""
+Field="登録日時","CREATE_DATETIME","TIMESTAMP","NOT NULL",,"","",$00808080,""
+Field="登録者","CREATE_USER","*FK","NOT NULL",,"","",$00808080,""
+Field="更新日時","UPDATE_DATETIME","TIMESTAMP","NOT NULL",,"","",$00808080,""
+Field="更新者","UPDATE_USER","*FK","NOT NULL",,"","",$00808080,""
+Field="ステータス","STS","*CD","NOT NULL",,"","",$00808080,""
+Field="施設_属性グループID","FACILITY_ATTR_GRP_ID","*FK","NOT NULL",,"","",$FFFFFFFF,""
+Field="施設ID","FACILITY_ID","*FK","NOT NULL",,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20150108174114
+Position="OKAKA_MAIN",1000,1300
+
+[Relation]
+Entity1=M_FACILITY_ATTR_GRP
+Entity2=M_FACILITY_ATTR_GRP_LANG
+RelationType1=2
+RelationType2=3
+Fields1=FACILITY_ATTR_GRP_ID
+Fields2=FACILITY_ATTR_GRP_ID
+Cardinarity1=
+Cardinarity2=
+Position="OKAKA_MAIN",0,1114,8886,990,R,R
+Dependence=0
+Caption=
+PName=
+LineMode=0
+Bar1=111
+Bar2=889
+Bar3=99
+TermPos1=R
+TermPos2=R
+
+[Entity]
+PName=M_FACILITY_ATTR_GRP
+LName=施設_属性グループ
+Comment=
+TableOption=
+Page=OKAKA_MAIN
+Left=1000
+Top=1700
+Field="施設_属性グループID","FACILITY_ATTR_GRP_ID","*PK","NOT NULL",0,"","",$FFFFFFFF,""
+Field="登録日時","CREATE_DATETIME","TIMESTAMP","NOT NULL",,"","",$00808080,""
+Field="登録者","CREATE_USER","*FK","NOT NULL",,"","",$00808080,""
+Field="更新日時","UPDATE_DATETIME","TIMESTAMP","NOT NULL",,"","",$00808080,""
+Field="更新者","UPDATE_USER","*FK","NOT NULL",,"","",$00808080,""
+Field="ステータス","STS","*CD","NOT NULL",,"","",$00808080,""
+Field="属性グループ種別","TYPE","*CD","NOT NULL",,"","",$FFFFFFFF,""
+Field="コードグループID","CD_GRP_ID","*FK",,,"","",$00000000,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20150108174132
+Position="OKAKA_MAIN",1000,1700
+
+[Entity]
+PName=M_FACILITY_ATTR_GRP_LANG
+LName=施設_属性グループ_多言語
+Comment=
+TableOption=
+Page=OKAKA_MAIN
+Left=1400
+Top=1700
+Field="施設_属性グループ_多言語ID","FACILITY_ATTR_GRP_LANG_ID","*PK","NOT NULL",0,"","",$FFFFFFFF,""
+Field="登録日時","CREATE_DATETIME","TIMESTAMP","NOT NULL",,"","",$00808080,""
+Field="登録者","CREATE_USER","*FK","NOT NULL",,"","",$00808080,""
+Field="更新日時","UPDATE_DATETIME","TIMESTAMP","NOT NULL",,"","",$00808080,""
+Field="更新者","UPDATE_USER","*FK","NOT NULL",,"","",$00808080,""
+Field="ステータス","STS","*CD","NOT NULL",,"","",$00808080,""
+Field="施設_属性グループID","FACILITY_ATTR_GRP_ID","*FK","NOT NULL",,"","",$FFFFFFFF,""
+Field="言語区分","LANG_DIV","*CD","NOT NULL",,"","",$FFFFFFFF,""
+Field="名称","NM","*SHORT_TXT","NOT NULL",,"","",$00000000,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20150108174145
+Position="OKAKA_MAIN",1400,1700
+
+[Entity]
+PName=M_FACILITY_FACILITY_GRP_LINK
+LName=施設_施設グループ_リンク
+Comment=
+TableOption=
+Page=OKAKA_MAIN
+Left=1900
+Top=900
+Field="施設_施設グループ_リンクID","FACILITY_FACILITY_GRP_LINK_ID","*PK","NOT NULL",0,"","",$FFFFFFFF,""
+Field="登録日時","CREATE_DATETIME","TIMESTAMP","NOT NULL",,"","",$00808080,""
+Field="登録者","CREATE_USER","*FK","NOT NULL",,"","",$00808080,""
+Field="更新日時","UPDATE_DATETIME","TIMESTAMP","NOT NULL",,"","",$00808080,""
+Field="更新者","UPDATE_USER","*FK","NOT NULL",,"","",$00808080,""
+Field="ステータス","STS","*CD","NOT NULL",,"","",$00808080,""
+Field="施設ID","FACILITY_ID","*FK","NOT NULL",,"","",$FFFFFFFF,""
+Field="施設グループID","FACILITY_GRP_ID","*FK","NOT NULL",,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20150108174156
+Position="OKAKA_MAIN",1900,900
+
+[Entity]
+PName=M_FACILITY_GRP
+LName=施設グループ
+Comment=
+TableOption=
+Page=OKAKA_MAIN
+Left=3100
+Top=900
+Field="施設グループID","FACILITY_GRP_ID","*PK","NOT NULL",0,"","",$FFFFFFFF,""
+Field="登録日時","CREATE_DATETIME","TIMESTAMP","NOT NULL",,"","",$00808080,""
+Field="登録者","CREATE_USER","*FK","NOT NULL",,"","",$00808080,""
+Field="更新日時","UPDATE_DATETIME","TIMESTAMP","NOT NULL",,"","",$00808080,""
+Field="更新者","UPDATE_USER","*FK","NOT NULL",,"","",$00808080,""
+Field="ステータス","STS","*CD","NOT NULL",,"","",$00808080,""
+Field="公開ステータス","PUBLISH_STS","*CD","NOT NULL",,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20150108174247
+Position="OKAKA_MAIN",3100,900
+
+[Entity]
+PName=M_FACILITY_FACILITY_GRP_LINK_ATTR_GRP_LANG
+LName=施設_施設グループ_リンク_属性グループ_多言語
+Comment=
+TableOption=
+Page=OKAKA_MAIN
+Left=2500
+Top=1700
+Field="施設_施設グループ_リンク_属性グループ_多言語ID","FACILITY_FACILITY_GRP_LINK_ATTR_GRP_LANG_ID","*PK","NOT NULL",0,"","",$FFFFFFFF,""
+Field="登録日時","CREATE_DATETIME","TIMESTAMP","NOT NULL",,"","",$00808080,""
+Field="登録者","CREATE_USER","*FK","NOT NULL",,"","",$00808080,""
+Field="更新日時","UPDATE_DATETIME","TIMESTAMP","NOT NULL",,"","",$00808080,""
+Field="更新者","UPDATE_USER","*FK","NOT NULL",,"","",$00808080,""
+Field="ステータス","STS","*CD","NOT NULL",,"","",$00808080,""
+Field="施設_施設グループ_リンク_属性グループID","FACILITY_FACILITY_GRP_LINK_ATTR_GRP_ID","*FK","NOT NULL",,"","",$FFFFFFFF,""
+Field="言語区分","LANG_DIV","*CD","NOT NULL",,"","",$FFFFFFFF,""
+Field="名称","NM","*SHORT_TXT","NOT NULL",,"","",$00000000,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20150108174232
+Position="OKAKA_MAIN",2500,1700
+
+[Entity]
+PName=M_FACILITY_FACILITY_GRP_LINK_ATTR_GRP
+LName=施設_施設グループ_リンク_属性グループ
+Comment=
+TableOption=
+Page=OKAKA_MAIN
+Left=1900
+Top=1700
+Field="施設_施設グループ_リンク_属性グループID","FACILITY_FACILITY_GRP_LINK_ATTR_GRP_ID","*PK","NOT NULL",0,"","",$FFFFFFFF,""
+Field="登録日時","CREATE_DATETIME","TIMESTAMP","NOT NULL",,"","",$00808080,""
+Field="登録者","CREATE_USER","*FK","NOT NULL",,"","",$00808080,""
+Field="更新日時","UPDATE_DATETIME","TIMESTAMP","NOT NULL",,"","",$00808080,""
+Field="更新者","UPDATE_USER","*FK","NOT NULL",,"","",$00808080,""
+Field="ステータス","STS","*CD","NOT NULL",,"","",$00808080,""
+Field="種別","TYPE","*CD","NOT NULL",,"","",$FFFFFFFF,""
+Field="コードグループID","CD_GRP_ID","*FK",,,"","",$00000000,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20150108174221
+Position="OKAKA_MAIN",1900,1700
+
+[Relation]
+Entity1=M_FACILITY_FACILITY_GRP_LINK_ATTR_GRP
+Entity2=M_FACILITY_FACILITY_GRP_LINK_ATTR_GRP_LANG
+RelationType1=2
+RelationType2=3
+Fields1=FACILITY_FACILITY_GRP_LINK_ATTR_GRP_ID
+Fields2=FACILITY_FACILITY_GRP_LINK_ATTR_GRP_ID
+Cardinarity1=
+Cardinarity2=
+Position="OKAKA_MAIN",0,4880,4310,4338,R,R
+Dependence=0
+Caption=
+PName=
+LineMode=0
+Bar1=488
+Bar2=431
+Bar3=434
+TermPos1=R
+TermPos2=R
+
+[Entity]
+PName=M_FACILITY_FACILITY_GRP_LINK_ATTR_VAL
+LName=施設_施設グループ_リンク_属性値
+Comment=
+TableOption=
+Page=OKAKA_MAIN
+Left=1900
+Top=1300
+Field="施設_施設グループ_リンク_属性値ID","FACILITY_FACILITY_GRP_LINK_ATTR_VAL_ID","*PK","NOT NULL",0,"","",$FFFFFFFF,""
+Field="登録日時","CREATE_DATETIME","TIMESTAMP","NOT NULL",,"","",$00808080,""
+Field="登録者","CREATE_USER","*FK","NOT NULL",,"","",$00808080,""
+Field="更新日時","UPDATE_DATETIME","TIMESTAMP","NOT NULL",,"","",$00808080,""
+Field="更新者","UPDATE_USER","*FK","NOT NULL",,"","",$00808080,""
+Field="ステータス","STS","*CD","NOT NULL",,"","",$00808080,""
+Field="施設_施設グループ_リンク_属性グループID","FACILITY_FACILITY_GRP_LINK_ATTR_GRP_ID","*FK","NOT NULL",,"","",$FFFFFFFF,""
+Field="施設_施設グループ_リンクID","FACILITY_FACILITY_GRP_LINK_ID","*FK","NOT NULL",,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20150108174202
+Position="OKAKA_MAIN",1900,1300
+
+[Relation]
+Entity1=M_FACILITY_FACILITY_GRP_LINK_ATTR_GRP
+Entity2=M_FACILITY_FACILITY_GRP_LINK_ATTR_VAL
+RelationType1=2
+RelationType2=3
+Fields1=FACILITY_FACILITY_GRP_LINK_ATTR_GRP_ID
+Fields2=FACILITY_FACILITY_GRP_LINK_ATTR_GRP_ID
+Cardinarity1=
+Cardinarity2=
+Position="OKAKA_MAIN",0,2242,5566,2044,R,R
+Dependence=0
+Caption=
+PName=
+LineMode=0
+Bar1=224
+Bar2=557
+Bar3=204
+TermPos1=R
+TermPos2=R
+
+[Entity]
+PName=M_FACILITY_FACILITY_GRP_LINK_ATTR_VAL_LANG
+LName=施設_施設グループ_リンク_属性値_多言語
+Comment=
+TableOption=
+Page=OKAKA_MAIN
+Left=2500
+Top=1300
+Field="施設_施設グループ_リンク_属性値_多言語ID","FACILITY_FACILITY_GRP_LINK_ATTR_VAL_LANG_ID","*PK","NOT NULL",0,"","",$FFFFFFFF,""
+Field="登録日時","CREATE_DATETIME","TIMESTAMP","NOT NULL",,"","",$00808080,""
+Field="登録者","CREATE_USER","*FK","NOT NULL",,"","",$00808080,""
+Field="更新日時","UPDATE_DATETIME","TIMESTAMP","NOT NULL",,"","",$00808080,""
+Field="更新者","UPDATE_USER","*FK","NOT NULL",,"","",$00808080,""
+Field="ステータス","STS","*CD","NOT NULL",,"","",$00808080,""
+Field="施設_施設グループ_リンク_属性値ID","FACILITY_FACILITY_GRP_LINK_ATTR_VAL_ID","*FK","NOT NULL",,"","",$FFFFFFFF,""
+Field="言語区分","LANG_DIV","*CD","NOT NULL",,"","",$FFFFFFFF,""
+Field="値","VAL","*SHORT_TXT","NOT NULL",,"","",$00000000,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20150108174211
+Position="OKAKA_MAIN",2500,1300
+
+[Relation]
+Entity1=M_FACILITY_FACILITY_GRP_LINK_ATTR_VAL
+Entity2=M_FACILITY_FACILITY_GRP_LINK_ATTR_VAL_LANG
+RelationType1=2
+RelationType2=3
+Fields1=FACILITY_FACILITY_GRP_LINK_ATTR_VAL_ID
+Fields2=FACILITY_FACILITY_GRP_LINK_ATTR_VAL_ID
+Cardinarity1=
+Cardinarity2=
+Position="OKAKA_MAIN",0,5034,6856,4475,R,R
+Dependence=0
+Caption=
+PName=
+LineMode=0
+Bar1=503
+Bar2=686
+Bar3=448
+TermPos1=R
+TermPos2=R
+
+[Entity]
+PName=M_FACILITY_GRP_ATTR_GRP_LANG
+LName=施設グループ_属性グループ_多言語
+Comment=
+TableOption=
+Page=OKAKA_MAIN
+Left=3600
+Top=1700
+Field="施設グループ_属性グループ_多言語ID","FACILITY_GRP_ATTR_GRP_LANG_ID","*PK","NOT NULL",0,"","",$FFFFFFFF,""
+Field="登録日時","CREATE_DATETIME","TIMESTAMP","NOT NULL",,"","",$00808080,""
+Field="登録者","CREATE_USER","*FK","NOT NULL",,"","",$00808080,""
+Field="更新日時","UPDATE_DATETIME","TIMESTAMP","NOT NULL",,"","",$00808080,""
+Field="更新者","UPDATE_USER","*FK","NOT NULL",,"","",$00808080,""
+Field="ステータス","STS","*CD","NOT NULL",,"","",$00808080,""
+Field="施設グループ_属性グループID","FACILITY_GRP_ATTR_GRP_ID","*FK","NOT NULL",,"","",$FFFFFFFF,""
+Field="言語区分","LANG_DIV","*CD","NOT NULL",,"","",$FFFFFFFF,""
+Field="名称","NM","*SHORT_TXT","NOT NULL",,"","",$00000000,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20150108174322
+Position="OKAKA_MAIN",3600,1700
+
+[Entity]
+PName=M_FACILITY_GRP_ATTR_GRP
+LName=施設グループ_属性グループ
+Comment=
+TableOption=
+Page=OKAKA_MAIN
+Left=3100
+Top=1700
+Field="施設グループ_属性グループID","FACILITY_GRP_ATTR_GRP_ID","*PK","NOT NULL",0,"","",$FFFFFFFF,""
+Field="登録日時","CREATE_DATETIME","TIMESTAMP","NOT NULL",,"","",$00808080,""
+Field="登録者","CREATE_USER","*FK","NOT NULL",,"","",$00808080,""
+Field="更新日時","UPDATE_DATETIME","TIMESTAMP","NOT NULL",,"","",$00808080,""
+Field="更新者","UPDATE_USER","*FK","NOT NULL",,"","",$00808080,""
+Field="ステータス","STS","*CD","NOT NULL",,"","",$00808080,""
+Field="種別","TYPE","*CD","NOT NULL",,"","",$FFFFFFFF,""
+Field="コードグループID","CD_GRP_ID","*FK",,,"","",$00000000,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20150108174313
+Position="OKAKA_MAIN",3100,1700
+
+[Relation]
+Entity1=M_FACILITY_GRP_ATTR_GRP
+Entity2=M_FACILITY_GRP_ATTR_GRP_LANG
+RelationType1=2
+RelationType2=3
+Fields1=FACILITY_GRP_ATTR_GRP_ID
+Fields2=FACILITY_GRP_ATTR_GRP_ID
+Cardinarity1=
+Cardinarity2=
+Position="OKAKA_MAIN",0,4880,5154,4338,R,R
+Dependence=0
+Caption=
+PName=
+LineMode=0
+Bar1=488
+Bar2=515
+Bar3=434
+TermPos1=R
+TermPos2=R
+
+[Entity]
+PName=M_FACILITY_GRP_ATTR_VAL
+LName=施設グループ_属性値
+Comment=
+TableOption=
+Page=OKAKA_MAIN
+Left=3100
+Top=1300
+Field="施設グループ_属性値ID","FACILITY_GRP_ATTR_VAL_ID","*PK","NOT NULL",0,"","",$FFFFFFFF,""
+Field="登録日時","CREATE_DATETIME","TIMESTAMP","NOT NULL",,"","",$00808080,""
+Field="登録者","CREATE_USER","*FK","NOT NULL",,"","",$00808080,""
+Field="更新日時","UPDATE_DATETIME","TIMESTAMP","NOT NULL",,"","",$00808080,""
+Field="更新者","UPDATE_USER","*FK","NOT NULL",,"","",$00808080,""
+Field="ステータス","STS","*CD","NOT NULL",,"","",$00808080,""
+Field="施設グループ_属性グループID","FACILITY_GRP_ATTR_GRP_ID","*FK","NOT NULL",,"","",$FFFFFFFF,""
+Field="施設グループID","FACILITY_GRP_ID","*FK","NOT NULL",,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20150108174256
+Position="OKAKA_MAIN",3100,1300
+
+[Relation]
+Entity1=M_FACILITY_GRP_ATTR_GRP
+Entity2=M_FACILITY_GRP_ATTR_VAL
+RelationType1=2
+RelationType2=3
+Fields1=FACILITY_GRP_ATTR_GRP_ID
+Fields2=FACILITY_GRP_ATTR_GRP_ID
+Cardinarity1=
+Cardinarity2=
+Position="OKAKA_MAIN",0,2963,5566,2625,R,R
+Dependence=0
+Caption=
+PName=
+LineMode=0
+Bar1=296
+Bar2=557
+Bar3=262
+TermPos1=R
+TermPos2=R
+
+[Entity]
+PName=M_FACILITY_GRP_ATTR_VAL_LANG
+LName=施設グループ_属性値_多言語
+Comment=
+TableOption=
+Page=OKAKA_MAIN
+Left=3600
+Top=1300
+Field="施設グループ_属性値_多言語ID","FACILITY_GRP_ATTR_VAL_LANG_ID","*PK","NOT NULL",0,"","",$FFFFFFFF,""
+Field="登録日時","CREATE_DATETIME","TIMESTAMP","NOT NULL",,"","",$00808080,""
+Field="登録者","CREATE_USER","*FK","NOT NULL",,"","",$00808080,""
+Field="更新日時","UPDATE_DATETIME","TIMESTAMP","NOT NULL",,"","",$00808080,""
+Field="更新者","UPDATE_USER","*FK","NOT NULL",,"","",$00808080,""
+Field="ステータス","STS","*CD","NOT NULL",,"","",$00808080,""
+Field="施設グループ_属性値ID","FACILITY_GRP_ATTR_VAL_ID","*FK","NOT NULL",,"","",$FFFFFFFF,""
+Field="言語区分","LANG_DIV","*CD","NOT NULL",,"","",$FFFFFFFF,""
+Field="値","VAL","*SHORT_TXT","NOT NULL",,"","",$00000000,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20150108174306
+Position="OKAKA_MAIN",3600,1300
+
+[Relation]
+Entity1=M_FACILITY_GRP_ATTR_VAL
+Entity2=M_FACILITY_GRP_ATTR_VAL_LANG
+RelationType1=2
+RelationType2=3
+Fields1=FACILITY_GRP_ATTR_VAL_ID
+Fields2=FACILITY_GRP_ATTR_VAL_ID
+Cardinarity1=
+Cardinarity2=
+Position="OKAKA_MAIN",0,4947,6856,4397,R,R
+Dependence=0
+Caption=
+PName=
+LineMode=0
+Bar1=495
+Bar2=686
+Bar3=440
+TermPos1=R
+TermPos2=R

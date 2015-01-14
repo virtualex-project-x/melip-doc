@@ -1,6 +1,6 @@
 ﻿-- Project Name : ProjectX
--- Date/Time    : 2015/01/08 17:59:25
--- Author       : j-nakashima
+-- Date/Time    : 2015/01/14 18:53:54
+-- Author       : n-suzuki
 -- RDBMS Type   : MySQL
 -- Application  : A5:SQL Mk-2
 
@@ -45,7 +45,7 @@ create table M_CD_VAL_LANG (
   , UPDATE_DATETIME TIMESTAMP not null comment '更新日時'
   , UPDATE_USER INT unsigned not null comment '更新者'
   , STS CHAR(8) not null comment 'ステータス'
-  , LANG_DIV INT unsigned not null comment '言語区分'
+  , LANG_DIV CHAR(8) not null comment '言語区分'
   , NM VARCHAR(400) not null comment '名称'
   , CD_VAL_ID INT unsigned not null comment 'コード値ID'
   , constraint M_CD_VAL_LANG_PKC primary key (CD_VAL_LANG_ID)
@@ -423,3 +423,4 @@ create table M_FACILITY_GRP_ATTR_VAL_LANG (
   , VAL VARCHAR(400) not null comment '値'
   , constraint M_FACILITY_GRP_ATTR_VAL_LANG_PKC primary key (FACILITY_GRP_ATTR_VAL_LANG_ID)
 ) comment '施設グループ_属性値_多言語' ;
+

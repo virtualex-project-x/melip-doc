@@ -1,5 +1,5 @@
 -- Project Name : ProjectX
--- Date/Time    : 2015/01/19 18:39:20
+-- Date/Time    : 2015/01/20 12:13:53
 -- Author       : n-suzuki
 -- RDBMS Type   : MySQL
 -- Application  : A5:SQL Mk-2
@@ -164,6 +164,8 @@ create table M_REGION_ATTR_GRP_LANG (
   , constraint M_REGION_ATTR_GRP_LANG_PKC primary key (REGION_ATTR_GRP_LANG_ID)
 ) comment '地域属性グループ_多言語' ;
 
+alter table M_REGION_ATTR_GRP_LANG add unique M_REGION_ATTR_GRP_LANG_IX1 (REGION_ATTR_GRP_ID,LANG_DIV) ;
+
 -- 地域属性グループ
 drop table if exists M_REGION_ATTR_GRP cascade;
 
@@ -210,6 +212,8 @@ create table M_REGION_ATTR_VAL_LANG (
   , constraint M_REGION_ATTR_VAL_LANG_PKC primary key (REGION_ATTR_VAL_LANG_ID)
 ) comment '地域属性値_多言語' ;
 
+alter table M_REGION_ATTR_VAL_LANG add unique M_REGION_ATTR_VAL_LANG_IX1 (REGION_ATTR_VAL_ID,LANG_DIV) ;
+
 -- 施設属性値_多言語
 drop table if exists M_FACILITY_ATTR_VAL_LANG cascade;
 
@@ -225,6 +229,8 @@ create table M_FACILITY_ATTR_VAL_LANG (
   , VAL VARCHAR(400) not null comment '値'
   , constraint M_FACILITY_ATTR_VAL_LANG_PKC primary key (FACILITY_ATTR_VAL_LANG_ID)
 ) comment '施設属性値_多言語' ;
+
+alter table M_FACILITY_ATTR_VAL_LANG add unique M_FACILITY_ATTR_VAL_LANG_IX1 (FACILITY_ATTR_VAL_ID,LANG_DIV) ;
 
 -- 施設属性値
 drop table if exists M_FACILITY_ATTR_VAL cascade;
@@ -272,6 +278,8 @@ create table M_FACILITY_ATTR_GRP_LANG (
   , constraint M_FACILITY_ATTR_GRP_LANG_PKC primary key (FACILITY_ATTR_GRP_LANG_ID)
 ) comment '施設属性グループ_多言語' ;
 
+alter table M_FACILITY_ATTR_GRP_LANG add unique M_FACILITY_ATTR_GRP_LANG_IX1 (FACILITY_ATTR_GRP_ID,LANG_DIV) ;
+
 -- 施設_施設グループ_リンク
 drop table if exists M_FACILITY_FACILITY_GRP_LINK cascade;
 
@@ -316,6 +324,8 @@ create table M_FACILITY_FACILITY_GRP_LINK_ATTR_GRP_LANG (
   , NM VARCHAR(400) not null comment '名称'
   , constraint M_FACILITY_FACILITY_GRP_LINK_ATTR_GRP_LANG_PKC primary key (FACILITY_FACILITY_GRP_LINK_ATTR_GRP_LANG_ID)
 ) comment '施設_施設グループ_リンク属性グループ_多言語' ;
+
+alter table M_FACILITY_FACILITY_GRP_LINK_ATTR_GRP_LANG add unique M_FACILITY_FACILITY_GRP_LINK_ATTR_GRP_LANG_IX1 (FACILITY_FACILITY_GRP_LINK_ATTR_GRP_ID,LANG_DIV) ;
 
 -- 施設_施設グループ_リンク属性グループ
 drop table if exists M_FACILITY_FACILITY_GRP_LINK_ATTR_GRP cascade;
@@ -363,6 +373,8 @@ create table M_FACILITY_FACILITY_GRP_LINK_ATTR_VAL_LANG (
   , constraint M_FACILITY_FACILITY_GRP_LINK_ATTR_VAL_LANG_PKC primary key (FACILITY_FACILITY_GRP_LINK_ATTR_VAL_LANG_ID)
 ) comment '施設_施設グループ_リンク属性値_多言語' ;
 
+alter table M_FACILITY_FACILITY_GRP_LINK_ATTR_VAL_LANG add unique M_FACILITY_FACILITY_GRP_LINK_ATTR_VAL_LANG_IX1 (FACILITY_FACILITY_GRP_LINK_ATTR_VAL_ID,LANG_DIV) ;
+
 -- 施設グループ属性グループ_多言語
 drop table if exists M_FACILITY_GRP_ATTR_GRP_LANG cascade;
 
@@ -378,6 +390,8 @@ create table M_FACILITY_GRP_ATTR_GRP_LANG (
   , NM VARCHAR(400) not null comment '名称'
   , constraint M_FACILITY_GRP_ATTR_GRP_LANG_PKC primary key (FACILITY_GRP_ATTR_GRP_LANG_ID)
 ) comment '施設グループ属性グループ_多言語' ;
+
+alter table M_FACILITY_GRP_ATTR_GRP_LANG add unique M_FACILITY_GRP_ATTR_GRP_LANG_IX1 (FACILITY_GRP_ATTR_GRP_ID,LANG_DIV) ;
 
 -- 施設グループ属性グループ
 drop table if exists M_FACILITY_GRP_ATTR_GRP cascade;
@@ -424,6 +438,8 @@ create table M_FACILITY_GRP_ATTR_VAL_LANG (
   , VAL VARCHAR(400) not null comment '値'
   , constraint M_FACILITY_GRP_ATTR_VAL_LANG_PKC primary key (FACILITY_GRP_ATTR_VAL_LANG_ID)
 ) comment '施設グループ属性値_多言語' ;
+
+alter table M_FACILITY_GRP_ATTR_VAL_LANG add unique M_FACILITY_GRP_ATTR_VAL_LANG_IX1 (FACILITY_GRP_ATTR_VAL_ID,LANG_DIV) ;
 
 -- コードビュー
 drop view if exists V_CD;

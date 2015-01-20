@@ -53,12 +53,12 @@ PName=V_CD
 LName=コードビュー
 Comment=コード定義のビュー
 ViewOption=
-Query=select\n    a.CD_GRP_ID      as CD_GRP_ID\n  , a.NM             as CD_GRP_NM\n  , a.SUMMARY        as CD_GRP_SUMMARY\n  , b.CD_VAL_ID      as CD_VAL_ID\n  , b.CD             as CD\n  , b.CD_ALIAS       as CD_ALIAS\n  , c.CD_VAL_LANG_ID as CD_VAL_LANG_ID\n  , c.LANG_DIV       as LANG_DIV\n  , c.NM             as CD_NM \nfrom\n  m_cd_grp a                                      -- コードグループ\n  inner join m_cd_val b                           -- コード値\n    on a.CD_GRP_ID = b.CD_GRP_ID \n    and b.sts = \q0\q \n  inner join m_cd_val_lang c                      -- コード値_多言語\n    on b.CD_VAL_ID = c.CD_VAL_ID \n    and c.sts = \q0\q \nwhere\n  a.STS = \q0\q \norder by\n  a.CD_GRP_ID\n  , b.CD_VAL_ID\n  , c.CD_VAL_LANG_ID; 
+Query=select\n    a.CD_GRP_ID      as CD_GRP_ID\n  , a.NM             as CD_GRP_NM\n  , a.SUMMARY        as CD_GRP_SUMMARY\n  , b.CD_VAL_ID      as CD_VAL_ID\n  , b.CD             as CD\n  , b.ALIAS          as CD_ALIAS\n  , c.CD_VAL_LANG_ID as CD_VAL_LANG_ID\n  , c.LANG_DIV       as LANG_DIV\n  , c.NM             as CD_NM \nfrom\n  m_cd_grp a                                      -- コードグループ\n  inner join m_cd_val b                           -- コード値\n    on a.CD_GRP_ID = b.CD_GRP_ID \n    and b.sts = \q0\q \n  inner join m_cd_val_lang c                      -- コード値_多言語\n    on b.CD_VAL_ID = c.CD_VAL_ID \n    and c.sts = \q0\q \nwhere\n  a.STS = \q0\q \norder by\n  a.CD_GRP_ID\n  , b.CD_VAL_ID\n  , c.CD_VAL_LANG_ID; 
 LNameByComment=1
 Color=$000000
 BkColor=$FFFFFF
-Position="melip_sub",150,500
-Page=melip_sub
+Position="MELIP_SUB",150,500
+Page=MELIP_SUB
 Left=150
 Top=500
 
@@ -566,10 +566,11 @@ Field="ステータス","STS","*CD","NOT NULL",,"","",$00808080,""
 Field="地域属性グループID","REGION_ATTR_GRP_ID","*FK","NOT NULL",,"","",$FFFFFFFF,""
 Field="言語区分","LANG_DIV","*CD","NOT NULL",,"","",$FFFFFFFF,""
 Field="名称","NM","*SHORT_TXT","NOT NULL",,"","",$00000000,""
+Index==2,REGION_ATTR_GRP_ID,LANG_DIV
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20150119171144
+ModifiedDateTime=20150120120646
 Position="MELIP_MAIN",500,1700
 
 [Entity]
@@ -673,10 +674,11 @@ Field="ステータス","STS","*CD","NOT NULL",,"","",$00808080,""
 Field="地域属性値ID","REGION_ATTR_VAL_ID","*FK","NOT NULL",,"","",$FFFFFFFF,""
 Field="言語区分","LANG_DIV","*CD","NOT NULL",,"","",$FFFFFFFF,""
 Field="値","VAL","*SHORT_TXT","NOT NULL",,"","",$00000000,""
+Index==2,REGION_ATTR_VAL_ID,LANG_DIV
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20150119170918
+ModifiedDateTime=20150120120622
 Position="MELIP_MAIN",500,1300
 
 [Relation]
@@ -736,10 +738,11 @@ Field="ステータス","STS","*CD","NOT NULL",,"","",$00808080,""
 Field="施設属性値ID","FACILITY_ATTR_VAL_ID","*FK","NOT NULL",,"","",$FFFFFFFF,""
 Field="言語区分","LANG_DIV","*CD","NOT NULL",,"","",$FFFFFFFF,""
 Field="値","VAL","*SHORT_TXT","NOT NULL",,"","",$00000000,""
+Index==2,FACILITY_ATTR_VAL_ID,LANG_DIV
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20150119170936
+ModifiedDateTime=20150120120707
 Position="MELIP_MAIN",1400,1300,310,229
 
 [Relation]
@@ -843,10 +846,11 @@ Field="ステータス","STS","*CD","NOT NULL",,"","",$00808080,""
 Field="施設属性グループID","FACILITY_ATTR_GRP_ID","*FK","NOT NULL",,"","",$FFFFFFFF,""
 Field="言語区分","LANG_DIV","*CD","NOT NULL",,"","",$FFFFFFFF,""
 Field="名称","NM","*SHORT_TXT","NOT NULL",,"","",$00000000,""
+Index==2,FACILITY_ATTR_GRP_ID,LANG_DIV
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20150119171216
+ModifiedDateTime=20150120120715
 Position="MELIP_MAIN",1400,1700
 
 [Entity]
@@ -909,10 +913,11 @@ Field="ステータス","STS","*CD","NOT NULL",,"","",$00808080,""
 Field="施設_施設グループ_リンク属性グループID","FACILITY_FACILITY_GRP_LINK_ATTR_GRP_ID","*FK","NOT NULL",,"","",$FFFFFFFF,""
 Field="言語区分","LANG_DIV","*CD","NOT NULL",,"","",$FFFFFFFF,""
 Field="名称","NM","*SHORT_TXT","NOT NULL",,"","",$00000000,""
+Index==2,FACILITY_FACILITY_GRP_LINK_ATTR_GRP_ID,LANG_DIV
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20150119171243
+ModifiedDateTime=20150120120736
 Position="MELIP_MAIN",2500,1700
 
 [Entity]
@@ -1016,10 +1021,11 @@ Field="ステータス","STS","*CD","NOT NULL",,"","",$00808080,""
 Field="施設_施設グループ_リンク属性値ID","FACILITY_FACILITY_GRP_LINK_ATTR_VAL_ID","*FK","NOT NULL",,"","",$FFFFFFFF,""
 Field="言語区分","LANG_DIV","*CD","NOT NULL",,"","",$FFFFFFFF,""
 Field="値","VAL","*SHORT_TXT","NOT NULL",,"","",$00000000,""
+Index==2,FACILITY_FACILITY_GRP_LINK_ATTR_VAL_ID,LANG_DIV
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20150119171031
+ModifiedDateTime=20150120120727
 Position="MELIP_MAIN",2500,1300
 
 [Relation]
@@ -1059,10 +1065,11 @@ Field="ステータス","STS","*CD","NOT NULL",,"","",$00808080,""
 Field="施設グループ属性グループID","FACILITY_GRP_ATTR_GRP_ID","*FK","NOT NULL",,"","",$FFFFFFFF,""
 Field="言語区分","LANG_DIV","*CD","NOT NULL",,"","",$FFFFFFFF,""
 Field="名称","NM","*SHORT_TXT","NOT NULL",,"","",$00000000,""
+Index==2,FACILITY_GRP_ATTR_GRP_ID,LANG_DIV
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20150119171303
+ModifiedDateTime=20150120120807
 Position="MELIP_MAIN",3600,1700
 
 [Entity]
@@ -1166,10 +1173,11 @@ Field="ステータス","STS","*CD","NOT NULL",,"","",$00808080,""
 Field="施設グループ属性値ID","FACILITY_GRP_ATTR_VAL_ID","*FK","NOT NULL",,"","",$FFFFFFFF,""
 Field="言語区分","LANG_DIV","*CD","NOT NULL",,"","",$FFFFFFFF,""
 Field="値","VAL","*SHORT_TXT","NOT NULL",,"","",$00000000,""
+Index==2,FACILITY_GRP_ATTR_VAL_ID,LANG_DIV
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20150119171105
+ModifiedDateTime=20150120120755
 Position="MELIP_MAIN",3600,1300
 
 [Relation]

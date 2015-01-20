@@ -8,6 +8,7 @@ insert into M_CD_GRP values (6, now(), 1, now(), 1, 0, 'hasNotHave', '有無', '')
 insert into M_CD_GRP values (7, now(), 1, now(), 1, 0, 'layoutObjType', 'レイアウトオブジェクトタイプ', '');
 insert into M_CD_GRP values (8, now(), 1, now(), 1, 0, 'layoutMultiplicity', 'レイアウト多重度', '');
 insert into M_CD_GRP values (9, now(), 1, now(), 1, 0, 'entity', 'エンティティ', '');
+insert into M_CD_GRP values (10, now(), 1, now(), 1, 0, 'facilityType', '施設種別', '');
 
 -- コード（insert文）
 insert into M_CD_VAL values (1, now(), 1, now(), 1, 0, '1', 'val', 'valid', 1);
@@ -42,6 +43,8 @@ insert into M_CD_VAL values (29, now(), 1, now(), 1, 0, '9', 'reg', 'region', 1)
 insert into M_CD_VAL values (30, now(), 1, now(), 1, 0, '9', 'fac', 'facility', 2);
 insert into M_CD_VAL values (31, now(), 1, now(), 1, 0, '9', 'facgrp', 'facility group', 3);
 insert into M_CD_VAL values (32, now(), 1, now(), 1, 0, '9', 'facgrpln', 'faciligy faciligy group link', 4);
+insert into M_CD_VAL values (33, now(), 1, now(), 1, 0, '10', 'shp', 'shop', 1);
+insert into M_CD_VAL values (34, now(), 1, now(), 1, 0, '10', 'res', 'restaurant', 2);
 
 -- コード多言語（insert文）
 insert into M_CD_VAL_LANG values (1, now(), 1, now(), 1, 0, '1', 'ja', '有効');
@@ -84,6 +87,10 @@ insert into M_CD_VAL_LANG values (37, now(), 1, now(), 1, 0, '29', 'ja', '地域')
 insert into M_CD_VAL_LANG values (38, now(), 1, now(), 1, 0, '30', 'ja', '施設');
 insert into M_CD_VAL_LANG values (39, now(), 1, now(), 1, 0, '31', 'ja', '施設グループ');
 insert into M_CD_VAL_LANG values (40, now(), 1, now(), 1, 0, '32', 'ja', '施設_施設グループ_リンク');
+insert into M_CD_VAL_LANG values (41, now(), 1, now(), 1, 0, '33', 'ja', '店');
+insert into M_CD_VAL_LANG values (42, now(), 1, now(), 1, 0, '33', 'en', 'Shop');
+insert into M_CD_VAL_LANG values (43, now(), 1, now(), 1, 0, '34', 'ja', 'レストラン');
+insert into M_CD_VAL_LANG values (44, now(), 1, now(), 1, 0, '34', 'en', 'Restaurant');
 
 -- 施設（insert文）
 insert into M_FACILITY values (1, now(), 1, now(), 1, 'val', 1, 'dcls');
@@ -95,6 +102,7 @@ insert into M_FACILITY values (4, now(), 1, now(), 1, 'val', 2, 'dcls');
 insert into M_FACILITY_ATTR_GRP values (1, now(), 1, now(), 1, 'val', 'txt', null);
 insert into M_FACILITY_ATTR_GRP values (2, now(), 1, now(), 1, 'val', 'txt', null);
 insert into M_FACILITY_ATTR_GRP values (3, now(), 1, now(), 1, 'val', 'img', null);
+insert into M_FACILITY_ATTR_GRP values (4, now(), 1, now(), 1, 'val', 'cd', 10);
 
 -- 施設属性グループ_多言語（insert文）
 insert into M_FACILITY_ATTR_GRP_LANG values (1, now(), 1, now(), 1, 'val', 1, 'ja', '名称');
@@ -103,6 +111,8 @@ insert into M_FACILITY_ATTR_GRP_LANG values (3, now(), 1, now(), 1, 'val', 2, 'j
 insert into M_FACILITY_ATTR_GRP_LANG values (4, now(), 1, now(), 1, 'val', 2, 'en', 'Description');
 insert into M_FACILITY_ATTR_GRP_LANG values (5, now(), 1, now(), 1, 'val', 3, 'ja', '画像1');
 insert into M_FACILITY_ATTR_GRP_LANG values (6, now(), 1, now(), 1, 'val', 3, 'en', 'Image 1');
+insert into M_FACILITY_ATTR_GRP_LANG values (7, now(), 1, now(), 1, 'val', 4, 'ja', '施設種別');
+insert into M_FACILITY_ATTR_GRP_LANG values (8, now(), 1, now(), 1, 'val', 4, 'en', 'Facility Type');
 
 -- 施設属性値（insert文）
 insert into M_FACILITY_ATTR_VAL values (1, now(), 1, now(), 1, 'val', 1, 1);
@@ -117,6 +127,8 @@ insert into M_FACILITY_ATTR_VAL values (9, now(), 1, now(), 1, 'val', 3, 3);
 insert into M_FACILITY_ATTR_VAL values (10, now(), 1, now(), 1, 'val', 4, 1);
 insert into M_FACILITY_ATTR_VAL values (11, now(), 1, now(), 1, 'val', 4, 2);
 insert into M_FACILITY_ATTR_VAL values (12, now(), 1, now(), 1, 'val', 4, 3);
+insert into M_FACILITY_ATTR_VAL values (13, now(), 1, now(), 1, 'val', 3, 4);
+insert into M_FACILITY_ATTR_VAL values (14, now(), 1, now(), 1, 'val', 4, 4);
 
 -- 施設属性値_多言語（insert文）
 insert into M_FACILITY_ATTR_VAL_LANG values (1, now(), 1, now(), 1, 'val', 1, 'ja', '日光東照宮');
@@ -142,6 +154,8 @@ insert into M_FACILITY_ATTR_VAL_LANG values (20, now(), 1, now(), 1, 'val', 10, 
 insert into M_FACILITY_ATTR_VAL_LANG values (21, now(), 1, now(), 1, 'val', 11, 'ja', '富士吉田市上吉田・歴史民俗博物館の施設説明文');
 insert into M_FACILITY_ATTR_VAL_LANG values (22, now(), 1, now(), 1, 'val', 11, 'en', 'Fuji Yoshida Hisotical Museums description');
 insert into M_FACILITY_ATTR_VAL_LANG values (23, now(), 1, now(), 1, 'val', 12, 'common', 'img/fujiYoshidaHistoricalMuseum/image_1_common.png');
+insert into M_FACILITY_ATTR_VAL_LANG values (24, now(), 1, now(), 1, 'val', 13, 'common', 'shp');
+insert into M_FACILITY_ATTR_VAL_LANG values (25, now(), 1, now(), 1, 'val', 14, 'common', 'res');
 
 -- 施設_施設グループ_リンク（insert文）
 insert into M_FACILITY_FACILITY_GRP_LINK values (1, now(), 1, now(), 1, 'val', 1, 1);
@@ -307,4 +321,5 @@ insert into M_SCREEN_OBJ values (19, now(), 1, now(), 1, 'val', 6, 18, 'fac', 3,
 insert into M_SCREEN_OBJ values (20, now(), 1, now(), 1, 'val', 6, 19, 'fac', 1, null, null);
 insert into M_SCREEN_OBJ values (21, now(), 1, now(), 1, 'val', 6, 20, 'fac', 1, 1, null);
 insert into M_SCREEN_OBJ values (22, now(), 1, now(), 1, 'val', 6, 20, 'fac', 2, 2, null);
+
 

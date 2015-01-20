@@ -1,6 +1,6 @@
 -- Project Name : ProjectX
--- Date/Time    : 2015/01/20 12:13:53
--- Author       : n-suzuki
+-- Date/Time    : 2015/01/20 16:11:19
+-- Author       : j-nakashima
 -- RDBMS Type   : MySQL
 -- Application  : A5:SQL Mk-2
 
@@ -33,6 +33,7 @@ create table M_CD_VAL (
   , CD_GRP_ID INT unsigned not null comment 'コードグループID'
   , CD CHAR(8) not null comment 'コード'
   , ALIAS VARCHAR(400) not null comment 'エイリアス'
+  , DISPLAY_NUM INT not null comment '表示順'
   , constraint M_CD_VAL_PKC primary key (CD_VAL_ID)
 ) comment 'コード値' ;
 
@@ -66,6 +67,7 @@ create table M_SCREEN_OBJ (
   , LAYOUT_OBJ_ID INT unsigned not null comment 'レイアウトオブジェクトID'
   , ENTITY CHAR(8) not null comment 'エンティティ'
   , ATTR_GRP_ID INT unsigned not null comment '属性グループID'
+  , DISPLAY_NUM INT comment '表示順'
   , TARGET_SCREEN_ID INT unsigned comment '遷移先スクリーンID'
   , constraint M_SCREEN_OBJ_PKC primary key (SCREEN_OBJ_ID)
 ) comment 'スクリーンオブジェクト' ;
@@ -98,6 +100,7 @@ create table M_LAYOUT_OBJ (
   , UPDATE_USER INT unsigned not null comment '更新者'
   , STS CHAR(8) not null comment 'ステータス'
   , LAYOUT_ID INT unsigned not null comment 'レイアウトID'
+  , MULTIPLICITY CHAR(8) not null comment '多重度'
   , NM VARCHAR(400) not null comment '名称'
   , TYPE CHAR(8) not null comment '種別'
   , constraint M_LAYOUT_OBJ_PKC primary key (LAYOUT_OBJ_ID)
@@ -191,8 +194,8 @@ create table M_REGION_ATTR_VAL (
   , UPDATE_DATETIME TIMESTAMP not null comment '更新日時'
   , UPDATE_USER INT unsigned not null comment '更新者'
   , STS CHAR(8) not null comment 'ステータス'
-  , REGION_ATTR_GRP_ID INT unsigned not null comment '地域属性グループID'
   , REGION_ID INT unsigned not null comment '地域ID'
+  , REGION_ATTR_GRP_ID INT unsigned not null comment '地域属性グループID'
   , constraint M_REGION_ATTR_VAL_PKC primary key (REGION_ATTR_VAL_ID)
 ) comment '地域属性値' ;
 
@@ -242,8 +245,8 @@ create table M_FACILITY_ATTR_VAL (
   , UPDATE_DATETIME TIMESTAMP not null comment '更新日時'
   , UPDATE_USER INT unsigned not null comment '更新者'
   , STS CHAR(8) not null comment 'ステータス'
-  , FACILITY_ATTR_GRP_ID INT unsigned not null comment '施設属性グループID'
   , FACILITY_ID INT unsigned not null comment '施設ID'
+  , FACILITY_ATTR_GRP_ID INT unsigned not null comment '施設属性グループID'
   , constraint M_FACILITY_ATTR_VAL_PKC primary key (FACILITY_ATTR_VAL_ID)
 ) comment '施設属性値' ;
 
@@ -305,6 +308,7 @@ create table M_FACILITY_GRP (
   , UPDATE_DATETIME TIMESTAMP not null comment '更新日時'
   , UPDATE_USER INT unsigned not null comment '更新者'
   , STS CHAR(8) not null comment 'ステータス'
+  , REGION_I INT unsigned not null comment '地域ID'
   , PUBLISH_STS CHAR(8) not null comment '公開ステータス'
   , constraint M_FACILITY_GRP_PKC primary key (FACILITY_GRP_ID)
 ) comment '施設グループ' ;
@@ -352,8 +356,8 @@ create table M_FACILITY_FACILITY_GRP_LINK_ATTR_VAL (
   , UPDATE_DATETIME TIMESTAMP not null comment '更新日時'
   , UPDATE_USER INT unsigned not null comment '更新者'
   , STS CHAR(8) not null comment 'ステータス'
-  , FACILITY_FACILITY_GRP_LINK_ATTR_GRP_ID INT unsigned not null comment '施設_施設グループ_リンク属性グループID'
   , FACILITY_FACILITY_GRP_LINK_ID INT unsigned not null comment '施設_施設グループ_リンクID'
+  , FACILITY_FACILITY_GRP_LINK_ATTR_GRP_ID INT unsigned not null comment '施設_施設グループ_リンク属性グループID'
   , constraint M_FACILITY_FACILITY_GRP_LINK_ATTR_VAL_PKC primary key (FACILITY_FACILITY_GRP_LINK_ATTR_VAL_ID)
 ) comment '施設_施設グループ_リンク属性値' ;
 
@@ -418,8 +422,8 @@ create table M_FACILITY_GRP_ATTR_VAL (
   , UPDATE_DATETIME TIMESTAMP not null comment '更新日時'
   , UPDATE_USER INT unsigned not null comment '更新者'
   , STS CHAR(8) not null comment 'ステータス'
-  , FACILITY_GRP_ATTR_GRP_ID INT unsigned not null comment '施設グループ属性グループID'
   , FACILITY_GRP_ID INT unsigned not null comment '施設グループID'
+  , FACILITY_GRP_ATTR_GRP_ID INT unsigned not null comment '施設グループ属性グループID'
   , constraint M_FACILITY_GRP_ATTR_VAL_PKC primary key (FACILITY_GRP_ATTR_VAL_ID)
 ) comment '施設グループ属性値' ;
 
@@ -452,6 +456,7 @@ select
   , b.CD_VAL_ID      as CD_VAL_ID
   , b.CD             as CD
   , b.ALIAS          as CD_ALIAS
+  , b.DISPLAY_NUM    as CD_DISPLAY_NUM
   , c.CD_VAL_LANG_ID as CD_VAL_LANG_ID
   , c.LANG_DIV       as LANG_DIV
   , c.NM             as CD_NM 

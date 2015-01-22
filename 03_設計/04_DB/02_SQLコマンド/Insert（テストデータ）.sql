@@ -217,12 +217,13 @@ insert into M_FACILITY_GRP_ATTR_VAL_LANG values (7, now(), 1, now(), 1, 'val', 4
 insert into M_FACILITY_GRP_ATTR_VAL_LANG values (8, now(), 1, now(), 1, 'val', 4, 'en', 'Fuji Gokos Group description');
 
 -- レイアウト（insert文）
-insert into M_LAYOUT values (1, now(), 1, now(), 1, 'val', 'メニュー01', 'men');
-insert into M_LAYOUT values (2, now(), 1, now(), 1, 'val', 'メニュー02', 'men');
-insert into M_LAYOUT values (3, now(), 1, now(), 1, 'val', '一覧01', 'lst');
-insert into M_LAYOUT values (4, now(), 1, now(), 1, 'val', '一覧02', 'lst');
-insert into M_LAYOUT values (5, now(), 1, now(), 1, 'val', '詳細01', 'det');
-insert into M_LAYOUT values (6, now(), 1, now(), 1, 'val', '詳細02', 'det');
+insert into M_LAYOUT values (1, now(), 1, now(), 1, 'val', 'Menu001', 'メニュー001', 'men');
+insert into M_LAYOUT values (2, now(), 1, now(), 1, 'val', 'Menu002', 'メニュー002', 'men');
+insert into M_LAYOUT values (3, now(), 1, now(), 1, 'val', 'List001', '一覧001', 'lst');
+insert into M_LAYOUT values (4, now(), 1, now(), 1, 'val', 'List002', '一覧002', 'lst');
+insert into M_LAYOUT values (5, now(), 1, now(), 1, 'val', 'Detail001', '詳細001', 'det');
+insert into M_LAYOUT values (6, now(), 1, now(), 1, 'val', 'Detail002', '詳細002', 'det');
+
 
 -- レイアウトオブジェクト（insert文）
 insert into M_LAYOUT_OBJ values (1, now(), 1, now(), 1, 'val', 1, 'sin', 'トップ画像','img');

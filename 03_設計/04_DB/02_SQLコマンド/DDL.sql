@@ -1,451 +1,452 @@
--- Project Name : ProjectX
--- Date/Time    : 2015/01/20 16:11:19
--- Author       : j-nakashima
+ï»¿-- Project Name : ProjectX
+-- Date/Time    : 2015/01/22 14:32:33
+-- Author       : n-suzuki
 -- RDBMS Type   : MySQL
 -- Application  : A5:SQL Mk-2
 
--- ƒR[ƒhƒOƒ‹[ƒv
+-- ã‚³ãƒ¼ãƒ‰ã‚°ãƒ«ãƒ¼ãƒ—
 drop table if exists M_CD_GRP cascade;
 
 create table M_CD_GRP (
-  CD_GRP_ID INT unsigned auto_increment not null comment 'ƒR[ƒhƒOƒ‹[ƒvID'
-  , CREATE_DATETIME TIMESTAMP not null comment '“o˜^“ú'
-  , CREATE_USER INT unsigned not null comment '“o˜^Ò'
-  , UPDATE_DATETIME TIMESTAMP not null comment 'XV“ú'
-  , UPDATE_USER INT unsigned not null comment 'XVÒ'
-  , STS CHAR(8) not null comment 'ƒXƒe[ƒ^ƒX'
-  , ALIAS VARCHAR(400) not null comment 'ƒGƒCƒŠƒAƒX'
-  , NM VARCHAR(400) not null comment '–¼Ì'
-  , SUMMARY VARCHAR(1000) comment 'ŠT—v'
+  CD_GRP_ID INT unsigned auto_increment not null comment 'ã‚³ãƒ¼ãƒ‰ã‚°ãƒ«ãƒ¼ãƒ—ID'
+  , CREATE_DATETIME TIMESTAMP not null comment 'ç™»éŒ²æ—¥æ™‚'
+  , CREATE_USER INT unsigned not null comment 'ç™»éŒ²è€…'
+  , UPDATE_DATETIME TIMESTAMP not null comment 'æ›´æ–°æ—¥æ™‚'
+  , UPDATE_USER INT unsigned not null comment 'æ›´æ–°è€…'
+  , STS CHAR(8) not null comment 'ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹'
+  , ALIAS VARCHAR(400) not null comment 'ã‚¨ã‚¤ãƒªã‚¢ã‚¹'
+  , NM VARCHAR(400) not null comment 'åç§°'
+  , SUMMARY VARCHAR(1000) comment 'æ¦‚è¦'
   , constraint M_CD_GRP_PKC primary key (CD_GRP_ID)
-) comment 'ƒR[ƒhƒOƒ‹[ƒv' ;
+) comment 'ã‚³ãƒ¼ãƒ‰ã‚°ãƒ«ãƒ¼ãƒ—' ;
 
--- ƒR[ƒh’l
+-- ã‚³ãƒ¼ãƒ‰å€¤
 drop table if exists M_CD_VAL cascade;
 
 create table M_CD_VAL (
-  CD_VAL_ID INT unsigned auto_increment not null comment 'ƒR[ƒh’lID'
-  , CREATE_DATETIME TIMESTAMP not null comment '“o˜^“ú'
-  , CREATE_USER INT unsigned not null comment '“o˜^Ò'
-  , UPDATE_DATETIME TIMESTAMP not null comment 'XV“ú'
-  , UPDATE_USER INT unsigned not null comment 'XVÒ'
-  , STS CHAR(8) not null comment 'ƒXƒe[ƒ^ƒX'
-  , CD_GRP_ID INT unsigned not null comment 'ƒR[ƒhƒOƒ‹[ƒvID'
-  , CD CHAR(8) not null comment 'ƒR[ƒh'
-  , ALIAS VARCHAR(400) not null comment 'ƒGƒCƒŠƒAƒX'
-  , DISPLAY_NUM INT not null comment '•\¦‡'
+  CD_VAL_ID INT unsigned auto_increment not null comment 'ã‚³ãƒ¼ãƒ‰å€¤ID'
+  , CREATE_DATETIME TIMESTAMP not null comment 'ç™»éŒ²æ—¥æ™‚'
+  , CREATE_USER INT unsigned not null comment 'ç™»éŒ²è€…'
+  , UPDATE_DATETIME TIMESTAMP not null comment 'æ›´æ–°æ—¥æ™‚'
+  , UPDATE_USER INT unsigned not null comment 'æ›´æ–°è€…'
+  , STS CHAR(8) not null comment 'ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹'
+  , CD_GRP_ID INT unsigned not null comment 'ã‚³ãƒ¼ãƒ‰ã‚°ãƒ«ãƒ¼ãƒ—ID'
+  , CD CHAR(8) not null comment 'ã‚³ãƒ¼ãƒ‰'
+  , ALIAS VARCHAR(400) not null comment 'ã‚¨ã‚¤ãƒªã‚¢ã‚¹'
+  , DISPLAY_NUM INT not null comment 'è¡¨ç¤ºé †'
   , constraint M_CD_VAL_PKC primary key (CD_VAL_ID)
-) comment 'ƒR[ƒh’l' ;
+) comment 'ã‚³ãƒ¼ãƒ‰å€¤' ;
 
--- ƒR[ƒh’l_‘½Œ¾Œê
+-- ã‚³ãƒ¼ãƒ‰å€¤_å¤šè¨€èª
 drop table if exists M_CD_VAL_LANG cascade;
 
 create table M_CD_VAL_LANG (
-  CD_VAL_LANG_ID INT unsigned auto_increment not null comment 'ƒR[ƒh’l_‘½Œ¾ŒêID'
-  , CREATE_DATETIME TIMESTAMP not null comment '“o˜^“ú'
-  , CREATE_USER INT unsigned not null comment '“o˜^Ò'
-  , UPDATE_DATETIME TIMESTAMP not null comment 'XV“ú'
-  , UPDATE_USER INT unsigned not null comment 'XVÒ'
-  , STS CHAR(8) not null comment 'ƒXƒe[ƒ^ƒX'
-  , CD_VAL_ID INT unsigned not null comment 'ƒR[ƒh’lID'
-  , LANG_DIV CHAR(8) not null comment 'Œ¾Œê‹æ•ª'
-  , NM VARCHAR(400) not null comment '–¼Ì'
+  CD_VAL_LANG_ID INT unsigned auto_increment not null comment 'ã‚³ãƒ¼ãƒ‰å€¤_å¤šè¨€èªID'
+  , CREATE_DATETIME TIMESTAMP not null comment 'ç™»éŒ²æ—¥æ™‚'
+  , CREATE_USER INT unsigned not null comment 'ç™»éŒ²è€…'
+  , UPDATE_DATETIME TIMESTAMP not null comment 'æ›´æ–°æ—¥æ™‚'
+  , UPDATE_USER INT unsigned not null comment 'æ›´æ–°è€…'
+  , STS CHAR(8) not null comment 'ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹'
+  , CD_VAL_ID INT unsigned not null comment 'ã‚³ãƒ¼ãƒ‰å€¤ID'
+  , LANG_DIV CHAR(8) not null comment 'è¨€èªåŒºåˆ†'
+  , NM VARCHAR(400) not null comment 'åç§°'
   , constraint M_CD_VAL_LANG_PKC primary key (CD_VAL_LANG_ID)
-) comment 'ƒR[ƒh’l_‘½Œ¾Œê' ;
+) comment 'ã‚³ãƒ¼ãƒ‰å€¤_å¤šè¨€èª' ;
 
--- ƒXƒNƒŠ[ƒ“ƒIƒuƒWƒFƒNƒg
+-- ã‚¹ã‚¯ãƒªãƒ¼ãƒ³ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
 drop table if exists M_SCREEN_OBJ cascade;
 
 create table M_SCREEN_OBJ (
-  SCREEN_OBJ_ID INT unsigned auto_increment not null comment 'ƒXƒNƒŠ[ƒ“ƒIƒuƒWƒFƒNƒgID'
-  , CREATE_DATETIME TIMESTAMP not null comment '“o˜^“ú'
-  , CREATE_USER INT unsigned not null comment '“o˜^Ò'
-  , UPDATE_DATETIME TIMESTAMP not null comment 'XV“ú'
-  , UPDATE_USER INT unsigned not null comment 'XVÒ'
-  , STS CHAR(8) not null comment 'ƒXƒe[ƒ^ƒX'
-  , SCREEN_ID INT unsigned not null comment 'ƒXƒNƒŠ[ƒ“ID'
-  , LAYOUT_OBJ_ID INT unsigned not null comment 'ƒŒƒCƒAƒEƒgƒIƒuƒWƒFƒNƒgID'
-  , ENTITY CHAR(8) not null comment 'ƒGƒ“ƒeƒBƒeƒB'
-  , ATTR_GRP_ID INT unsigned not null comment '‘®«ƒOƒ‹[ƒvID'
-  , DISPLAY_NUM INT comment '•\¦‡'
-  , TARGET_SCREEN_ID INT unsigned comment '‘JˆÚæƒXƒNƒŠ[ƒ“ID'
+  SCREEN_OBJ_ID INT unsigned auto_increment not null comment 'ã‚¹ã‚¯ãƒªãƒ¼ãƒ³ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆID'
+  , CREATE_DATETIME TIMESTAMP not null comment 'ç™»éŒ²æ—¥æ™‚'
+  , CREATE_USER INT unsigned not null comment 'ç™»éŒ²è€…'
+  , UPDATE_DATETIME TIMESTAMP not null comment 'æ›´æ–°æ—¥æ™‚'
+  , UPDATE_USER INT unsigned not null comment 'æ›´æ–°è€…'
+  , STS CHAR(8) not null comment 'ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹'
+  , SCREEN_ID INT unsigned not null comment 'ã‚¹ã‚¯ãƒªãƒ¼ãƒ³ID'
+  , LAYOUT_OBJ_ID INT unsigned not null comment 'ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆID'
+  , ENTITY CHAR(8) not null comment 'ã‚¨ãƒ³ãƒ†ã‚£ãƒ†ã‚£'
+  , ATTR_GRP_ID INT unsigned not null comment 'å±æ€§ã‚°ãƒ«ãƒ¼ãƒ—ID'
+  , DISPLAY_NUM INT comment 'è¡¨ç¤ºé †'
+  , TARGET_SCREEN_ID INT unsigned comment 'é·ç§»å…ˆã‚¹ã‚¯ãƒªãƒ¼ãƒ³ID'
   , constraint M_SCREEN_OBJ_PKC primary key (SCREEN_OBJ_ID)
-) comment 'ƒXƒNƒŠ[ƒ“ƒIƒuƒWƒFƒNƒg' ;
+) comment 'ã‚¹ã‚¯ãƒªãƒ¼ãƒ³ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ' ;
 
--- ƒXƒNƒŠ[ƒ“
+-- ã‚¹ã‚¯ãƒªãƒ¼ãƒ³
 drop table if exists M_SCREEN cascade;
 
 create table M_SCREEN (
-  SCREEN_ID INT unsigned auto_increment not null comment 'ƒXƒNƒŠ[ƒ“ID'
-  , CREATE_DATETIME TIMESTAMP not null comment '“o˜^“ú'
-  , CREATE_USER INT unsigned not null comment '“o˜^Ò'
-  , UPDATE_DATETIME TIMESTAMP not null comment 'XV“ú'
-  , UPDATE_USER INT unsigned not null comment 'XVÒ'
-  , STS CHAR(8) not null comment 'ƒXƒe[ƒ^ƒX'
-  , REGION_ID INT unsigned not null comment '’nˆæID'
-  , LAYOUT_ID INT unsigned not null comment 'ƒŒƒCƒAƒEƒgID'
-  , TARGET_ENTITY CHAR(8) not null comment '‘ÎÛƒGƒ“ƒeƒBƒeƒB'
-  , NM VARCHAR(400) not null comment '–¼Ì'
+  SCREEN_ID INT unsigned auto_increment not null comment 'ã‚¹ã‚¯ãƒªãƒ¼ãƒ³ID'
+  , CREATE_DATETIME TIMESTAMP not null comment 'ç™»éŒ²æ—¥æ™‚'
+  , CREATE_USER INT unsigned not null comment 'ç™»éŒ²è€…'
+  , UPDATE_DATETIME TIMESTAMP not null comment 'æ›´æ–°æ—¥æ™‚'
+  , UPDATE_USER INT unsigned not null comment 'æ›´æ–°è€…'
+  , STS CHAR(8) not null comment 'ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹'
+  , REGION_ID INT unsigned not null comment 'åœ°åŸŸID'
+  , LAYOUT_ID INT unsigned not null comment 'ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆID'
+  , TARGET_ENTITY CHAR(8) not null comment 'å¯¾è±¡ã‚¨ãƒ³ãƒ†ã‚£ãƒ†ã‚£'
+  , NM VARCHAR(400) not null comment 'åç§°'
   , constraint M_SCREEN_PKC primary key (SCREEN_ID)
-) comment 'ƒXƒNƒŠ[ƒ“' ;
+) comment 'ã‚¹ã‚¯ãƒªãƒ¼ãƒ³' ;
 
--- ƒŒƒCƒAƒEƒgƒIƒuƒWƒFƒNƒg
+-- ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
 drop table if exists M_LAYOUT_OBJ cascade;
 
 create table M_LAYOUT_OBJ (
-  LAYOUT_OBJ_ID INT unsigned auto_increment not null comment 'ƒŒƒCƒAƒEƒgƒIƒuƒWƒFƒNƒgID'
-  , CREATE_DATETIME TIMESTAMP not null comment '“o˜^“ú'
-  , CREATE_USER INT unsigned not null comment '“o˜^Ò'
-  , UPDATE_DATETIME TIMESTAMP not null comment 'XV“ú'
-  , UPDATE_USER INT unsigned not null comment 'XVÒ'
-  , STS CHAR(8) not null comment 'ƒXƒe[ƒ^ƒX'
-  , LAYOUT_ID INT unsigned not null comment 'ƒŒƒCƒAƒEƒgID'
-  , MULTIPLICITY CHAR(8) not null comment '‘½d“x'
-  , NM VARCHAR(400) not null comment '–¼Ì'
-  , TYPE CHAR(8) not null comment 'í•Ê'
+  LAYOUT_OBJ_ID INT unsigned auto_increment not null comment 'ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆID'
+  , CREATE_DATETIME TIMESTAMP not null comment 'ç™»éŒ²æ—¥æ™‚'
+  , CREATE_USER INT unsigned not null comment 'ç™»éŒ²è€…'
+  , UPDATE_DATETIME TIMESTAMP not null comment 'æ›´æ–°æ—¥æ™‚'
+  , UPDATE_USER INT unsigned not null comment 'æ›´æ–°è€…'
+  , STS CHAR(8) not null comment 'ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹'
+  , LAYOUT_ID INT unsigned not null comment 'ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆID'
+  , MULTIPLICITY CHAR(8) not null comment 'å¤šé‡åº¦'
+  , NM VARCHAR(400) not null comment 'åç§°'
+  , TYPE CHAR(8) not null comment 'ç¨®åˆ¥'
   , constraint M_LAYOUT_OBJ_PKC primary key (LAYOUT_OBJ_ID)
-) comment 'ƒŒƒCƒAƒEƒgƒIƒuƒWƒFƒNƒg' ;
+) comment 'ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ' ;
 
--- ƒŒƒCƒAƒEƒg
+-- ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆ
 drop table if exists M_LAYOUT cascade;
 
 create table M_LAYOUT (
-  LAYOUT_ID INT unsigned auto_increment not null comment 'ƒŒƒCƒAƒEƒgID'
-  , CREATE_DATETIME TIMESTAMP not null comment '“o˜^“ú'
-  , CREATE_USER INT unsigned not null comment '“o˜^Ò'
-  , UPDATE_DATETIME TIMESTAMP not null comment 'XV“ú'
-  , UPDATE_USER INT unsigned not null comment 'XVÒ'
-  , STS CHAR(8) not null comment 'ƒXƒe[ƒ^ƒX'
-  , NM VARCHAR(400) not null comment '–¼Ì'
-  , TYPE CHAR(8) not null comment 'í•Ê'
+  LAYOUT_ID INT unsigned auto_increment not null comment 'ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆID'
+  , CREATE_DATETIME TIMESTAMP not null comment 'ç™»éŒ²æ—¥æ™‚'
+  , CREATE_USER INT unsigned not null comment 'ç™»éŒ²è€…'
+  , UPDATE_DATETIME TIMESTAMP not null comment 'æ›´æ–°æ—¥æ™‚'
+  , UPDATE_USER INT unsigned not null comment 'æ›´æ–°è€…'
+  , STS CHAR(8) not null comment 'ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹'
+  , ALIAS VARCHAR(400) not null comment 'ã‚¨ã‚¤ãƒªã‚¢ã‚¹'
+  , NM VARCHAR(400) not null comment 'åç§°'
+  , TYPE CHAR(8) not null comment 'ç¨®åˆ¥'
   , constraint M_LAYOUT_PKC primary key (LAYOUT_ID)
-) comment 'ƒŒƒCƒAƒEƒg' ;
+) comment 'ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆ' ;
 
--- ’nˆæ
+-- åœ°åŸŸ
 drop table if exists M_REGION cascade;
 
 create table M_REGION (
-  REGION_ID INT unsigned auto_increment not null comment '’nˆæID'
-  , CREATE_DATETIME TIMESTAMP not null comment '“o˜^“ú'
-  , CREATE_USER INT unsigned not null comment '“o˜^Ò'
-  , UPDATE_DATETIME TIMESTAMP not null comment 'XV“ú'
-  , UPDATE_USER INT unsigned not null comment 'XVÒ'
-  , STS CHAR(8) not null comment 'ƒXƒe[ƒ^ƒX'
-  , HOME_SCREEN_ID INT unsigned not null comment 'ƒz[ƒ€ƒXƒNƒŠ[ƒ“ID'
-  , PUBLISH_STS CHAR(8) not null comment 'ŒöŠJƒXƒe[ƒ^ƒX'
+  REGION_ID INT unsigned auto_increment not null comment 'åœ°åŸŸID'
+  , CREATE_DATETIME TIMESTAMP not null comment 'ç™»éŒ²æ—¥æ™‚'
+  , CREATE_USER INT unsigned not null comment 'ç™»éŒ²è€…'
+  , UPDATE_DATETIME TIMESTAMP not null comment 'æ›´æ–°æ—¥æ™‚'
+  , UPDATE_USER INT unsigned not null comment 'æ›´æ–°è€…'
+  , STS CHAR(8) not null comment 'ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹'
+  , HOME_SCREEN_ID INT unsigned not null comment 'ãƒ›ãƒ¼ãƒ ã‚¹ã‚¯ãƒªãƒ¼ãƒ³ID'
+  , PUBLISH_STS CHAR(8) not null comment 'å…¬é–‹ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹'
   , constraint M_REGION_PKC primary key (REGION_ID)
-) comment '’nˆæ' ;
+) comment 'åœ°åŸŸ' ;
 
--- {İ
+-- æ–½è¨­
 drop table if exists M_FACILITY cascade;
 
 create table M_FACILITY (
-  FACILITY_ID INT unsigned auto_increment not null comment '{İID'
-  , CREATE_DATETIME TIMESTAMP not null comment '“o˜^“ú'
-  , CREATE_USER INT unsigned not null comment '“o˜^Ò'
-  , UPDATE_DATETIME TIMESTAMP not null comment 'XV“ú'
-  , UPDATE_USER INT unsigned not null comment 'XVÒ'
-  , STS CHAR(8) not null comment 'ƒXƒe[ƒ^ƒX'
-  , REGION_ID INT unsigned not null comment '’nˆæID'
-  , PUBLISH_STS CHAR(8) not null comment 'ŒöŠJƒXƒe[ƒ^ƒX'
+  FACILITY_ID INT unsigned auto_increment not null comment 'æ–½è¨­ID'
+  , CREATE_DATETIME TIMESTAMP not null comment 'ç™»éŒ²æ—¥æ™‚'
+  , CREATE_USER INT unsigned not null comment 'ç™»éŒ²è€…'
+  , UPDATE_DATETIME TIMESTAMP not null comment 'æ›´æ–°æ—¥æ™‚'
+  , UPDATE_USER INT unsigned not null comment 'æ›´æ–°è€…'
+  , STS CHAR(8) not null comment 'ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹'
+  , REGION_ID INT unsigned not null comment 'åœ°åŸŸID'
+  , PUBLISH_STS CHAR(8) not null comment 'å…¬é–‹ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹'
   , constraint M_FACILITY_PKC primary key (FACILITY_ID)
-) comment '{İ' ;
+) comment 'æ–½è¨­' ;
 
--- ’nˆæ‘®«ƒOƒ‹[ƒv_‘½Œ¾Œê
+-- åœ°åŸŸå±æ€§ã‚°ãƒ«ãƒ¼ãƒ—_å¤šè¨€èª
 drop table if exists M_REGION_ATTR_GRP_LANG cascade;
 
 create table M_REGION_ATTR_GRP_LANG (
-  REGION_ATTR_GRP_LANG_ID INT unsigned auto_increment not null comment '’nˆæ‘®«ƒOƒ‹[ƒv_‘½Œ¾ŒêID'
-  , CREATE_DATETIME TIMESTAMP not null comment '“o˜^“ú'
-  , CREATE_USER INT unsigned not null comment '“o˜^Ò'
-  , UPDATE_DATETIME TIMESTAMP not null comment 'XV“ú'
-  , UPDATE_USER INT unsigned not null comment 'XVÒ'
-  , STS CHAR(8) not null comment 'ƒXƒe[ƒ^ƒX'
-  , REGION_ATTR_GRP_ID INT unsigned not null comment '’nˆæ‘®«ƒOƒ‹[ƒvID'
-  , LANG_DIV CHAR(8) not null comment 'Œ¾Œê‹æ•ª'
-  , NM VARCHAR(400) not null comment '–¼Ì'
+  REGION_ATTR_GRP_LANG_ID INT unsigned auto_increment not null comment 'åœ°åŸŸå±æ€§ã‚°ãƒ«ãƒ¼ãƒ—_å¤šè¨€èªID'
+  , CREATE_DATETIME TIMESTAMP not null comment 'ç™»éŒ²æ—¥æ™‚'
+  , CREATE_USER INT unsigned not null comment 'ç™»éŒ²è€…'
+  , UPDATE_DATETIME TIMESTAMP not null comment 'æ›´æ–°æ—¥æ™‚'
+  , UPDATE_USER INT unsigned not null comment 'æ›´æ–°è€…'
+  , STS CHAR(8) not null comment 'ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹'
+  , REGION_ATTR_GRP_ID INT unsigned not null comment 'åœ°åŸŸå±æ€§ã‚°ãƒ«ãƒ¼ãƒ—ID'
+  , LANG_DIV CHAR(8) not null comment 'è¨€èªåŒºåˆ†'
+  , NM VARCHAR(400) not null comment 'åç§°'
   , constraint M_REGION_ATTR_GRP_LANG_PKC primary key (REGION_ATTR_GRP_LANG_ID)
-) comment '’nˆæ‘®«ƒOƒ‹[ƒv_‘½Œ¾Œê' ;
+) comment 'åœ°åŸŸå±æ€§ã‚°ãƒ«ãƒ¼ãƒ—_å¤šè¨€èª' ;
 
 alter table M_REGION_ATTR_GRP_LANG add unique M_REGION_ATTR_GRP_LANG_IX1 (REGION_ATTR_GRP_ID,LANG_DIV) ;
 
--- ’nˆæ‘®«ƒOƒ‹[ƒv
+-- åœ°åŸŸå±æ€§ã‚°ãƒ«ãƒ¼ãƒ—
 drop table if exists M_REGION_ATTR_GRP cascade;
 
 create table M_REGION_ATTR_GRP (
-  REGION_ATTR_GRP_ID INT unsigned auto_increment not null comment '’nˆæ‘®«ƒOƒ‹[ƒvID'
-  , CREATE_DATETIME TIMESTAMP not null comment '“o˜^“ú'
-  , CREATE_USER INT unsigned not null comment '“o˜^Ò'
-  , UPDATE_DATETIME TIMESTAMP not null comment 'XV“ú'
-  , UPDATE_USER INT unsigned not null comment 'XVÒ'
-  , STS CHAR(8) not null comment 'ƒXƒe[ƒ^ƒX'
-  , TYPE CHAR(8) not null comment 'í•Ê'
-  , CD_GRP_ID INT unsigned comment 'ƒR[ƒhƒOƒ‹[ƒvID'
+  REGION_ATTR_GRP_ID INT unsigned auto_increment not null comment 'åœ°åŸŸå±æ€§ã‚°ãƒ«ãƒ¼ãƒ—ID'
+  , CREATE_DATETIME TIMESTAMP not null comment 'ç™»éŒ²æ—¥æ™‚'
+  , CREATE_USER INT unsigned not null comment 'ç™»éŒ²è€…'
+  , UPDATE_DATETIME TIMESTAMP not null comment 'æ›´æ–°æ—¥æ™‚'
+  , UPDATE_USER INT unsigned not null comment 'æ›´æ–°è€…'
+  , STS CHAR(8) not null comment 'ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹'
+  , TYPE CHAR(8) not null comment 'ç¨®åˆ¥'
+  , CD_GRP_ID INT unsigned comment 'ã‚³ãƒ¼ãƒ‰ã‚°ãƒ«ãƒ¼ãƒ—ID'
   , constraint M_REGION_ATTR_GRP_PKC primary key (REGION_ATTR_GRP_ID)
-) comment '’nˆæ‘®«ƒOƒ‹[ƒv' ;
+) comment 'åœ°åŸŸå±æ€§ã‚°ãƒ«ãƒ¼ãƒ—' ;
 
--- ’nˆæ‘®«’l
+-- åœ°åŸŸå±æ€§å€¤
 drop table if exists M_REGION_ATTR_VAL cascade;
 
 create table M_REGION_ATTR_VAL (
-  REGION_ATTR_VAL_ID INT unsigned auto_increment not null comment '’nˆæ‘®«’lID'
-  , CREATE_DATETIME TIMESTAMP not null comment '“o˜^“ú'
-  , CREATE_USER INT unsigned not null comment '“o˜^Ò'
-  , UPDATE_DATETIME TIMESTAMP not null comment 'XV“ú'
-  , UPDATE_USER INT unsigned not null comment 'XVÒ'
-  , STS CHAR(8) not null comment 'ƒXƒe[ƒ^ƒX'
-  , REGION_ID INT unsigned not null comment '’nˆæID'
-  , REGION_ATTR_GRP_ID INT unsigned not null comment '’nˆæ‘®«ƒOƒ‹[ƒvID'
+  REGION_ATTR_VAL_ID INT unsigned auto_increment not null comment 'åœ°åŸŸå±æ€§å€¤ID'
+  , CREATE_DATETIME TIMESTAMP not null comment 'ç™»éŒ²æ—¥æ™‚'
+  , CREATE_USER INT unsigned not null comment 'ç™»éŒ²è€…'
+  , UPDATE_DATETIME TIMESTAMP not null comment 'æ›´æ–°æ—¥æ™‚'
+  , UPDATE_USER INT unsigned not null comment 'æ›´æ–°è€…'
+  , STS CHAR(8) not null comment 'ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹'
+  , REGION_ID INT unsigned not null comment 'åœ°åŸŸID'
+  , REGION_ATTR_GRP_ID INT unsigned not null comment 'åœ°åŸŸå±æ€§ã‚°ãƒ«ãƒ¼ãƒ—ID'
   , constraint M_REGION_ATTR_VAL_PKC primary key (REGION_ATTR_VAL_ID)
-) comment '’nˆæ‘®«’l' ;
+) comment 'åœ°åŸŸå±æ€§å€¤' ;
 
--- ’nˆæ‘®«’l_‘½Œ¾Œê
+-- åœ°åŸŸå±æ€§å€¤_å¤šè¨€èª
 drop table if exists M_REGION_ATTR_VAL_LANG cascade;
 
 create table M_REGION_ATTR_VAL_LANG (
-  REGION_ATTR_VAL_LANG_ID INT unsigned auto_increment not null comment '’nˆæ‘®«’l_‘½Œ¾ŒêID'
-  , CREATE_DATETIME TIMESTAMP not null comment '“o˜^“ú'
-  , CREATE_USER INT unsigned not null comment '“o˜^Ò'
-  , UPDATE_DATETIME TIMESTAMP not null comment 'XV“ú'
-  , UPDATE_USER INT unsigned not null comment 'XVÒ'
-  , STS CHAR(8) not null comment 'ƒXƒe[ƒ^ƒX'
-  , REGION_ATTR_VAL_ID INT unsigned not null comment '’nˆæ‘®«’lID'
-  , LANG_DIV CHAR(8) not null comment 'Œ¾Œê‹æ•ª'
-  , VAL VARCHAR(400) not null comment '’l'
+  REGION_ATTR_VAL_LANG_ID INT unsigned auto_increment not null comment 'åœ°åŸŸå±æ€§å€¤_å¤šè¨€èªID'
+  , CREATE_DATETIME TIMESTAMP not null comment 'ç™»éŒ²æ—¥æ™‚'
+  , CREATE_USER INT unsigned not null comment 'ç™»éŒ²è€…'
+  , UPDATE_DATETIME TIMESTAMP not null comment 'æ›´æ–°æ—¥æ™‚'
+  , UPDATE_USER INT unsigned not null comment 'æ›´æ–°è€…'
+  , STS CHAR(8) not null comment 'ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹'
+  , REGION_ATTR_VAL_ID INT unsigned not null comment 'åœ°åŸŸå±æ€§å€¤ID'
+  , LANG_DIV CHAR(8) not null comment 'è¨€èªåŒºåˆ†'
+  , VAL VARCHAR(400) not null comment 'å€¤'
   , constraint M_REGION_ATTR_VAL_LANG_PKC primary key (REGION_ATTR_VAL_LANG_ID)
-) comment '’nˆæ‘®«’l_‘½Œ¾Œê' ;
+) comment 'åœ°åŸŸå±æ€§å€¤_å¤šè¨€èª' ;
 
 alter table M_REGION_ATTR_VAL_LANG add unique M_REGION_ATTR_VAL_LANG_IX1 (REGION_ATTR_VAL_ID,LANG_DIV) ;
 
--- {İ‘®«’l_‘½Œ¾Œê
+-- æ–½è¨­å±æ€§å€¤_å¤šè¨€èª
 drop table if exists M_FACILITY_ATTR_VAL_LANG cascade;
 
 create table M_FACILITY_ATTR_VAL_LANG (
-  FACILITY_ATTR_VAL_LANG_ID INT unsigned auto_increment not null comment '{İ‘®«’l_‘½Œ¾ŒêID'
-  , CREATE_DATETIME TIMESTAMP not null comment '“o˜^“ú'
-  , CREATE_USER INT unsigned not null comment '“o˜^Ò'
-  , UPDATE_DATETIME TIMESTAMP not null comment 'XV“ú'
-  , UPDATE_USER INT unsigned not null comment 'XVÒ'
-  , STS CHAR(8) not null comment 'ƒXƒe[ƒ^ƒX'
-  , FACILITY_ATTR_VAL_ID INT unsigned not null comment '{İ‘®«’lID'
-  , LANG_DIV CHAR(8) not null comment 'Œ¾Œê‹æ•ª'
-  , VAL VARCHAR(400) not null comment '’l'
+  FACILITY_ATTR_VAL_LANG_ID INT unsigned auto_increment not null comment 'æ–½è¨­å±æ€§å€¤_å¤šè¨€èªID'
+  , CREATE_DATETIME TIMESTAMP not null comment 'ç™»éŒ²æ—¥æ™‚'
+  , CREATE_USER INT unsigned not null comment 'ç™»éŒ²è€…'
+  , UPDATE_DATETIME TIMESTAMP not null comment 'æ›´æ–°æ—¥æ™‚'
+  , UPDATE_USER INT unsigned not null comment 'æ›´æ–°è€…'
+  , STS CHAR(8) not null comment 'ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹'
+  , FACILITY_ATTR_VAL_ID INT unsigned not null comment 'æ–½è¨­å±æ€§å€¤ID'
+  , LANG_DIV CHAR(8) not null comment 'è¨€èªåŒºåˆ†'
+  , VAL VARCHAR(400) not null comment 'å€¤'
   , constraint M_FACILITY_ATTR_VAL_LANG_PKC primary key (FACILITY_ATTR_VAL_LANG_ID)
-) comment '{İ‘®«’l_‘½Œ¾Œê' ;
+) comment 'æ–½è¨­å±æ€§å€¤_å¤šè¨€èª' ;
 
 alter table M_FACILITY_ATTR_VAL_LANG add unique M_FACILITY_ATTR_VAL_LANG_IX1 (FACILITY_ATTR_VAL_ID,LANG_DIV) ;
 
--- {İ‘®«’l
+-- æ–½è¨­å±æ€§å€¤
 drop table if exists M_FACILITY_ATTR_VAL cascade;
 
 create table M_FACILITY_ATTR_VAL (
-  FACILITY_ATTR_VAL_ID INT unsigned auto_increment not null comment '{İ‘®«’lID'
-  , CREATE_DATETIME TIMESTAMP not null comment '“o˜^“ú'
-  , CREATE_USER INT unsigned not null comment '“o˜^Ò'
-  , UPDATE_DATETIME TIMESTAMP not null comment 'XV“ú'
-  , UPDATE_USER INT unsigned not null comment 'XVÒ'
-  , STS CHAR(8) not null comment 'ƒXƒe[ƒ^ƒX'
-  , FACILITY_ID INT unsigned not null comment '{İID'
-  , FACILITY_ATTR_GRP_ID INT unsigned not null comment '{İ‘®«ƒOƒ‹[ƒvID'
+  FACILITY_ATTR_VAL_ID INT unsigned auto_increment not null comment 'æ–½è¨­å±æ€§å€¤ID'
+  , CREATE_DATETIME TIMESTAMP not null comment 'ç™»éŒ²æ—¥æ™‚'
+  , CREATE_USER INT unsigned not null comment 'ç™»éŒ²è€…'
+  , UPDATE_DATETIME TIMESTAMP not null comment 'æ›´æ–°æ—¥æ™‚'
+  , UPDATE_USER INT unsigned not null comment 'æ›´æ–°è€…'
+  , STS CHAR(8) not null comment 'ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹'
+  , FACILITY_ID INT unsigned not null comment 'æ–½è¨­ID'
+  , FACILITY_ATTR_GRP_ID INT unsigned not null comment 'æ–½è¨­å±æ€§ã‚°ãƒ«ãƒ¼ãƒ—ID'
   , constraint M_FACILITY_ATTR_VAL_PKC primary key (FACILITY_ATTR_VAL_ID)
-) comment '{İ‘®«’l' ;
+) comment 'æ–½è¨­å±æ€§å€¤' ;
 
--- {İ‘®«ƒOƒ‹[ƒv
+-- æ–½è¨­å±æ€§ã‚°ãƒ«ãƒ¼ãƒ—
 drop table if exists M_FACILITY_ATTR_GRP cascade;
 
 create table M_FACILITY_ATTR_GRP (
-  FACILITY_ATTR_GRP_ID INT unsigned auto_increment not null comment '{İ‘®«ƒOƒ‹[ƒvID'
-  , CREATE_DATETIME TIMESTAMP not null comment '“o˜^“ú'
-  , CREATE_USER INT unsigned not null comment '“o˜^Ò'
-  , UPDATE_DATETIME TIMESTAMP not null comment 'XV“ú'
-  , UPDATE_USER INT unsigned not null comment 'XVÒ'
-  , STS CHAR(8) not null comment 'ƒXƒe[ƒ^ƒX'
-  , TYPE CHAR(8) not null comment 'í•Ê'
-  , CD_GRP_ID INT unsigned comment 'ƒR[ƒhƒOƒ‹[ƒvID'
+  FACILITY_ATTR_GRP_ID INT unsigned auto_increment not null comment 'æ–½è¨­å±æ€§ã‚°ãƒ«ãƒ¼ãƒ—ID'
+  , CREATE_DATETIME TIMESTAMP not null comment 'ç™»éŒ²æ—¥æ™‚'
+  , CREATE_USER INT unsigned not null comment 'ç™»éŒ²è€…'
+  , UPDATE_DATETIME TIMESTAMP not null comment 'æ›´æ–°æ—¥æ™‚'
+  , UPDATE_USER INT unsigned not null comment 'æ›´æ–°è€…'
+  , STS CHAR(8) not null comment 'ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹'
+  , TYPE CHAR(8) not null comment 'ç¨®åˆ¥'
+  , CD_GRP_ID INT unsigned comment 'ã‚³ãƒ¼ãƒ‰ã‚°ãƒ«ãƒ¼ãƒ—ID'
   , constraint M_FACILITY_ATTR_GRP_PKC primary key (FACILITY_ATTR_GRP_ID)
-) comment '{İ‘®«ƒOƒ‹[ƒv' ;
+) comment 'æ–½è¨­å±æ€§ã‚°ãƒ«ãƒ¼ãƒ—' ;
 
--- {İ‘®«ƒOƒ‹[ƒv_‘½Œ¾Œê
+-- æ–½è¨­å±æ€§ã‚°ãƒ«ãƒ¼ãƒ—_å¤šè¨€èª
 drop table if exists M_FACILITY_ATTR_GRP_LANG cascade;
 
 create table M_FACILITY_ATTR_GRP_LANG (
-  FACILITY_ATTR_GRP_LANG_ID INT unsigned auto_increment not null comment '{İ‘®«ƒOƒ‹[ƒv_‘½Œ¾ŒêID'
-  , CREATE_DATETIME TIMESTAMP not null comment '“o˜^“ú'
-  , CREATE_USER INT unsigned not null comment '“o˜^Ò'
-  , UPDATE_DATETIME TIMESTAMP not null comment 'XV“ú'
-  , UPDATE_USER INT unsigned not null comment 'XVÒ'
-  , STS CHAR(8) not null comment 'ƒXƒe[ƒ^ƒX'
-  , FACILITY_ATTR_GRP_ID INT unsigned not null comment '{İ‘®«ƒOƒ‹[ƒvID'
-  , LANG_DIV CHAR(8) not null comment 'Œ¾Œê‹æ•ª'
-  , NM VARCHAR(400) not null comment '–¼Ì'
+  FACILITY_ATTR_GRP_LANG_ID INT unsigned auto_increment not null comment 'æ–½è¨­å±æ€§ã‚°ãƒ«ãƒ¼ãƒ—_å¤šè¨€èªID'
+  , CREATE_DATETIME TIMESTAMP not null comment 'ç™»éŒ²æ—¥æ™‚'
+  , CREATE_USER INT unsigned not null comment 'ç™»éŒ²è€…'
+  , UPDATE_DATETIME TIMESTAMP not null comment 'æ›´æ–°æ—¥æ™‚'
+  , UPDATE_USER INT unsigned not null comment 'æ›´æ–°è€…'
+  , STS CHAR(8) not null comment 'ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹'
+  , FACILITY_ATTR_GRP_ID INT unsigned not null comment 'æ–½è¨­å±æ€§ã‚°ãƒ«ãƒ¼ãƒ—ID'
+  , LANG_DIV CHAR(8) not null comment 'è¨€èªåŒºåˆ†'
+  , NM VARCHAR(400) not null comment 'åç§°'
   , constraint M_FACILITY_ATTR_GRP_LANG_PKC primary key (FACILITY_ATTR_GRP_LANG_ID)
-) comment '{İ‘®«ƒOƒ‹[ƒv_‘½Œ¾Œê' ;
+) comment 'æ–½è¨­å±æ€§ã‚°ãƒ«ãƒ¼ãƒ—_å¤šè¨€èª' ;
 
 alter table M_FACILITY_ATTR_GRP_LANG add unique M_FACILITY_ATTR_GRP_LANG_IX1 (FACILITY_ATTR_GRP_ID,LANG_DIV) ;
 
--- {İ_{İƒOƒ‹[ƒv_ƒŠƒ“ƒN
+-- æ–½è¨­_æ–½è¨­ã‚°ãƒ«ãƒ¼ãƒ—_ãƒªãƒ³ã‚¯
 drop table if exists M_FACILITY_FACILITY_GRP_LINK cascade;
 
 create table M_FACILITY_FACILITY_GRP_LINK (
-  FACILITY_FACILITY_GRP_LINK_ID INT unsigned auto_increment not null comment '{İ_{İƒOƒ‹[ƒv_ƒŠƒ“ƒNID'
-  , CREATE_DATETIME TIMESTAMP not null comment '“o˜^“ú'
-  , CREATE_USER INT unsigned not null comment '“o˜^Ò'
-  , UPDATE_DATETIME TIMESTAMP not null comment 'XV“ú'
-  , UPDATE_USER INT unsigned not null comment 'XVÒ'
-  , STS CHAR(8) not null comment 'ƒXƒe[ƒ^ƒX'
-  , FACILITY_ID INT unsigned not null comment '{İID'
-  , FACILITY_GRP_ID INT unsigned not null comment '{İƒOƒ‹[ƒvID'
+  FACILITY_FACILITY_GRP_LINK_ID INT unsigned auto_increment not null comment 'æ–½è¨­_æ–½è¨­ã‚°ãƒ«ãƒ¼ãƒ—_ãƒªãƒ³ã‚¯ID'
+  , CREATE_DATETIME TIMESTAMP not null comment 'ç™»éŒ²æ—¥æ™‚'
+  , CREATE_USER INT unsigned not null comment 'ç™»éŒ²è€…'
+  , UPDATE_DATETIME TIMESTAMP not null comment 'æ›´æ–°æ—¥æ™‚'
+  , UPDATE_USER INT unsigned not null comment 'æ›´æ–°è€…'
+  , STS CHAR(8) not null comment 'ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹'
+  , FACILITY_ID INT unsigned not null comment 'æ–½è¨­ID'
+  , FACILITY_GRP_ID INT unsigned not null comment 'æ–½è¨­ã‚°ãƒ«ãƒ¼ãƒ—ID'
   , constraint M_FACILITY_FACILITY_GRP_LINK_PKC primary key (FACILITY_FACILITY_GRP_LINK_ID)
-) comment '{İ_{İƒOƒ‹[ƒv_ƒŠƒ“ƒN' ;
+) comment 'æ–½è¨­_æ–½è¨­ã‚°ãƒ«ãƒ¼ãƒ—_ãƒªãƒ³ã‚¯' ;
 
--- {İƒOƒ‹[ƒv
+-- æ–½è¨­ã‚°ãƒ«ãƒ¼ãƒ—
 drop table if exists M_FACILITY_GRP cascade;
 
 create table M_FACILITY_GRP (
-  FACILITY_GRP_ID INT unsigned auto_increment not null comment '{İƒOƒ‹[ƒvID'
-  , CREATE_DATETIME TIMESTAMP not null comment '“o˜^“ú'
-  , CREATE_USER INT unsigned not null comment '“o˜^Ò'
-  , UPDATE_DATETIME TIMESTAMP not null comment 'XV“ú'
-  , UPDATE_USER INT unsigned not null comment 'XVÒ'
-  , STS CHAR(8) not null comment 'ƒXƒe[ƒ^ƒX'
-  , REGION_I INT unsigned not null comment '’nˆæID'
-  , PUBLISH_STS CHAR(8) not null comment 'ŒöŠJƒXƒe[ƒ^ƒX'
+  FACILITY_GRP_ID INT unsigned auto_increment not null comment 'æ–½è¨­ã‚°ãƒ«ãƒ¼ãƒ—ID'
+  , CREATE_DATETIME TIMESTAMP not null comment 'ç™»éŒ²æ—¥æ™‚'
+  , CREATE_USER INT unsigned not null comment 'ç™»éŒ²è€…'
+  , UPDATE_DATETIME TIMESTAMP not null comment 'æ›´æ–°æ—¥æ™‚'
+  , UPDATE_USER INT unsigned not null comment 'æ›´æ–°è€…'
+  , STS CHAR(8) not null comment 'ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹'
+  , REGION_I INT unsigned not null comment 'åœ°åŸŸID'
+  , PUBLISH_STS CHAR(8) not null comment 'å…¬é–‹ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹'
   , constraint M_FACILITY_GRP_PKC primary key (FACILITY_GRP_ID)
-) comment '{İƒOƒ‹[ƒv' ;
+) comment 'æ–½è¨­ã‚°ãƒ«ãƒ¼ãƒ—' ;
 
--- {İ_{İƒOƒ‹[ƒv_ƒŠƒ“ƒN‘®«ƒOƒ‹[ƒv_‘½Œ¾Œê
+-- æ–½è¨­_æ–½è¨­ã‚°ãƒ«ãƒ¼ãƒ—_ãƒªãƒ³ã‚¯å±æ€§ã‚°ãƒ«ãƒ¼ãƒ—_å¤šè¨€èª
 drop table if exists M_FACILITY_FACILITY_GRP_LINK_ATTR_GRP_LANG cascade;
 
 create table M_FACILITY_FACILITY_GRP_LINK_ATTR_GRP_LANG (
-  FACILITY_FACILITY_GRP_LINK_ATTR_GRP_LANG_ID INT unsigned auto_increment not null comment '{İ_{İƒOƒ‹[ƒv_ƒŠƒ“ƒN‘®«ƒOƒ‹[ƒv_‘½Œ¾ŒêID'
-  , CREATE_DATETIME TIMESTAMP not null comment '“o˜^“ú'
-  , CREATE_USER INT unsigned not null comment '“o˜^Ò'
-  , UPDATE_DATETIME TIMESTAMP not null comment 'XV“ú'
-  , UPDATE_USER INT unsigned not null comment 'XVÒ'
-  , STS CHAR(8) not null comment 'ƒXƒe[ƒ^ƒX'
-  , FACILITY_FACILITY_GRP_LINK_ATTR_GRP_ID INT unsigned not null comment '{İ_{İƒOƒ‹[ƒv_ƒŠƒ“ƒN‘®«ƒOƒ‹[ƒvID'
-  , LANG_DIV CHAR(8) not null comment 'Œ¾Œê‹æ•ª'
-  , NM VARCHAR(400) not null comment '–¼Ì'
+  FACILITY_FACILITY_GRP_LINK_ATTR_GRP_LANG_ID INT unsigned auto_increment not null comment 'æ–½è¨­_æ–½è¨­ã‚°ãƒ«ãƒ¼ãƒ—_ãƒªãƒ³ã‚¯å±æ€§ã‚°ãƒ«ãƒ¼ãƒ—_å¤šè¨€èªID'
+  , CREATE_DATETIME TIMESTAMP not null comment 'ç™»éŒ²æ—¥æ™‚'
+  , CREATE_USER INT unsigned not null comment 'ç™»éŒ²è€…'
+  , UPDATE_DATETIME TIMESTAMP not null comment 'æ›´æ–°æ—¥æ™‚'
+  , UPDATE_USER INT unsigned not null comment 'æ›´æ–°è€…'
+  , STS CHAR(8) not null comment 'ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹'
+  , FACILITY_FACILITY_GRP_LINK_ATTR_GRP_ID INT unsigned not null comment 'æ–½è¨­_æ–½è¨­ã‚°ãƒ«ãƒ¼ãƒ—_ãƒªãƒ³ã‚¯å±æ€§ã‚°ãƒ«ãƒ¼ãƒ—ID'
+  , LANG_DIV CHAR(8) not null comment 'è¨€èªåŒºåˆ†'
+  , NM VARCHAR(400) not null comment 'åç§°'
   , constraint M_FACILITY_FACILITY_GRP_LINK_ATTR_GRP_LANG_PKC primary key (FACILITY_FACILITY_GRP_LINK_ATTR_GRP_LANG_ID)
-) comment '{İ_{İƒOƒ‹[ƒv_ƒŠƒ“ƒN‘®«ƒOƒ‹[ƒv_‘½Œ¾Œê' ;
+) comment 'æ–½è¨­_æ–½è¨­ã‚°ãƒ«ãƒ¼ãƒ—_ãƒªãƒ³ã‚¯å±æ€§ã‚°ãƒ«ãƒ¼ãƒ—_å¤šè¨€èª' ;
 
 alter table M_FACILITY_FACILITY_GRP_LINK_ATTR_GRP_LANG add unique M_FACILITY_FACILITY_GRP_LINK_ATTR_GRP_LANG_IX1 (FACILITY_FACILITY_GRP_LINK_ATTR_GRP_ID,LANG_DIV) ;
 
--- {İ_{İƒOƒ‹[ƒv_ƒŠƒ“ƒN‘®«ƒOƒ‹[ƒv
+-- æ–½è¨­_æ–½è¨­ã‚°ãƒ«ãƒ¼ãƒ—_ãƒªãƒ³ã‚¯å±æ€§ã‚°ãƒ«ãƒ¼ãƒ—
 drop table if exists M_FACILITY_FACILITY_GRP_LINK_ATTR_GRP cascade;
 
 create table M_FACILITY_FACILITY_GRP_LINK_ATTR_GRP (
-  FACILITY_FACILITY_GRP_LINK_ATTR_GRP_ID INT unsigned auto_increment not null comment '{İ_{İƒOƒ‹[ƒv_ƒŠƒ“ƒN‘®«ƒOƒ‹[ƒvID'
-  , CREATE_DATETIME TIMESTAMP not null comment '“o˜^“ú'
-  , CREATE_USER INT unsigned not null comment '“o˜^Ò'
-  , UPDATE_DATETIME TIMESTAMP not null comment 'XV“ú'
-  , UPDATE_USER INT unsigned not null comment 'XVÒ'
-  , STS CHAR(8) not null comment 'ƒXƒe[ƒ^ƒX'
-  , TYPE CHAR(8) not null comment 'í•Ê'
-  , CD_GRP_ID INT unsigned comment 'ƒR[ƒhƒOƒ‹[ƒvID'
+  FACILITY_FACILITY_GRP_LINK_ATTR_GRP_ID INT unsigned auto_increment not null comment 'æ–½è¨­_æ–½è¨­ã‚°ãƒ«ãƒ¼ãƒ—_ãƒªãƒ³ã‚¯å±æ€§ã‚°ãƒ«ãƒ¼ãƒ—ID'
+  , CREATE_DATETIME TIMESTAMP not null comment 'ç™»éŒ²æ—¥æ™‚'
+  , CREATE_USER INT unsigned not null comment 'ç™»éŒ²è€…'
+  , UPDATE_DATETIME TIMESTAMP not null comment 'æ›´æ–°æ—¥æ™‚'
+  , UPDATE_USER INT unsigned not null comment 'æ›´æ–°è€…'
+  , STS CHAR(8) not null comment 'ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹'
+  , TYPE CHAR(8) not null comment 'ç¨®åˆ¥'
+  , CD_GRP_ID INT unsigned comment 'ã‚³ãƒ¼ãƒ‰ã‚°ãƒ«ãƒ¼ãƒ—ID'
   , constraint M_FACILITY_FACILITY_GRP_LINK_ATTR_GRP_PKC primary key (FACILITY_FACILITY_GRP_LINK_ATTR_GRP_ID)
-) comment '{İ_{İƒOƒ‹[ƒv_ƒŠƒ“ƒN‘®«ƒOƒ‹[ƒv' ;
+) comment 'æ–½è¨­_æ–½è¨­ã‚°ãƒ«ãƒ¼ãƒ—_ãƒªãƒ³ã‚¯å±æ€§ã‚°ãƒ«ãƒ¼ãƒ—' ;
 
--- {İ_{İƒOƒ‹[ƒv_ƒŠƒ“ƒN‘®«’l
+-- æ–½è¨­_æ–½è¨­ã‚°ãƒ«ãƒ¼ãƒ—_ãƒªãƒ³ã‚¯å±æ€§å€¤
 drop table if exists M_FACILITY_FACILITY_GRP_LINK_ATTR_VAL cascade;
 
 create table M_FACILITY_FACILITY_GRP_LINK_ATTR_VAL (
-  FACILITY_FACILITY_GRP_LINK_ATTR_VAL_ID INT unsigned auto_increment not null comment '{İ_{İƒOƒ‹[ƒv_ƒŠƒ“ƒN‘®«’lID'
-  , CREATE_DATETIME TIMESTAMP not null comment '“o˜^“ú'
-  , CREATE_USER INT unsigned not null comment '“o˜^Ò'
-  , UPDATE_DATETIME TIMESTAMP not null comment 'XV“ú'
-  , UPDATE_USER INT unsigned not null comment 'XVÒ'
-  , STS CHAR(8) not null comment 'ƒXƒe[ƒ^ƒX'
-  , FACILITY_FACILITY_GRP_LINK_ID INT unsigned not null comment '{İ_{İƒOƒ‹[ƒv_ƒŠƒ“ƒNID'
-  , FACILITY_FACILITY_GRP_LINK_ATTR_GRP_ID INT unsigned not null comment '{İ_{İƒOƒ‹[ƒv_ƒŠƒ“ƒN‘®«ƒOƒ‹[ƒvID'
+  FACILITY_FACILITY_GRP_LINK_ATTR_VAL_ID INT unsigned auto_increment not null comment 'æ–½è¨­_æ–½è¨­ã‚°ãƒ«ãƒ¼ãƒ—_ãƒªãƒ³ã‚¯å±æ€§å€¤ID'
+  , CREATE_DATETIME TIMESTAMP not null comment 'ç™»éŒ²æ—¥æ™‚'
+  , CREATE_USER INT unsigned not null comment 'ç™»éŒ²è€…'
+  , UPDATE_DATETIME TIMESTAMP not null comment 'æ›´æ–°æ—¥æ™‚'
+  , UPDATE_USER INT unsigned not null comment 'æ›´æ–°è€…'
+  , STS CHAR(8) not null comment 'ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹'
+  , FACILITY_FACILITY_GRP_LINK_ID INT unsigned not null comment 'æ–½è¨­_æ–½è¨­ã‚°ãƒ«ãƒ¼ãƒ—_ãƒªãƒ³ã‚¯ID'
+  , FACILITY_FACILITY_GRP_LINK_ATTR_GRP_ID INT unsigned not null comment 'æ–½è¨­_æ–½è¨­ã‚°ãƒ«ãƒ¼ãƒ—_ãƒªãƒ³ã‚¯å±æ€§ã‚°ãƒ«ãƒ¼ãƒ—ID'
   , constraint M_FACILITY_FACILITY_GRP_LINK_ATTR_VAL_PKC primary key (FACILITY_FACILITY_GRP_LINK_ATTR_VAL_ID)
-) comment '{İ_{İƒOƒ‹[ƒv_ƒŠƒ“ƒN‘®«’l' ;
+) comment 'æ–½è¨­_æ–½è¨­ã‚°ãƒ«ãƒ¼ãƒ—_ãƒªãƒ³ã‚¯å±æ€§å€¤' ;
 
--- {İ_{İƒOƒ‹[ƒv_ƒŠƒ“ƒN‘®«’l_‘½Œ¾Œê
+-- æ–½è¨­_æ–½è¨­ã‚°ãƒ«ãƒ¼ãƒ—_ãƒªãƒ³ã‚¯å±æ€§å€¤_å¤šè¨€èª
 drop table if exists M_FACILITY_FACILITY_GRP_LINK_ATTR_VAL_LANG cascade;
 
 create table M_FACILITY_FACILITY_GRP_LINK_ATTR_VAL_LANG (
-  FACILITY_FACILITY_GRP_LINK_ATTR_VAL_LANG_ID INT unsigned auto_increment not null comment '{İ_{İƒOƒ‹[ƒv_ƒŠƒ“ƒN‘®«’l_‘½Œ¾ŒêID'
-  , CREATE_DATETIME TIMESTAMP not null comment '“o˜^“ú'
-  , CREATE_USER INT unsigned not null comment '“o˜^Ò'
-  , UPDATE_DATETIME TIMESTAMP not null comment 'XV“ú'
-  , UPDATE_USER INT unsigned not null comment 'XVÒ'
-  , STS CHAR(8) not null comment 'ƒXƒe[ƒ^ƒX'
-  , FACILITY_FACILITY_GRP_LINK_ATTR_VAL_ID INT unsigned not null comment '{İ_{İƒOƒ‹[ƒv_ƒŠƒ“ƒN‘®«’lID'
-  , LANG_DIV CHAR(8) not null comment 'Œ¾Œê‹æ•ª'
-  , VAL VARCHAR(400) not null comment '’l'
+  FACILITY_FACILITY_GRP_LINK_ATTR_VAL_LANG_ID INT unsigned auto_increment not null comment 'æ–½è¨­_æ–½è¨­ã‚°ãƒ«ãƒ¼ãƒ—_ãƒªãƒ³ã‚¯å±æ€§å€¤_å¤šè¨€èªID'
+  , CREATE_DATETIME TIMESTAMP not null comment 'ç™»éŒ²æ—¥æ™‚'
+  , CREATE_USER INT unsigned not null comment 'ç™»éŒ²è€…'
+  , UPDATE_DATETIME TIMESTAMP not null comment 'æ›´æ–°æ—¥æ™‚'
+  , UPDATE_USER INT unsigned not null comment 'æ›´æ–°è€…'
+  , STS CHAR(8) not null comment 'ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹'
+  , FACILITY_FACILITY_GRP_LINK_ATTR_VAL_ID INT unsigned not null comment 'æ–½è¨­_æ–½è¨­ã‚°ãƒ«ãƒ¼ãƒ—_ãƒªãƒ³ã‚¯å±æ€§å€¤ID'
+  , LANG_DIV CHAR(8) not null comment 'è¨€èªåŒºåˆ†'
+  , VAL VARCHAR(400) not null comment 'å€¤'
   , constraint M_FACILITY_FACILITY_GRP_LINK_ATTR_VAL_LANG_PKC primary key (FACILITY_FACILITY_GRP_LINK_ATTR_VAL_LANG_ID)
-) comment '{İ_{İƒOƒ‹[ƒv_ƒŠƒ“ƒN‘®«’l_‘½Œ¾Œê' ;
+) comment 'æ–½è¨­_æ–½è¨­ã‚°ãƒ«ãƒ¼ãƒ—_ãƒªãƒ³ã‚¯å±æ€§å€¤_å¤šè¨€èª' ;
 
 alter table M_FACILITY_FACILITY_GRP_LINK_ATTR_VAL_LANG add unique M_FACILITY_FACILITY_GRP_LINK_ATTR_VAL_LANG_IX1 (FACILITY_FACILITY_GRP_LINK_ATTR_VAL_ID,LANG_DIV) ;
 
--- {İƒOƒ‹[ƒv‘®«ƒOƒ‹[ƒv_‘½Œ¾Œê
+-- æ–½è¨­ã‚°ãƒ«ãƒ¼ãƒ—å±æ€§ã‚°ãƒ«ãƒ¼ãƒ—_å¤šè¨€èª
 drop table if exists M_FACILITY_GRP_ATTR_GRP_LANG cascade;
 
 create table M_FACILITY_GRP_ATTR_GRP_LANG (
-  FACILITY_GRP_ATTR_GRP_LANG_ID INT unsigned auto_increment not null comment '{İƒOƒ‹[ƒv‘®«ƒOƒ‹[ƒv_‘½Œ¾ŒêID'
-  , CREATE_DATETIME TIMESTAMP not null comment '“o˜^“ú'
-  , CREATE_USER INT unsigned not null comment '“o˜^Ò'
-  , UPDATE_DATETIME TIMESTAMP not null comment 'XV“ú'
-  , UPDATE_USER INT unsigned not null comment 'XVÒ'
-  , STS CHAR(8) not null comment 'ƒXƒe[ƒ^ƒX'
-  , FACILITY_GRP_ATTR_GRP_ID INT unsigned not null comment '{İƒOƒ‹[ƒv‘®«ƒOƒ‹[ƒvID'
-  , LANG_DIV CHAR(8) not null comment 'Œ¾Œê‹æ•ª'
-  , NM VARCHAR(400) not null comment '–¼Ì'
+  FACILITY_GRP_ATTR_GRP_LANG_ID INT unsigned auto_increment not null comment 'æ–½è¨­ã‚°ãƒ«ãƒ¼ãƒ—å±æ€§ã‚°ãƒ«ãƒ¼ãƒ—_å¤šè¨€èªID'
+  , CREATE_DATETIME TIMESTAMP not null comment 'ç™»éŒ²æ—¥æ™‚'
+  , CREATE_USER INT unsigned not null comment 'ç™»éŒ²è€…'
+  , UPDATE_DATETIME TIMESTAMP not null comment 'æ›´æ–°æ—¥æ™‚'
+  , UPDATE_USER INT unsigned not null comment 'æ›´æ–°è€…'
+  , STS CHAR(8) not null comment 'ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹'
+  , FACILITY_GRP_ATTR_GRP_ID INT unsigned not null comment 'æ–½è¨­ã‚°ãƒ«ãƒ¼ãƒ—å±æ€§ã‚°ãƒ«ãƒ¼ãƒ—ID'
+  , LANG_DIV CHAR(8) not null comment 'è¨€èªåŒºåˆ†'
+  , NM VARCHAR(400) not null comment 'åç§°'
   , constraint M_FACILITY_GRP_ATTR_GRP_LANG_PKC primary key (FACILITY_GRP_ATTR_GRP_LANG_ID)
-) comment '{İƒOƒ‹[ƒv‘®«ƒOƒ‹[ƒv_‘½Œ¾Œê' ;
+) comment 'æ–½è¨­ã‚°ãƒ«ãƒ¼ãƒ—å±æ€§ã‚°ãƒ«ãƒ¼ãƒ—_å¤šè¨€èª' ;
 
 alter table M_FACILITY_GRP_ATTR_GRP_LANG add unique M_FACILITY_GRP_ATTR_GRP_LANG_IX1 (FACILITY_GRP_ATTR_GRP_ID,LANG_DIV) ;
 
--- {İƒOƒ‹[ƒv‘®«ƒOƒ‹[ƒv
+-- æ–½è¨­ã‚°ãƒ«ãƒ¼ãƒ—å±æ€§ã‚°ãƒ«ãƒ¼ãƒ—
 drop table if exists M_FACILITY_GRP_ATTR_GRP cascade;
 
 create table M_FACILITY_GRP_ATTR_GRP (
-  FACILITY_GRP_ATTR_GRP_ID INT unsigned auto_increment not null comment '{İƒOƒ‹[ƒv‘®«ƒOƒ‹[ƒvID'
-  , CREATE_DATETIME TIMESTAMP not null comment '“o˜^“ú'
-  , CREATE_USER INT unsigned not null comment '“o˜^Ò'
-  , UPDATE_DATETIME TIMESTAMP not null comment 'XV“ú'
-  , UPDATE_USER INT unsigned not null comment 'XVÒ'
-  , STS CHAR(8) not null comment 'ƒXƒe[ƒ^ƒX'
-  , TYPE CHAR(8) not null comment 'í•Ê'
-  , CD_GRP_ID INT unsigned comment 'ƒR[ƒhƒOƒ‹[ƒvID'
+  FACILITY_GRP_ATTR_GRP_ID INT unsigned auto_increment not null comment 'æ–½è¨­ã‚°ãƒ«ãƒ¼ãƒ—å±æ€§ã‚°ãƒ«ãƒ¼ãƒ—ID'
+  , CREATE_DATETIME TIMESTAMP not null comment 'ç™»éŒ²æ—¥æ™‚'
+  , CREATE_USER INT unsigned not null comment 'ç™»éŒ²è€…'
+  , UPDATE_DATETIME TIMESTAMP not null comment 'æ›´æ–°æ—¥æ™‚'
+  , UPDATE_USER INT unsigned not null comment 'æ›´æ–°è€…'
+  , STS CHAR(8) not null comment 'ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹'
+  , TYPE CHAR(8) not null comment 'ç¨®åˆ¥'
+  , CD_GRP_ID INT unsigned comment 'ã‚³ãƒ¼ãƒ‰ã‚°ãƒ«ãƒ¼ãƒ—ID'
   , constraint M_FACILITY_GRP_ATTR_GRP_PKC primary key (FACILITY_GRP_ATTR_GRP_ID)
-) comment '{İƒOƒ‹[ƒv‘®«ƒOƒ‹[ƒv' ;
+) comment 'æ–½è¨­ã‚°ãƒ«ãƒ¼ãƒ—å±æ€§ã‚°ãƒ«ãƒ¼ãƒ—' ;
 
--- {İƒOƒ‹[ƒv‘®«’l
+-- æ–½è¨­ã‚°ãƒ«ãƒ¼ãƒ—å±æ€§å€¤
 drop table if exists M_FACILITY_GRP_ATTR_VAL cascade;
 
 create table M_FACILITY_GRP_ATTR_VAL (
-  FACILITY_GRP_ATTR_VAL_ID INT unsigned auto_increment not null comment '{İƒOƒ‹[ƒv‘®«’lID'
-  , CREATE_DATETIME TIMESTAMP not null comment '“o˜^“ú'
-  , CREATE_USER INT unsigned not null comment '“o˜^Ò'
-  , UPDATE_DATETIME TIMESTAMP not null comment 'XV“ú'
-  , UPDATE_USER INT unsigned not null comment 'XVÒ'
-  , STS CHAR(8) not null comment 'ƒXƒe[ƒ^ƒX'
-  , FACILITY_GRP_ID INT unsigned not null comment '{İƒOƒ‹[ƒvID'
-  , FACILITY_GRP_ATTR_GRP_ID INT unsigned not null comment '{İƒOƒ‹[ƒv‘®«ƒOƒ‹[ƒvID'
+  FACILITY_GRP_ATTR_VAL_ID INT unsigned auto_increment not null comment 'æ–½è¨­ã‚°ãƒ«ãƒ¼ãƒ—å±æ€§å€¤ID'
+  , CREATE_DATETIME TIMESTAMP not null comment 'ç™»éŒ²æ—¥æ™‚'
+  , CREATE_USER INT unsigned not null comment 'ç™»éŒ²è€…'
+  , UPDATE_DATETIME TIMESTAMP not null comment 'æ›´æ–°æ—¥æ™‚'
+  , UPDATE_USER INT unsigned not null comment 'æ›´æ–°è€…'
+  , STS CHAR(8) not null comment 'ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹'
+  , FACILITY_GRP_ID INT unsigned not null comment 'æ–½è¨­ã‚°ãƒ«ãƒ¼ãƒ—ID'
+  , FACILITY_GRP_ATTR_GRP_ID INT unsigned not null comment 'æ–½è¨­ã‚°ãƒ«ãƒ¼ãƒ—å±æ€§ã‚°ãƒ«ãƒ¼ãƒ—ID'
   , constraint M_FACILITY_GRP_ATTR_VAL_PKC primary key (FACILITY_GRP_ATTR_VAL_ID)
-) comment '{İƒOƒ‹[ƒv‘®«’l' ;
+) comment 'æ–½è¨­ã‚°ãƒ«ãƒ¼ãƒ—å±æ€§å€¤' ;
 
--- {İƒOƒ‹[ƒv‘®«’l_‘½Œ¾Œê
+-- æ–½è¨­ã‚°ãƒ«ãƒ¼ãƒ—å±æ€§å€¤_å¤šè¨€èª
 drop table if exists M_FACILITY_GRP_ATTR_VAL_LANG cascade;
 
 create table M_FACILITY_GRP_ATTR_VAL_LANG (
-  FACILITY_GRP_ATTR_VAL_LANG_ID INT unsigned auto_increment not null comment '{İƒOƒ‹[ƒv‘®«’l_‘½Œ¾ŒêID'
-  , CREATE_DATETIME TIMESTAMP not null comment '“o˜^“ú'
-  , CREATE_USER INT unsigned not null comment '“o˜^Ò'
-  , UPDATE_DATETIME TIMESTAMP not null comment 'XV“ú'
-  , UPDATE_USER INT unsigned not null comment 'XVÒ'
-  , STS CHAR(8) not null comment 'ƒXƒe[ƒ^ƒX'
-  , FACILITY_GRP_ATTR_VAL_ID INT unsigned not null comment '{İƒOƒ‹[ƒv‘®«’lID'
-  , LANG_DIV CHAR(8) not null comment 'Œ¾Œê‹æ•ª'
-  , VAL VARCHAR(400) not null comment '’l'
+  FACILITY_GRP_ATTR_VAL_LANG_ID INT unsigned auto_increment not null comment 'æ–½è¨­ã‚°ãƒ«ãƒ¼ãƒ—å±æ€§å€¤_å¤šè¨€èªID'
+  , CREATE_DATETIME TIMESTAMP not null comment 'ç™»éŒ²æ—¥æ™‚'
+  , CREATE_USER INT unsigned not null comment 'ç™»éŒ²è€…'
+  , UPDATE_DATETIME TIMESTAMP not null comment 'æ›´æ–°æ—¥æ™‚'
+  , UPDATE_USER INT unsigned not null comment 'æ›´æ–°è€…'
+  , STS CHAR(8) not null comment 'ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹'
+  , FACILITY_GRP_ATTR_VAL_ID INT unsigned not null comment 'æ–½è¨­ã‚°ãƒ«ãƒ¼ãƒ—å±æ€§å€¤ID'
+  , LANG_DIV CHAR(8) not null comment 'è¨€èªåŒºåˆ†'
+  , VAL VARCHAR(400) not null comment 'å€¤'
   , constraint M_FACILITY_GRP_ATTR_VAL_LANG_PKC primary key (FACILITY_GRP_ATTR_VAL_LANG_ID)
-) comment '{İƒOƒ‹[ƒv‘®«’l_‘½Œ¾Œê' ;
+) comment 'æ–½è¨­ã‚°ãƒ«ãƒ¼ãƒ—å±æ€§å€¤_å¤šè¨€èª' ;
 
 alter table M_FACILITY_GRP_ATTR_VAL_LANG add unique M_FACILITY_GRP_ATTR_VAL_LANG_IX1 (FACILITY_GRP_ATTR_VAL_ID,LANG_DIV) ;
 
--- ƒR[ƒhƒrƒ…[
+-- ã‚³ãƒ¼ãƒ‰ãƒ“ãƒ¥ãƒ¼
 drop view if exists V_CD;
 
 create view V_CD as 
@@ -461,11 +462,11 @@ select
   , c.LANG_DIV       as LANG_DIV
   , c.NM             as CD_NM 
 from
-  m_cd_grp a                                      -- ƒR[ƒhƒOƒ‹[ƒv
-  inner join m_cd_val b                           -- ƒR[ƒh’l
+  m_cd_grp a                                      -- ã‚³ãƒ¼ãƒ‰ã‚°ãƒ«ãƒ¼ãƒ—
+  inner join m_cd_val b                           -- ã‚³ãƒ¼ãƒ‰å€¤
     on a.CD_GRP_ID = b.CD_GRP_ID 
     and b.sts = '0' 
-  inner join m_cd_val_lang c                      -- ƒR[ƒh’l_‘½Œ¾Œê
+  inner join m_cd_val_lang c                      -- ã‚³ãƒ¼ãƒ‰å€¤_å¤šè¨€èª
     on b.CD_VAL_ID = c.CD_VAL_ID 
     and c.sts = '0' 
 where

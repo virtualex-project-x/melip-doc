@@ -1,8 +1,23 @@
 ﻿-- Project Name : ProjectX
--- Date/Time    : 2015/01/22 14:32:33
+-- Date/Time    : 2015/01/22 20:24:14
 -- Author       : n-suzuki
 -- RDBMS Type   : MySQL
 -- Application  : A5:SQL Mk-2
+
+-- レイアウトオブジェクトグループ
+drop table if exists M_LAYOUT_OBJ_GRP cascade;
+
+create table M_LAYOUT_OBJ_GRP (
+  LAYOUT_OBJ_GRP_ID INT unsigned auto_increment not null comment 'レイアウトオブジェクトグループID'
+  , CREATE_DATETIME TIMESTAMP not null comment '登録日時'
+  , CREATE_USER INT unsigned not null comment '登録者'
+  , UPDATE_DATETIME TIMESTAMP not null comment '更新日時'
+  , UPDATE_USER INT unsigned not null comment '更新者'
+  , STS CHAR(8) not null comment 'ステータス'
+  , LAYOUT_ID INT unsigned not null comment 'レイアウトID'
+  , MULTIPLICITY CHAR(8) not null comment '多重度'
+  , constraint M_LAYOUT_OBJ_GRP_PKC primary key (LAYOUT_OBJ_GRP_ID)
+) comment 'レイアウトオブジェクトグループ' ;
 
 -- コードグループ
 drop table if exists M_CD_GRP cascade;
@@ -99,8 +114,7 @@ create table M_LAYOUT_OBJ (
   , UPDATE_DATETIME TIMESTAMP not null comment '更新日時'
   , UPDATE_USER INT unsigned not null comment '更新者'
   , STS CHAR(8) not null comment 'ステータス'
-  , LAYOUT_ID INT unsigned not null comment 'レイアウトID'
-  , MULTIPLICITY CHAR(8) not null comment '多重度'
+  , LAYOUT_OBJ_GRP_ID INT unsigned not null comment 'レイアウトオブジェクトグループID'
   , NM VARCHAR(400) not null comment '名称'
   , TYPE CHAR(8) not null comment '種別'
   , constraint M_LAYOUT_OBJ_PKC primary key (LAYOUT_OBJ_ID)

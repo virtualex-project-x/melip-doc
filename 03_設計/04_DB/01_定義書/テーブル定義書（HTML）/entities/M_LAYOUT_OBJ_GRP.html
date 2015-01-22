@@ -33,13 +33,13 @@
 		</tr>
 		<tr>
 			<th>論理エンティティ名</th>
-			<td>レイアウトオブジェクト&nbsp;</td>
+			<td>レイアウトオブジェクトグループ&nbsp;</td>
 			<th>タグ&nbsp;</th>
 			<td>&nbsp;</td>
 		</tr>
 		<tr>
 			<th>物理エンティティ名</th>
-			<td>M_LAYOUT_OBJ&nbsp;</td>
+			<td>M_LAYOUT_OBJ_GRP&nbsp;</td>
 			<th>&nbsp;</th>
 			<td>&nbsp;</td>
 		</tr>
@@ -72,8 +72,8 @@
 		</tr>
 		<tr>
 			<td style="text-align:right;">1</td>
-			<td>レイアウトオブジェクトID</td>
-			<td>LAYOUT_OBJ_ID</td>
+			<td>レイアウトオブジェクトグループID</td>
+			<td>LAYOUT_OBJ_GRP_ID</td>
 			<td>*PK</td>
 			<td>Yes (PK)</td>
 			<td></td>
@@ -126,8 +126,8 @@
 		</tr>
 		<tr>
 			<td style="text-align:right;">7</td>
-			<td>レイアウトオブジェクトグループID</td>
-			<td>LAYOUT_OBJ_GRP_ID</td>
+			<td>レイアウトID</td>
+			<td>LAYOUT_ID</td>
 			<td>*FK</td>
 			<td>Yes</td>
 			<td></td>
@@ -135,17 +135,8 @@
 		</tr>
 		<tr>
 			<td style="text-align:right;">8</td>
-			<td>名称</td>
-			<td>NM</td>
-			<td>*SHORT_TXT</td>
-			<td>Yes</td>
-			<td></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td style="text-align:right;">9</td>
-			<td>種別</td>
-			<td>TYPE</td>
+			<td>多重度</td>
+			<td>MULTIPLICITY</td>
 			<td>*CD</td>
 			<td>Yes</td>
 			<td></td>
@@ -193,9 +184,9 @@
 		<tr>
 			<td style="text-align:right;">1</td>
 			<td></td>
-			<td>LAYOUT_OBJ_GRP_ID</td>
-			<td>M_LAYOUT_OBJ_GRP</td>
-			<td>LAYOUT_OBJ_GRP_ID</td>
+			<td>LAYOUT_ID</td>
+			<td>M_LAYOUT</td>
+			<td>LAYOUT_ID</td>
 		</tr>
 	</table>
 
@@ -220,9 +211,9 @@
 		<tr>
 			<td style="text-align:right;">1</td>
 			<td></td>
-			<td>LAYOUT_OBJ_ID</td>
-			<td>M_SCREEN_OBJ</td>
-			<td>LAYOUT_OBJ_ID</td>
+			<td>LAYOUT_OBJ_GRP_ID</td>
+			<td>M_LAYOUT_OBJ</td>
+			<td>LAYOUT_OBJ_GRP_ID</td>
 		</tr>
 	</table>
 

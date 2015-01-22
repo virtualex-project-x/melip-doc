@@ -101,7 +101,7 @@ insert into M_FACILITY values (4, now(), 1, now(), 1, 'val', 2, 'dcls');
 -- 施設属性グループ（insert文）
 insert into M_FACILITY_ATTR_GRP values (1, now(), 1, now(), 1, 'val', 'txt', null);
 insert into M_FACILITY_ATTR_GRP values (2, now(), 1, now(), 1, 'val', 'txt', null);
-insert into M_FACILITY_ATTR_GRP values (3, now(), 1, now(), 1, 'val', 'img', null);
+insert into M_FACILITY_ATTR_GRP values (3, now(), 1, now(), 1, 'val', 'imgp', null);
 insert into M_FACILITY_ATTR_GRP values (4, now(), 1, now(), 1, 'val', 'cd', 10);
 
 -- 施設属性グループ_多言語（insert文）
@@ -255,7 +255,7 @@ insert into M_REGION values (2, now(), 1, now(), 1, 'val', 1, 'dcls');
 insert into M_REGION_ATTR_GRP values (1, now(), 1, now(), 1, 'val', 'txt', null);
 insert into M_REGION_ATTR_GRP values (2, now(), 1, now(), 1, 'val', 'txt', null);
 insert into M_REGION_ATTR_GRP values (3, now(), 1, now(), 1, 'val', 'cd', 6);
-insert into M_REGION_ATTR_GRP values (4, now(), 1, now(), 1, 'val', 'img', null);
+insert into M_REGION_ATTR_GRP values (4, now(), 1, now(), 1, 'val', 'imgp', null);
 
 -- 地域属性グループ_多言語（insert文）
 insert into M_REGION_ATTR_GRP_LANG values (1, now(), 1, now(), 1, 'val', 1, 'ja', '地域名');

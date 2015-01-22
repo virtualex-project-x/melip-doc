@@ -222,28 +222,37 @@ insert into M_LAYOUT values (4, now(), 1, now(), 1, 'val', 'List002', '一覧002',
 insert into M_LAYOUT values (5, now(), 1, now(), 1, 'val', 'Detail001', '詳細001', 'det');
 insert into M_LAYOUT values (6, now(), 1, now(), 1, 'val', 'Detail002', '詳細002', 'det');
 
-
 -- レイアウトオブジェクト（insert文）
-insert into M_LAYOUT_OBJ values (1, now(), 1, now(), 1, 'val', 1, 'sin', 'トップ画像','img');
-insert into M_LAYOUT_OBJ values (2, now(), 1, now(), 1, 'val', 1, 'sin', 'メニューボタン1','button');
-insert into M_LAYOUT_OBJ values (3, now(), 1, now(), 1, 'val', 1, 'sin', 'メニューボタン2','button');
-insert into M_LAYOUT_OBJ values (4, now(), 1, now(), 1, 'val', 1, 'sin', 'メニューボタン3','button');
-insert into M_LAYOUT_OBJ values (5, now(), 1, now(), 1, 'val', 2, 'sin', 'トップ画像','img');
-insert into M_LAYOUT_OBJ values (6, now(), 1, now(), 1, 'val', 2, 'sin', 'メニューボタン1','button');
-insert into M_LAYOUT_OBJ values (7, now(), 1, now(), 1, 'val', 2, 'sin', 'メニューボタン2','button');
-insert into M_LAYOUT_OBJ values (8, now(), 1, now(), 1, 'val', 2, 'sin', 'メニューボタン3','button');
-insert into M_LAYOUT_OBJ values (9, now(), 1, now(), 1, 'val', 3, 'sin', '親説明文','txt');
-insert into M_LAYOUT_OBJ values (10, now(), 1, now(), 1, 'val', 3, 'sin', '説明画像','img');
-insert into M_LAYOUT_OBJ values (11, now(), 1, now(), 1, 'val', 3, 'sin', '説明文','txt');
-insert into M_LAYOUT_OBJ values (12, now(), 1, now(), 1, 'val', 4, 'sin', '親説明文','txt');
-insert into M_LAYOUT_OBJ values (13, now(), 1, now(), 1, 'val', 4, 'sin', '説明画像','img');
-insert into M_LAYOUT_OBJ values (14, now(), 1, now(), 1, 'val', 4, 'multi', '説明文','txt');
-insert into M_LAYOUT_OBJ values (15, now(), 1, now(), 1, 'val', 5, 'sin', '画像01','img');
-insert into M_LAYOUT_OBJ values (16, now(), 1, now(), 1, 'val', 5, 'sin', '説明文（メイン）','txt');
-insert into M_LAYOUT_OBJ values (17, now(), 1, now(), 1, 'val', 5, 'sin', '説明文（補足）','txt');
-insert into M_LAYOUT_OBJ values (18, now(), 1, now(), 1, 'val', 6, 'sin', '画像01','img');
-insert into M_LAYOUT_OBJ values (19, now(), 1, now(), 1, 'val', 6, 'sin', '説明文（メイン）','txt');
-insert into M_LAYOUT_OBJ values (20, now(), 1, now(), 1, 'val', 6, 'multi', '説明文（補足）','txt');
+insert into M_LAYOUT_OBJ values (1, now(), 1, now(), 1, 'val', 1, 'トップ画像','img');
+insert into M_LAYOUT_OBJ values (2, now(), 1, now(), 1, 'val', 1, 'メニューボタン1','button');
+insert into M_LAYOUT_OBJ values (3, now(), 1, now(), 1, 'val', 1, 'メニューボタン2','button');
+insert into M_LAYOUT_OBJ values (4, now(), 1, now(), 1, 'val', 1, 'メニューボタン3','button');
+insert into M_LAYOUT_OBJ values (5, now(), 1, now(), 1, 'val', 2, 'トップ画像','img');
+insert into M_LAYOUT_OBJ values (6, now(), 1, now(), 1, 'val', 2, 'メニューボタン1','button');
+insert into M_LAYOUT_OBJ values (7, now(), 1, now(), 1, 'val', 2, 'メニューボタン2','button');
+insert into M_LAYOUT_OBJ values (8, now(), 1, now(), 1, 'val', 2, 'メニューボタン3','button');
+insert into M_LAYOUT_OBJ values (9, now(), 1, now(), 1, 'val', 3, '親説明文','txt');
+insert into M_LAYOUT_OBJ values (10, now(), 1, now(), 1, 'val', 4, '説明画像','img');
+insert into M_LAYOUT_OBJ values (11, now(), 1, now(), 1, 'val', 4, '説明文','txt');
+insert into M_LAYOUT_OBJ values (12, now(), 1, now(), 1, 'val', 5, '親説明文','txt');
+insert into M_LAYOUT_OBJ values (13, now(), 1, now(), 1, 'val', 6, '説明画像','img');
+insert into M_LAYOUT_OBJ values (14, now(), 1, now(), 1, 'val', 6, '説明文','list');
+insert into M_LAYOUT_OBJ values (15, now(), 1, now(), 1, 'val', 7, '画像01','img');
+insert into M_LAYOUT_OBJ values (16, now(), 1, now(), 1, 'val', 7, '説明文（メイン）','txt');
+insert into M_LAYOUT_OBJ values (17, now(), 1, now(), 1, 'val', 7, '説明文（補足）','txt');
+insert into M_LAYOUT_OBJ values (18, now(), 1, now(), 1, 'val', 8, '画像01','img');
+insert into M_LAYOUT_OBJ values (19, now(), 1, now(), 1, 'val', 8, '説明文（メイン）','txt');
+insert into M_LAYOUT_OBJ values (20, now(), 1, now(), 1, 'val', 8, '説明文（補足）','list');
+
+-- レイアウトオブジェクトグループ（insert文）
+insert into M_LAYOUT_OBJ_GRP values (1, now(), 1, now(), 1, 'val', 1, 'sin');
+insert into M_LAYOUT_OBJ_GRP values (2, now(), 1, now(), 1, 'val', 2, 'sin');
+insert into M_LAYOUT_OBJ_GRP values (3, now(), 1, now(), 1, 'val', 3, 'sin');
+insert into M_LAYOUT_OBJ_GRP values (4, now(), 1, now(), 1, 'val', 3, 'multi');
+insert into M_LAYOUT_OBJ_GRP values (5, now(), 1, now(), 1, 'val', 4, 'sin');
+insert into M_LAYOUT_OBJ_GRP values (6, now(), 1, now(), 1, 'val', 4, 'multi');
+insert into M_LAYOUT_OBJ_GRP values (7, now(), 1, now(), 1, 'val', 5, 'sin');
+insert into M_LAYOUT_OBJ_GRP values (8, now(), 1, now(), 1, 'val', 6, 'sin');
 
 -- 地域（insert文）
 insert into M_REGION values (1, now(), 1, now(), 1, 'val', 1, 'dcls');

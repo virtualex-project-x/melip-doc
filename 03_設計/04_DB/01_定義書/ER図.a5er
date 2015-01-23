@@ -19,7 +19,7 @@ Domain=CD=CHAR(8)
 Domain=SHORT_TXT=VARCHAR(400)
 Domain=MEDIUM_TXT=VARCHAR(1000)
 Domain=LONG_TXT=VARCHAR(4000)
-Domain==
+Domain=ALIAS=VARCHAR(200)
 LogicalView=1
 DecodeDomain=0
 ViewModePageIndividually=1
@@ -57,14 +57,14 @@ Fields1=LAYOUT_OBJ_GRP_ID
 Fields2=LAYOUT_OBJ_GRP_ID
 Cardinarity1=
 Cardinarity2=
-Position="MELIP_MAIN",0,4975,9233,4422,R,R
+Position="MELIP_MAIN",0,4975,9233,4477,R,R
 Dependence=0
 Caption=
 PName=
 LineMode=0
 Bar1=498
 Bar2=923
-Bar3=442
+Bar3=448
 TermPos1=R
 TermPos2=R
 
@@ -77,14 +77,14 @@ Fields1=LAYOUT_ID
 Fields2=LAYOUT_ID
 Cardinarity1=
 Cardinarity2=
-Position="MELIP_MAIN",0,4769,9324,5365,R,R
+Position="MELIP_MAIN",0,4378,4737,4378,R,R
 Dependence=0
 Caption=
 PName=
 LineMode=0
-Bar1=477
-Bar2=932
-Bar3=536
+Bar1=438
+Bar2=474
+Bar3=438
 TermPos1=R
 TermPos2=R
 
@@ -93,7 +93,7 @@ PName=M_LAYOUT_OBJ_GRP
 LName=レイアウトオブジェクトグループ
 Comment=
 TableOption=
-Page=melip_main
+Page=MELIP_MAIN
 Left=500
 Top=100
 Field="レイアウトオブジェクトグループID","LAYOUT_OBJ_GRP_ID","*PK","NOT NULL",0,"","",$FFFFFFFF,""
@@ -103,12 +103,14 @@ Field="更新日時","UPDATE_DATETIME","TIMESTAMP","NOT NULL",,"","",$00808080,"
 Field="更新者","UPDATE_USER","*FK","NOT NULL",,"","",$00808080,""
 Field="ステータス","STS","*CD","NOT NULL",,"","",$00808080,""
 Field="レイアウトID","LAYOUT_ID","*FK","NOT NULL",,"","",$FFFFFFFF,""
+Field="エイリアス","ALIAS","*ALIAS","NOT NULL",,"","",$FFFFFFFF,""
 Field="多重度","MULTIPLICITY","*CD","NOT NULL",,"","",$FFFFFFFF,""
+Index==2,LAYOUT_ID,ALIAS
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20150122201420
-Position="melip_main",500,100
+ModifiedDateTime=20150123145245
+Position="MELIP_MAIN",500,100
 
 [View]
 PName=V_CD
@@ -138,7 +140,7 @@ Field="登録者","CREATE_USER","*FK","NOT NULL",,"","",$00808080,""
 Field="更新日時","UPDATE_DATETIME","TIMESTAMP","NOT NULL",,"","",$00808080,""
 Field="更新者","UPDATE_USER","*FK","NOT NULL",,"","",$00808080,""
 Field="ステータス","STS","*CD","NOT NULL",,"","",$00808080,""
-Field="エイリアス","ALIAS","*SHORT_TXT","NOT NULL",,"","",$FFFFFFFF,""
+Field="エイリアス","ALIAS","*ALIAS","NOT NULL",,"","",$FFFFFFFF,""
 Field="名称","NM","*SHORT_TXT","NOT NULL",,"","",$FFFFFFFF,""
 Field="概要","SUMMARY","*MEDIUM_TXT",,,"","",$00000000,""
 EffectMode=None
@@ -163,12 +165,12 @@ Field="更新者","UPDATE_USER","*FK","NOT NULL",,"","",$00808080,""
 Field="ステータス","STS","*CD","NOT NULL",,"","",$00808080,""
 Field="コードグループID","CD_GRP_ID","*FK","NOT NULL",,"","",$FFFFFFFF,""
 Field="コード","CD","*CD","NOT NULL",,"","",$00000000,""
-Field="エイリアス","ALIAS","*SHORT_TXT","NOT NULL",,"","",$FFFFFFFF,""
+Field="エイリアス","ALIAS","*ALIAS","NOT NULL",,"","",$FFFFFFFF,""
 Field="表示順","DISPLAY_NUM","INT","NOT NULL",,"","",$FFFFFFFF,""
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20150120155358
+ModifiedDateTime=20150123151052
 Position="MELIP_SUB",500,100
 
 [Entity]
@@ -309,14 +311,14 @@ Fields1=LAYOUT_ID
 Fields2=LAYOUT_ID
 Cardinarity1=
 Cardinarity2=
-Position="MELIP_MAIN",0,4204,5814,4266,R,R
+Position="MELIP_MAIN",0,4204,5814,4204,R,R
 Dependence=0
 Caption=
 PName=
 LineMode=0
 Bar1=420
 Bar2=581
-Bar3=427
+Bar3=420
 TermPos1=R
 TermPos2=R
 
@@ -379,12 +381,14 @@ Field="更新日時","UPDATE_DATETIME","TIMESTAMP","NOT NULL",,"","",$00808080,"
 Field="更新者","UPDATE_USER","*FK","NOT NULL",,"","",$00808080,""
 Field="ステータス","STS","*CD","NOT NULL",,"","",$00808080,""
 Field="レイアウトオブジェクトグループID","LAYOUT_OBJ_GRP_ID","*FK","NOT NULL",,"","",$FFFFFFFF,""
+Field="エイリアス","ALIAS","*ALIAS","NOT NULL",,"","",$FFFFFFFF,""
 Field="名称","NM","*SHORT_TXT","NOT NULL",,"","",$FFFFFFFF,""
 Field="種別","TYPE","*CD","NOT NULL",,"","",$FFFFFFFF,""
+Index==2,LAYOUT_OBJ_GRP_ID,ALIAS
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20150122201356
+ModifiedDateTime=20150123145258
 Position="MELIP_MAIN",1000,100
 
 [Entity]
@@ -401,13 +405,14 @@ Field="登録者","CREATE_USER","*FK","NOT NULL",,"","",$00808080,""
 Field="更新日時","UPDATE_DATETIME","TIMESTAMP","NOT NULL",,"","",$00808080,""
 Field="更新者","UPDATE_USER","*FK","NOT NULL",,"","",$00808080,""
 Field="ステータス","STS","*CD","NOT NULL",,"","",$00808080,""
-Field="エイリアス","ALIAS","*SHORT_TXT","NOT NULL",,"","",$FFFFFFFF,""
+Field="エイリアス","ALIAS","*ALIAS","NOT NULL",,"","",$FFFFFFFF,""
 Field="名称","NM","*SHORT_TXT","NOT NULL",,"","",$FFFFFFFF,""
 Field="種別","TYPE","*CD","NOT NULL",,"","",$FFFFFFFF,""
+Index==2,ALIAS
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20150122141436
+ModifiedDateTime=20150123150747
 Position="MELIP_MAIN",100,100
 
 [Relation]

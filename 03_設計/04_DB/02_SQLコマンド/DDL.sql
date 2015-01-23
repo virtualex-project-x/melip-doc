@@ -1,6 +1,6 @@
 ﻿-- Project Name : ProjectX
--- Date/Time    : 2015/01/22 20:24:14
--- Author       : n-suzuki
+-- Date/Time    : 2015/01/23 15:11:10
+-- Author       : j-nakashima
 -- RDBMS Type   : MySQL
 -- Application  : A5:SQL Mk-2
 
@@ -15,9 +15,12 @@ create table M_LAYOUT_OBJ_GRP (
   , UPDATE_USER INT unsigned not null comment '更新者'
   , STS CHAR(8) not null comment 'ステータス'
   , LAYOUT_ID INT unsigned not null comment 'レイアウトID'
+  , ALIAS VARCHAR(200) not null comment 'エイリアス'
   , MULTIPLICITY CHAR(8) not null comment '多重度'
   , constraint M_LAYOUT_OBJ_GRP_PKC primary key (LAYOUT_OBJ_GRP_ID)
 ) comment 'レイアウトオブジェクトグループ' ;
+
+alter table M_LAYOUT_OBJ_GRP add unique M_LAYOUT_OBJ_GRP_IX1 (LAYOUT_ID,ALIAS) ;
 
 -- コードグループ
 drop table if exists M_CD_GRP cascade;
@@ -29,7 +32,7 @@ create table M_CD_GRP (
   , UPDATE_DATETIME TIMESTAMP not null comment '更新日時'
   , UPDATE_USER INT unsigned not null comment '更新者'
   , STS CHAR(8) not null comment 'ステータス'
-  , ALIAS VARCHAR(400) not null comment 'エイリアス'
+  , ALIAS VARCHAR(200) not null comment 'エイリアス'
   , NM VARCHAR(400) not null comment '名称'
   , SUMMARY VARCHAR(1000) comment '概要'
   , constraint M_CD_GRP_PKC primary key (CD_GRP_ID)
@@ -47,7 +50,7 @@ create table M_CD_VAL (
   , STS CHAR(8) not null comment 'ステータス'
   , CD_GRP_ID INT unsigned not null comment 'コードグループID'
   , CD CHAR(8) not null comment 'コード'
-  , ALIAS VARCHAR(400) not null comment 'エイリアス'
+  , ALIAS VARCHAR(200) not null comment 'エイリアス'
   , DISPLAY_NUM INT not null comment '表示順'
   , constraint M_CD_VAL_PKC primary key (CD_VAL_ID)
 ) comment 'コード値' ;
@@ -115,10 +118,13 @@ create table M_LAYOUT_OBJ (
   , UPDATE_USER INT unsigned not null comment '更新者'
   , STS CHAR(8) not null comment 'ステータス'
   , LAYOUT_OBJ_GRP_ID INT unsigned not null comment 'レイアウトオブジェクトグループID'
+  , ALIAS VARCHAR(200) not null comment 'エイリアス'
   , NM VARCHAR(400) not null comment '名称'
   , TYPE CHAR(8) not null comment '種別'
   , constraint M_LAYOUT_OBJ_PKC primary key (LAYOUT_OBJ_ID)
 ) comment 'レイアウトオブジェクト' ;
+
+alter table M_LAYOUT_OBJ add unique M_LAYOUT_OBJ_IX1 (LAYOUT_OBJ_GRP_ID,ALIAS) ;
 
 -- レイアウト
 drop table if exists M_LAYOUT cascade;
@@ -130,11 +136,13 @@ create table M_LAYOUT (
   , UPDATE_DATETIME TIMESTAMP not null comment '更新日時'
   , UPDATE_USER INT unsigned not null comment '更新者'
   , STS CHAR(8) not null comment 'ステータス'
-  , ALIAS VARCHAR(400) not null comment 'エイリアス'
+  , ALIAS VARCHAR(200) not null comment 'エイリアス'
   , NM VARCHAR(400) not null comment '名称'
   , TYPE CHAR(8) not null comment '種別'
   , constraint M_LAYOUT_PKC primary key (LAYOUT_ID)
 ) comment 'レイアウト' ;
+
+alter table M_LAYOUT add unique M_LAYOUT_IX1 (ALIAS) ;
 
 -- 地域
 drop table if exists M_REGION cascade;
@@ -490,4 +498,5 @@ order by
   , b.CD_VAL_ID
   , c.CD_VAL_LANG_ID; 
 ;
+
 

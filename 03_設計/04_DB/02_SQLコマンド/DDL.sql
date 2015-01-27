@@ -1,6 +1,6 @@
 ﻿-- Project Name : ProjectX
--- Date/Time    : 2015/01/23 15:11:10
--- Author       : j-nakashima
+-- Date/Time    : 2015/01/27 12:32:40
+-- Author       : n-suzuki
 -- RDBMS Type   : MySQL
 -- Application  : A5:SQL Mk-2
 
@@ -474,6 +474,7 @@ drop view if exists V_CD;
 create view V_CD as 
 select
     a.CD_GRP_ID      as CD_GRP_ID
+  , a.ALIAS          as CD_GRP_ALIAS
   , a.NM             as CD_GRP_NM
   , a.SUMMARY        as CD_GRP_SUMMARY
   , b.CD_VAL_ID      as CD_VAL_ID
@@ -498,5 +499,4 @@ order by
   , b.CD_VAL_ID
   , c.CD_VAL_LANG_ID; 
 ;
-
 

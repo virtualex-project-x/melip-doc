@@ -117,7 +117,7 @@ PName=V_CD
 LName=コードビュー
 Comment=コード定義のビュー
 ViewOption=
-Query=select\n    a.CD_GRP_ID      as CD_GRP_ID\n  , a.NM             as CD_GRP_NM\n  , a.SUMMARY        as CD_GRP_SUMMARY\n  , b.CD_VAL_ID      as CD_VAL_ID\n  , b.CD             as CD\n  , b.ALIAS          as CD_ALIAS\n  , b.DISPLAY_NUM    as CD_DISPLAY_NUM\n  , c.CD_VAL_LANG_ID as CD_VAL_LANG_ID\n  , c.LANG_DIV       as LANG_DIV\n  , c.NM             as CD_NM \nfrom\n  m_cd_grp a                                      -- コードグループ\n  inner join m_cd_val b                           -- コード値\n    on a.CD_GRP_ID = b.CD_GRP_ID \n    and b.sts = \q0\q \n  inner join m_cd_val_lang c                      -- コード値_多言語\n    on b.CD_VAL_ID = c.CD_VAL_ID \n    and c.sts = \q0\q \nwhere\n  a.STS = \q0\q \norder by\n  a.CD_GRP_ID\n  , b.CD_VAL_ID\n  , c.CD_VAL_LANG_ID; 
+Query=select\n    a.CD_GRP_ID      as CD_GRP_ID\n  , a.ALIAS          as CD_GRP_ALIAS\n  , a.NM             as CD_GRP_NM\n  , a.SUMMARY        as CD_GRP_SUMMARY\n  , b.CD_VAL_ID      as CD_VAL_ID\n  , b.CD             as CD\n  , b.ALIAS          as CD_ALIAS\n  , b.DISPLAY_NUM    as CD_DISPLAY_NUM\n  , c.CD_VAL_LANG_ID as CD_VAL_LANG_ID\n  , c.LANG_DIV       as LANG_DIV\n  , c.NM             as CD_NM \nfrom\n  m_cd_grp a                                      -- コードグループ\n  inner join m_cd_val b                           -- コード値\n    on a.CD_GRP_ID = b.CD_GRP_ID \n    and b.sts = \q0\q \n  inner join m_cd_val_lang c                      -- コード値_多言語\n    on b.CD_VAL_ID = c.CD_VAL_ID \n    and c.sts = \q0\q \nwhere\n  a.STS = \q0\q \norder by\n  a.CD_GRP_ID\n  , b.CD_VAL_ID\n  , c.CD_VAL_LANG_ID; 
 LNameByComment=1
 Color=$000000
 BkColor=$FFFFFF
@@ -205,7 +205,7 @@ Fields1=CD_GRP_ID
 Fields2=CD_GRP_ID
 Cardinarity1=
 Cardinarity2=
-Position="MELIP_SUB",0,4345,3746,3911,R,R
+Position="MELIP_SUB",0,4345,3746,3910,R,R
 Dependence=0
 Caption=
 PName=

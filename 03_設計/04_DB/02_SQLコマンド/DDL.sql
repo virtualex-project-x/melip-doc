@@ -1,8 +1,41 @@
 ﻿-- Project Name : ProjectX
--- Date/Time    : 2015/01/27 12:32:40
+-- Date/Time    : 2015/01/27 20:13:56
 -- Author       : n-suzuki
 -- RDBMS Type   : MySQL
 -- Application  : A5:SQL Mk-2
+
+-- スクリーンオブジェクトグループ
+drop table if exists M_SCREEN_OBJ_GRP cascade;
+
+create table M_SCREEN_OBJ_GRP (
+  SCREEN_OBJ_GRP_ID INT unsigned auto_increment not null comment 'スクリーンオブジェクトグループID'
+  , CREATE_DATETIME TIMESTAMP not null comment '登録日時'
+  , CREATE_USER INT unsigned not null comment '登録者'
+  , UPDATE_DATETIME TIMESTAMP not null comment '更新日時'
+  , UPDATE_USER INT unsigned not null comment '更新者'
+  , STS CHAR(8) not null comment 'ステータス'
+  , SCREEN_ID INT unsigned not null comment 'スクリーンID'
+  , TARGET_SCREEN_ID INT unsigned comment '遷移先スクリーンID'
+  , constraint M_SCREEN_OBJ_GRP_PKC primary key (SCREEN_OBJ_GRP_ID)
+) comment 'スクリーンオブジェクトグループ' ;
+
+-- スクリーンオブジェクト属性
+drop table if exists M_SCREEN_OBJ_ATTR cascade;
+
+create table M_SCREEN_OBJ_ATTR (
+  SCREEN_OBJ_ATTR_ID INT unsigned auto_increment not null comment 'スクリーンオブジェクト属性ID'
+  , CREATE_DATETIME TIMESTAMP not null comment '登録日時'
+  , CREATE_USER INT unsigned not null comment '登録者'
+  , UPDATE_DATETIME TIMESTAMP not null comment '更新日時'
+  , UPDATE_USER INT unsigned not null comment '更新者'
+  , STS CHAR(8) not null comment 'ステータス'
+  , SCREEN_OBJ_ID INT unsigned not null comment 'スクリーンオブジェクトID'
+  , ENTITY CHAR(8) not null comment 'エンティティ'
+  , ATTR_GRP_ID INT unsigned not null comment '属性グループID'
+  , DISPLAY_NUM INT comment '表示順'
+  , TARGET_SCREEN_ID INT unsigned comment '遷移先スクリーンID'
+  , constraint M_SCREEN_OBJ_ATTR_PKC primary key (SCREEN_OBJ_ATTR_ID)
+) comment 'スクリーンオブジェクト属性' ;
 
 -- レイアウトオブジェクトグループ
 drop table if exists M_LAYOUT_OBJ_GRP cascade;
@@ -81,12 +114,8 @@ create table M_SCREEN_OBJ (
   , UPDATE_DATETIME TIMESTAMP not null comment '更新日時'
   , UPDATE_USER INT unsigned not null comment '更新者'
   , STS CHAR(8) not null comment 'ステータス'
-  , SCREEN_ID INT unsigned not null comment 'スクリーンID'
+  , SCREEN_OBJ_GRP_ID INT unsigned not null comment 'スクリーンオブジェクトグループID'
   , LAYOUT_OBJ_ID INT unsigned not null comment 'レイアウトオブジェクトID'
-  , ENTITY CHAR(8) not null comment 'エンティティ'
-  , ATTR_GRP_ID INT unsigned not null comment '属性グループID'
-  , DISPLAY_NUM INT comment '表示順'
-  , TARGET_SCREEN_ID INT unsigned comment '遷移先スクリーンID'
   , constraint M_SCREEN_OBJ_PKC primary key (SCREEN_OBJ_ID)
 ) comment 'スクリーンオブジェクト' ;
 

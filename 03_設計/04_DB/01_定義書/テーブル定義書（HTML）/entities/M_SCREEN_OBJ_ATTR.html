@@ -33,13 +33,13 @@
 		</tr>
 		<tr>
 			<th>論理エンティティ名</th>
-			<td>地域属性グループ&nbsp;</td>
+			<td>スクリーンオブジェクト属性&nbsp;</td>
 			<th>タグ&nbsp;</th>
 			<td>&nbsp;</td>
 		</tr>
 		<tr>
 			<th>物理エンティティ名</th>
-			<td>M_REGION_ATTR_GRP&nbsp;</td>
+			<td>M_SCREEN_OBJ_ATTR&nbsp;</td>
 			<th>&nbsp;</th>
 			<td>&nbsp;</td>
 		</tr>
@@ -72,8 +72,8 @@
 		</tr>
 		<tr>
 			<td style="text-align:right;">1</td>
-			<td>地域属性グループID</td>
-			<td>REGION_ATTR_GRP_ID</td>
+			<td>スクリーンオブジェクト属性ID</td>
+			<td>SCREEN_OBJ_ATTR_ID</td>
 			<td>*PK</td>
 			<td>Yes (PK)</td>
 			<td></td>
@@ -126,17 +126,44 @@
 		</tr>
 		<tr>
 			<td style="text-align:right;">7</td>
-			<td>種別</td>
-			<td>TYPE</td>
-			<td>*CD</td>
+			<td>スクリーンオブジェクトID</td>
+			<td>SCREEN_OBJ_ID</td>
+			<td>*FK</td>
 			<td>Yes</td>
 			<td></td>
 			<td></td>
 		</tr>
 		<tr>
 			<td style="text-align:right;">8</td>
-			<td>コードグループID</td>
-			<td>CD_GRP_ID</td>
+			<td>エンティティ</td>
+			<td>ENTITY</td>
+			<td>*CD</td>
+			<td>Yes</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td style="text-align:right;">9</td>
+			<td>属性グループID</td>
+			<td>ATTR_GRP_ID</td>
+			<td>*FK</td>
+			<td>Yes</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td style="text-align:right;">10</td>
+			<td>表示順</td>
+			<td>DISPLAY_NUM</td>
+			<td>INT</td>
+			<td>&nbsp;</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td style="text-align:right;">11</td>
+			<td>遷移先スクリーンID</td>
+			<td>TARGET_SCREEN_ID</td>
 			<td>*FK</td>
 			<td>&nbsp;</td>
 			<td></td>
@@ -181,6 +208,13 @@
 			<th>参照先</th>
 			<th>参照先カラムリスト</th>
 		</tr>
+		<tr>
+			<td style="text-align:right;">1</td>
+			<td></td>
+			<td>SCREEN_OBJ_ID</td>
+			<td>M_SCREEN_OBJ</td>
+			<td>SCREEN_OBJ_ID</td>
+		</tr>
 	</table>
 
 <br>
@@ -200,20 +234,6 @@
 			<th>カラムリスト</th>
 			<th>参照元</th>
 			<th>参照元カラムリスト</th>
-		</tr>
-		<tr>
-			<td style="text-align:right;">1</td>
-			<td></td>
-			<td>REGION_ATTR_GRP_ID</td>
-			<td>M_REGION_ATTR_GRP_LANG</td>
-			<td>REGION_ATTR_GRP_ID</td>
-		</tr>
-		<tr>
-			<td style="text-align:right;">2</td>
-			<td></td>
-			<td>REGION_ATTR_GRP_ID</td>
-			<td>M_REGION_ATTR_VAL</td>
-			<td>REGION_ATTR_GRP_ID</td>
 		</tr>
 	</table>
 

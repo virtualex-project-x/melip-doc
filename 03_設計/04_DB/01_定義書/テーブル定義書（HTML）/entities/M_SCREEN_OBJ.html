@@ -23,7 +23,7 @@
 			<th>サブシステム名</th>
 			<td>&nbsp;</td>
 			<th>作成日</th>
-			<td>2015/01/23&nbsp;</td>
+			<td>2015/01/27&nbsp;</td>
 		</tr>
 		<tr>
 			<th>スキーマ名</th>
@@ -126,8 +126,8 @@
 		</tr>
 		<tr>
 			<td style="text-align:right;">7</td>
-			<td>スクリーンID</td>
-			<td>SCREEN_ID</td>
+			<td>スクリーンオブジェクトグループID</td>
+			<td>SCREEN_OBJ_GRP_ID</td>
 			<td>*FK</td>
 			<td>Yes</td>
 			<td></td>
@@ -139,42 +139,6 @@
 			<td>LAYOUT_OBJ_ID</td>
 			<td>*FK</td>
 			<td>Yes</td>
-			<td></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td style="text-align:right;">9</td>
-			<td>エンティティ</td>
-			<td>ENTITY</td>
-			<td>*CD</td>
-			<td>Yes</td>
-			<td></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td style="text-align:right;">10</td>
-			<td>属性グループID</td>
-			<td>ATTR_GRP_ID</td>
-			<td>*FK</td>
-			<td>Yes</td>
-			<td></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td style="text-align:right;">11</td>
-			<td>表示順</td>
-			<td>DISPLAY_NUM</td>
-			<td>INT</td>
-			<td>&nbsp;</td>
-			<td></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td style="text-align:right;">12</td>
-			<td>遷移先スクリーンID</td>
-			<td>TARGET_SCREEN_ID</td>
-			<td>*FK</td>
-			<td>&nbsp;</td>
 			<td></td>
 			<td></td>
 		</tr>
@@ -220,16 +184,16 @@
 		<tr>
 			<td style="text-align:right;">1</td>
 			<td></td>
-			<td>LAYOUT_OBJ_ID</td>
-			<td>M_LAYOUT_OBJ</td>
-			<td>LAYOUT_OBJ_ID</td>
+			<td>SCREEN_OBJ_GRP_ID</td>
+			<td>M_SCREEN_OBJ_GRP</td>
+			<td>SCREEN_OBJ_GRP_ID</td>
 		</tr>
 		<tr>
 			<td style="text-align:right;">2</td>
 			<td></td>
-			<td>SCREEN_ID</td>
-			<td>M_SCREEN</td>
-			<td>SCREEN_ID</td>
+			<td>LAYOUT_OBJ_ID</td>
+			<td>M_LAYOUT_OBJ</td>
+			<td>LAYOUT_OBJ_ID</td>
 		</tr>
 	</table>
 
@@ -250,6 +214,13 @@
 			<th>カラムリスト</th>
 			<th>参照元</th>
 			<th>参照元カラムリスト</th>
+		</tr>
+		<tr>
+			<td style="text-align:right;">1</td>
+			<td></td>
+			<td>SCREEN_OBJ_ID</td>
+			<td>M_SCREEN_OBJ_ATTR</td>
+			<td>SCREEN_OBJ_ID</td>
 		</tr>
 	</table>
 

@@ -1,6 +1,6 @@
 ﻿-- Project Name : ProjectX
--- Date/Time    : 2015/01/27 20:13:56
--- Author       : n-suzuki
+-- Date/Time    : 2015/01/28 11:51:06
+-- Author       : j-nakashima
 -- RDBMS Type   : MySQL
 -- Application  : A5:SQL Mk-2
 
@@ -15,6 +15,7 @@ create table M_SCREEN_OBJ_GRP (
   , UPDATE_USER INT unsigned not null comment '更新者'
   , STS CHAR(8) not null comment 'ステータス'
   , SCREEN_ID INT unsigned not null comment 'スクリーンID'
+  , LAYOUT_OBJ_GRP_ID INT unsigned not null comment 'レイアウトオブジェクトグループID'
   , TARGET_SCREEN_ID INT unsigned comment '遷移先スクリーンID'
   , constraint M_SCREEN_OBJ_GRP_PKC primary key (SCREEN_OBJ_GRP_ID)
 ) comment 'スクリーンオブジェクトグループ' ;

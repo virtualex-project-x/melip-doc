@@ -307,27 +307,59 @@ insert into M_SCREEN values (5, now(), 1, now(), 1, 'val', 2, 4, 'reg', 'ïxémå‹å
 insert into M_SCREEN values (6, now(), 1, now(), 1, 'val', 2, 6, 'fac', 'ïxémå‹åŒé{ê›è⁄ç◊');
 
 -- ÉXÉNÉäÅ[ÉìÉIÉuÉWÉFÉNÉgÅiinsertï∂Åj
-insert into M_SCREEN_OBJ values (1, now(), 1, now(), 1, 'val', 1, 1, 'reg', 4, null, null);
-insert into M_SCREEN_OBJ values (2, now(), 1, now(), 1, 'val', 1, 2, 'reg', 1, null, 2);
-insert into M_SCREEN_OBJ values (3, now(), 1, now(), 1, 'val', 1, 3, 'reg', 1, null, 2);
-insert into M_SCREEN_OBJ values (4, now(), 1, now(), 1, 'val', 1, 4, 'reg', 1, null, 2);
-insert into M_SCREEN_OBJ values (5, now(), 1, now(), 1, 'val', 2, 9, 'reg', 2, null, null);
-insert into M_SCREEN_OBJ values (6, now(), 1, now(), 1, 'val', 2, 10, 'fac', 3, null, null);
-insert into M_SCREEN_OBJ values (7, now(), 1, now(), 1, 'val', 2, 11, 'fac', 2, null, null);
-insert into M_SCREEN_OBJ values (8, now(), 1, now(), 1, 'val', 3, 15, 'fac', 3, null, null);
-insert into M_SCREEN_OBJ values (9, now(), 1, now(), 1, 'val', 3, 16, 'fac', 1, null, null);
-insert into M_SCREEN_OBJ values (10, now(), 1, now(), 1, 'val', 3, 17, 'fac', 2, null, null);
-insert into M_SCREEN_OBJ values (11, now(), 1, now(), 1, 'val', 4, 5, 'reg', 4, null, null);
-insert into M_SCREEN_OBJ values (12, now(), 1, now(), 1, 'val', 4, 6, 'reg', 1, null, 4);
-insert into M_SCREEN_OBJ values (13, now(), 1, now(), 1, 'val', 4, 7, 'reg', 1, null, 4);
-insert into M_SCREEN_OBJ values (14, now(), 1, now(), 1, 'val', 4, 8, 'reg', 1, null, 4);
-insert into M_SCREEN_OBJ values (15, now(), 1, now(), 1, 'val', 5, 12, 'reg', 2, null, null);
-insert into M_SCREEN_OBJ values (16, now(), 1, now(), 1, 'val', 5, 13, 'fac', 3, null, null);
-insert into M_SCREEN_OBJ values (17, now(), 1, now(), 1, 'val', 5, 14, 'fac', 1, 1, null);
-insert into M_SCREEN_OBJ values (18, now(), 1, now(), 1, 'val', 5, 14, 'fac', 2, 2, null);
-insert into M_SCREEN_OBJ values (19, now(), 1, now(), 1, 'val', 6, 18, 'fac', 3, null, null);
-insert into M_SCREEN_OBJ values (20, now(), 1, now(), 1, 'val', 6, 19, 'fac', 1, null, null);
-insert into M_SCREEN_OBJ values (21, now(), 1, now(), 1, 'val', 6, 20, 'fac', 1, 1, null);
-insert into M_SCREEN_OBJ values (22, now(), 1, now(), 1, 'val', 6, 20, 'fac', 2, 2, null);
+insert into M_SCREEN_OBJ values (1, now(), 1, now(), 1, 'val', 1, 1);
+insert into M_SCREEN_OBJ values (2, now(), 1, now(), 1, 'val', 1, 2);
+insert into M_SCREEN_OBJ values (3, now(), 1, now(), 1, 'val', 1, 3);
+insert into M_SCREEN_OBJ values (4, now(), 1, now(), 1, 'val', 1, 4);
+insert into M_SCREEN_OBJ values (5, now(), 1, now(), 1, 'val', 2, 9);
+insert into M_SCREEN_OBJ values (6, now(), 1, now(), 1, 'val', 3, 10);
+insert into M_SCREEN_OBJ values (7, now(), 1, now(), 1, 'val', 3, 11);
+insert into M_SCREEN_OBJ values (8, now(), 1, now(), 1, 'val', 4, 15);
+insert into M_SCREEN_OBJ values (9, now(), 1, now(), 1, 'val', 4, 16);
+insert into M_SCREEN_OBJ values (10, now(), 1, now(), 1, 'val', 4, 17);
+insert into M_SCREEN_OBJ values (11, now(), 1, now(), 1, 'val', 5, 5);
+insert into M_SCREEN_OBJ values (12, now(), 1, now(), 1, 'val', 5, 6);
+insert into M_SCREEN_OBJ values (13, now(), 1, now(), 1, 'val', 5, 7);
+insert into M_SCREEN_OBJ values (14, now(), 1, now(), 1, 'val', 5, 8);
+insert into M_SCREEN_OBJ values (15, now(), 1, now(), 1, 'val', 6, 12);
+insert into M_SCREEN_OBJ values (16, now(), 1, now(), 1, 'val', 7, 13);
+insert into M_SCREEN_OBJ values (17, now(), 1, now(), 1, 'val', 7, 14);
+insert into M_SCREEN_OBJ values (18, now(), 1, now(), 1, 'val', 8, 18);
+insert into M_SCREEN_OBJ values (19, now(), 1, now(), 1, 'val', 8, 19);
+insert into M_SCREEN_OBJ values (20, now(), 1, now(), 1, 'val', 8, 20);
+
+-- ÉXÉNÉäÅ[ÉìÉIÉuÉWÉFÉNÉgÉOÉãÅ[ÉvÅiinsertï∂Åj
+insert into M_SCREEN_OBJ_GRP values (1, now(), 1, now(), 1, 'val', 1, 1, null);
+insert into M_SCREEN_OBJ_GRP values (2, now(), 1, now(), 1, 'val', 2, 3, null);
+insert into M_SCREEN_OBJ_GRP values (3, now(), 1, now(), 1, 'val', 2, 4, null);
+insert into M_SCREEN_OBJ_GRP values (4, now(), 1, now(), 1, 'val', 3, 7, null);
+insert into M_SCREEN_OBJ_GRP values (5, now(), 1, now(), 1, 'val', 4, 2, null);
+insert into M_SCREEN_OBJ_GRP values (6, now(), 1, now(), 1, 'val', 5, 5, null);
+insert into M_SCREEN_OBJ_GRP values (7, now(), 1, now(), 1, 'val', 5, 6, 6);
+insert into M_SCREEN_OBJ_GRP values (8, now(), 1, now(), 1, 'val', 6, 8, null);
+
+-- ÉXÉNÉäÅ[ÉìÉIÉuÉWÉFÉNÉgëÆê´Åiinsertï∂Åj
+insert into M_SCREEN_OBJ_ATTR values (1, now(), 1, now(), 1, 'val', 1, 'reg', 4, null, null);
+insert into M_SCREEN_OBJ_ATTR values (2, now(), 1, now(), 1, 'val', 2, 'reg', 1, null, 2);
+insert into M_SCREEN_OBJ_ATTR values (3, now(), 1, now(), 1, 'val', 3, 'reg', 1, null, 2);
+insert into M_SCREEN_OBJ_ATTR values (4, now(), 1, now(), 1, 'val', 4, 'reg', 1, null, 2);
+insert into M_SCREEN_OBJ_ATTR values (5, now(), 1, now(), 1, 'val', 5, 'reg', 2, null, null);
+insert into M_SCREEN_OBJ_ATTR values (6, now(), 1, now(), 1, 'val', 6, 'fac', 3, null, 3);
+insert into M_SCREEN_OBJ_ATTR values (7, now(), 1, now(), 1, 'val', 7, 'fac', 2, null, null);
+insert into M_SCREEN_OBJ_ATTR values (8, now(), 1, now(), 1, 'val', 8, 'fac', 3, null, null);
+insert into M_SCREEN_OBJ_ATTR values (9, now(), 1, now(), 1, 'val', 9, 'fac', 1, null, null);
+insert into M_SCREEN_OBJ_ATTR values (10, now(), 1, now(), 1, 'val', 10, 'fac', 2, null, null);
+insert into M_SCREEN_OBJ_ATTR values (11, now(), 1, now(), 1, 'val', 11, 'reg', 4, null, null);
+insert into M_SCREEN_OBJ_ATTR values (12, now(), 1, now(), 1, 'val', 12, 'reg', 1, null, 4);
+insert into M_SCREEN_OBJ_ATTR values (13, now(), 1, now(), 1, 'val', 13, 'reg', 1, null, 4);
+insert into M_SCREEN_OBJ_ATTR values (14, now(), 1, now(), 1, 'val', 14, 'reg', 1, null, 4);
+insert into M_SCREEN_OBJ_ATTR values (15, now(), 1, now(), 1, 'val', 15, 'reg', 2, null, null);
+insert into M_SCREEN_OBJ_ATTR values (16, now(), 1, now(), 1, 'val', 16, 'fac', 3, null, null);
+insert into M_SCREEN_OBJ_ATTR values (17, now(), 1, now(), 1, 'val', 17, 'fac', 1, 1, null);
+insert into M_SCREEN_OBJ_ATTR values (18, now(), 1, now(), 1, 'val', 17, 'fac', 2, 2, null);
+insert into M_SCREEN_OBJ_ATTR values (19, now(), 1, now(), 1, 'val', 18, 'fac', 3, null, null);
+insert into M_SCREEN_OBJ_ATTR values (20, now(), 1, now(), 1, 'val', 19, 'fac', 1, null, null);
+insert into M_SCREEN_OBJ_ATTR values (21, now(), 1, now(), 1, 'val', 20, 'fac', 1, 1, null);
+insert into M_SCREEN_OBJ_ATTR values (22, now(), 1, now(), 1, 'val', 20, 'fac', 2, 2, null);
 
 

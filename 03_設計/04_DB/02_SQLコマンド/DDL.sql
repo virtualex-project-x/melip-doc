@@ -1,5 +1,5 @@
 ﻿-- Project Name : ProjectX
--- Date/Time    : 2015/01/28 11:51:06
+-- Date/Time    : 2015/01/28 17:40:03
 -- Author       : j-nakashima
 -- RDBMS Type   : MySQL
 -- Application  : A5:SQL Mk-2
@@ -16,6 +16,7 @@ create table M_SCREEN_OBJ_GRP (
   , STS CHAR(8) not null comment 'ステータス'
   , SCREEN_ID INT unsigned not null comment 'スクリーンID'
   , LAYOUT_OBJ_GRP_ID INT unsigned not null comment 'レイアウトオブジェクトグループID'
+  , ENTITY CHAR(8) not null comment 'エンティティ'
   , TARGET_SCREEN_ID INT unsigned comment '遷移先スクリーンID'
   , constraint M_SCREEN_OBJ_GRP_PKC primary key (SCREEN_OBJ_GRP_ID)
 ) comment 'スクリーンオブジェクトグループ' ;
@@ -132,7 +133,7 @@ create table M_SCREEN (
   , STS CHAR(8) not null comment 'ステータス'
   , REGION_ID INT unsigned not null comment '地域ID'
   , LAYOUT_ID INT unsigned not null comment 'レイアウトID'
-  , TARGET_ENTITY CHAR(8) not null comment '対象エンティティ'
+  , ENTITY CHAR(8) not null comment 'エンティティ'
   , NM VARCHAR(400) not null comment '名称'
   , constraint M_SCREEN_PKC primary key (SCREEN_ID)
 ) comment 'スクリーン' ;

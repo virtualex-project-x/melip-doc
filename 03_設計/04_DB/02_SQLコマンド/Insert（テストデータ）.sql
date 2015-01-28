@@ -329,14 +329,14 @@ insert into M_SCREEN_OBJ values (19, now(), 1, now(), 1, 'val', 8, 19);
 insert into M_SCREEN_OBJ values (20, now(), 1, now(), 1, 'val', 8, 20);
 
 -- スクリーンオブジェクトグループ（insert文）
-insert into M_SCREEN_OBJ_GRP values (1, now(), 1, now(), 1, 'val', 1, 1, null);
-insert into M_SCREEN_OBJ_GRP values (2, now(), 1, now(), 1, 'val', 2, 3, null);
-insert into M_SCREEN_OBJ_GRP values (3, now(), 1, now(), 1, 'val', 2, 4, null);
-insert into M_SCREEN_OBJ_GRP values (4, now(), 1, now(), 1, 'val', 3, 7, null);
-insert into M_SCREEN_OBJ_GRP values (5, now(), 1, now(), 1, 'val', 4, 2, null);
-insert into M_SCREEN_OBJ_GRP values (6, now(), 1, now(), 1, 'val', 5, 5, null);
-insert into M_SCREEN_OBJ_GRP values (7, now(), 1, now(), 1, 'val', 5, 6, 6);
-insert into M_SCREEN_OBJ_GRP values (8, now(), 1, now(), 1, 'val', 6, 8, null);
+insert into M_SCREEN_OBJ_GRP values (1, now(), 1, now(), 1, 'val', 1, 1, 'reg', null);
+insert into M_SCREEN_OBJ_GRP values (2, now(), 1, now(), 1, 'val', 2, 3, 'reg', null);
+insert into M_SCREEN_OBJ_GRP values (3, now(), 1, now(), 1, 'val', 2, 4, 'fac', null);
+insert into M_SCREEN_OBJ_GRP values (4, now(), 1, now(), 1, 'val', 3, 7, 'fac', null);
+insert into M_SCREEN_OBJ_GRP values (5, now(), 1, now(), 1, 'val', 4, 2, 'reg', null);
+insert into M_SCREEN_OBJ_GRP values (6, now(), 1, now(), 1, 'val', 5, 5, 'reg', null);
+insert into M_SCREEN_OBJ_GRP values (7, now(), 1, now(), 1, 'val', 5, 6, 'fac', 6);
+insert into M_SCREEN_OBJ_GRP values (8, now(), 1, now(), 1, 'val', 6, 8, 'fac', null);
 
 -- スクリーンオブジェクト属性（insert文）
 insert into M_SCREEN_OBJ_ATTR values (1, now(), 1, now(), 1, 'val', 1, 'reg', 4, null, null);

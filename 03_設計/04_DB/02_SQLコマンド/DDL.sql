@@ -1,77 +1,24 @@
 ﻿-- Project Name : ProjectX
--- Date/Time    : 2015/01/28 17:40:03
--- Author       : j-nakashima
+-- Date/Time    : 2015/02/10 17:33:52
+-- Author       : n-suzuki
 -- RDBMS Type   : MySQL
 -- Application  : A5:SQL Mk-2
 
--- スクリーンオブジェクトグループ
-drop table if exists M_SCREEN_OBJ_GRP cascade;
+-- コード値_多言語
+drop table if exists M_CD_VAL_LANG cascade;
 
-create table M_SCREEN_OBJ_GRP (
-  SCREEN_OBJ_GRP_ID INT unsigned auto_increment not null comment 'スクリーンオブジェクトグループID'
+create table M_CD_VAL_LANG (
+  CD_VAL_LANG_ID INT unsigned auto_increment not null comment 'コード値_多言語ID'
   , CREATE_DATETIME TIMESTAMP not null comment '登録日時'
   , CREATE_USER INT unsigned not null comment '登録者'
   , UPDATE_DATETIME TIMESTAMP not null comment '更新日時'
   , UPDATE_USER INT unsigned not null comment '更新者'
   , STS CHAR(8) not null comment 'ステータス'
-  , SCREEN_ID INT unsigned not null comment 'スクリーンID'
-  , LAYOUT_OBJ_GRP_ID INT unsigned not null comment 'レイアウトオブジェクトグループID'
-  , ENTITY CHAR(8) not null comment 'エンティティ'
-  , TARGET_SCREEN_ID INT unsigned comment '遷移先スクリーンID'
-  , constraint M_SCREEN_OBJ_GRP_PKC primary key (SCREEN_OBJ_GRP_ID)
-) comment 'スクリーンオブジェクトグループ' ;
-
--- スクリーンオブジェクト属性
-drop table if exists M_SCREEN_OBJ_ATTR cascade;
-
-create table M_SCREEN_OBJ_ATTR (
-  SCREEN_OBJ_ATTR_ID INT unsigned auto_increment not null comment 'スクリーンオブジェクト属性ID'
-  , CREATE_DATETIME TIMESTAMP not null comment '登録日時'
-  , CREATE_USER INT unsigned not null comment '登録者'
-  , UPDATE_DATETIME TIMESTAMP not null comment '更新日時'
-  , UPDATE_USER INT unsigned not null comment '更新者'
-  , STS CHAR(8) not null comment 'ステータス'
-  , SCREEN_OBJ_ID INT unsigned not null comment 'スクリーンオブジェクトID'
-  , ENTITY CHAR(8) not null comment 'エンティティ'
-  , ATTR_GRP_ID INT unsigned not null comment '属性グループID'
-  , DISPLAY_NUM INT comment '表示順'
-  , TARGET_SCREEN_ID INT unsigned comment '遷移先スクリーンID'
-  , constraint M_SCREEN_OBJ_ATTR_PKC primary key (SCREEN_OBJ_ATTR_ID)
-) comment 'スクリーンオブジェクト属性' ;
-
--- レイアウトオブジェクトグループ
-drop table if exists M_LAYOUT_OBJ_GRP cascade;
-
-create table M_LAYOUT_OBJ_GRP (
-  LAYOUT_OBJ_GRP_ID INT unsigned auto_increment not null comment 'レイアウトオブジェクトグループID'
-  , CREATE_DATETIME TIMESTAMP not null comment '登録日時'
-  , CREATE_USER INT unsigned not null comment '登録者'
-  , UPDATE_DATETIME TIMESTAMP not null comment '更新日時'
-  , UPDATE_USER INT unsigned not null comment '更新者'
-  , STS CHAR(8) not null comment 'ステータス'
-  , LAYOUT_ID INT unsigned not null comment 'レイアウトID'
-  , ALIAS VARCHAR(200) not null comment 'エイリアス'
-  , MULTIPLICITY CHAR(8) not null comment '多重度'
-  , constraint M_LAYOUT_OBJ_GRP_PKC primary key (LAYOUT_OBJ_GRP_ID)
-) comment 'レイアウトオブジェクトグループ' ;
-
-alter table M_LAYOUT_OBJ_GRP add unique M_LAYOUT_OBJ_GRP_IX1 (LAYOUT_ID,ALIAS) ;
-
--- コードグループ
-drop table if exists M_CD_GRP cascade;
-
-create table M_CD_GRP (
-  CD_GRP_ID INT unsigned auto_increment not null comment 'コードグループID'
-  , CREATE_DATETIME TIMESTAMP not null comment '登録日時'
-  , CREATE_USER INT unsigned not null comment '登録者'
-  , UPDATE_DATETIME TIMESTAMP not null comment '更新日時'
-  , UPDATE_USER INT unsigned not null comment '更新者'
-  , STS CHAR(8) not null comment 'ステータス'
-  , ALIAS VARCHAR(200) not null comment 'エイリアス'
+  , CD_VAL_ID INT unsigned not null comment 'コード値ID'
+  , LANG_DIV CHAR(8) not null comment '言語区分'
   , NM VARCHAR(400) not null comment '名称'
-  , SUMMARY VARCHAR(1000) comment '概要'
-  , constraint M_CD_GRP_PKC primary key (CD_GRP_ID)
-) comment 'コードグループ' ;
+  , constraint M_CD_VAL_LANG_PKC primary key (CD_VAL_LANG_ID)
+) comment 'コード値_多言語' ;
 
 -- コード値
 drop table if exists M_CD_VAL cascade;
@@ -90,78 +37,11 @@ create table M_CD_VAL (
   , constraint M_CD_VAL_PKC primary key (CD_VAL_ID)
 ) comment 'コード値' ;
 
--- コード値_多言語
-drop table if exists M_CD_VAL_LANG cascade;
+-- コードグループ
+drop table if exists M_CD_GRP cascade;
 
-create table M_CD_VAL_LANG (
-  CD_VAL_LANG_ID INT unsigned auto_increment not null comment 'コード値_多言語ID'
-  , CREATE_DATETIME TIMESTAMP not null comment '登録日時'
-  , CREATE_USER INT unsigned not null comment '登録者'
-  , UPDATE_DATETIME TIMESTAMP not null comment '更新日時'
-  , UPDATE_USER INT unsigned not null comment '更新者'
-  , STS CHAR(8) not null comment 'ステータス'
-  , CD_VAL_ID INT unsigned not null comment 'コード値ID'
-  , LANG_DIV CHAR(8) not null comment '言語区分'
-  , NM VARCHAR(400) not null comment '名称'
-  , constraint M_CD_VAL_LANG_PKC primary key (CD_VAL_LANG_ID)
-) comment 'コード値_多言語' ;
-
--- スクリーンオブジェクト
-drop table if exists M_SCREEN_OBJ cascade;
-
-create table M_SCREEN_OBJ (
-  SCREEN_OBJ_ID INT unsigned auto_increment not null comment 'スクリーンオブジェクトID'
-  , CREATE_DATETIME TIMESTAMP not null comment '登録日時'
-  , CREATE_USER INT unsigned not null comment '登録者'
-  , UPDATE_DATETIME TIMESTAMP not null comment '更新日時'
-  , UPDATE_USER INT unsigned not null comment '更新者'
-  , STS CHAR(8) not null comment 'ステータス'
-  , SCREEN_OBJ_GRP_ID INT unsigned not null comment 'スクリーンオブジェクトグループID'
-  , LAYOUT_OBJ_ID INT unsigned not null comment 'レイアウトオブジェクトID'
-  , constraint M_SCREEN_OBJ_PKC primary key (SCREEN_OBJ_ID)
-) comment 'スクリーンオブジェクト' ;
-
--- スクリーン
-drop table if exists M_SCREEN cascade;
-
-create table M_SCREEN (
-  SCREEN_ID INT unsigned auto_increment not null comment 'スクリーンID'
-  , CREATE_DATETIME TIMESTAMP not null comment '登録日時'
-  , CREATE_USER INT unsigned not null comment '登録者'
-  , UPDATE_DATETIME TIMESTAMP not null comment '更新日時'
-  , UPDATE_USER INT unsigned not null comment '更新者'
-  , STS CHAR(8) not null comment 'ステータス'
-  , REGION_ID INT unsigned not null comment '地域ID'
-  , LAYOUT_ID INT unsigned not null comment 'レイアウトID'
-  , ENTITY CHAR(8) not null comment 'エンティティ'
-  , NM VARCHAR(400) not null comment '名称'
-  , constraint M_SCREEN_PKC primary key (SCREEN_ID)
-) comment 'スクリーン' ;
-
--- レイアウトオブジェクト
-drop table if exists M_LAYOUT_OBJ cascade;
-
-create table M_LAYOUT_OBJ (
-  LAYOUT_OBJ_ID INT unsigned auto_increment not null comment 'レイアウトオブジェクトID'
-  , CREATE_DATETIME TIMESTAMP not null comment '登録日時'
-  , CREATE_USER INT unsigned not null comment '登録者'
-  , UPDATE_DATETIME TIMESTAMP not null comment '更新日時'
-  , UPDATE_USER INT unsigned not null comment '更新者'
-  , STS CHAR(8) not null comment 'ステータス'
-  , LAYOUT_OBJ_GRP_ID INT unsigned not null comment 'レイアウトオブジェクトグループID'
-  , ALIAS VARCHAR(200) not null comment 'エイリアス'
-  , NM VARCHAR(400) not null comment '名称'
-  , TYPE CHAR(8) not null comment '種別'
-  , constraint M_LAYOUT_OBJ_PKC primary key (LAYOUT_OBJ_ID)
-) comment 'レイアウトオブジェクト' ;
-
-alter table M_LAYOUT_OBJ add unique M_LAYOUT_OBJ_IX1 (LAYOUT_OBJ_GRP_ID,ALIAS) ;
-
--- レイアウト
-drop table if exists M_LAYOUT cascade;
-
-create table M_LAYOUT (
-  LAYOUT_ID INT unsigned auto_increment not null comment 'レイアウトID'
+create table M_CD_GRP (
+  CD_GRP_ID INT unsigned auto_increment not null comment 'コードグループID'
   , CREATE_DATETIME TIMESTAMP not null comment '登録日時'
   , CREATE_USER INT unsigned not null comment '登録者'
   , UPDATE_DATETIME TIMESTAMP not null comment '更新日時'
@@ -169,11 +49,9 @@ create table M_LAYOUT (
   , STS CHAR(8) not null comment 'ステータス'
   , ALIAS VARCHAR(200) not null comment 'エイリアス'
   , NM VARCHAR(400) not null comment '名称'
-  , TYPE CHAR(8) not null comment '種別'
-  , constraint M_LAYOUT_PKC primary key (LAYOUT_ID)
-) comment 'レイアウト' ;
-
-alter table M_LAYOUT add unique M_LAYOUT_IX1 (ALIAS) ;
+  , SUMMARY VARCHAR(1000) comment '概要'
+  , constraint M_CD_GRP_PKC primary key (CD_GRP_ID)
+) comment 'コードグループ' ;
 
 -- 地域
 drop table if exists M_REGION cascade;
@@ -185,7 +63,6 @@ create table M_REGION (
   , UPDATE_DATETIME TIMESTAMP not null comment '更新日時'
   , UPDATE_USER INT unsigned not null comment '更新者'
   , STS CHAR(8) not null comment 'ステータス'
-  , HOME_SCREEN_ID INT unsigned not null comment 'ホームスクリーンID'
   , PUBLISH_STS CHAR(8) not null comment '公開ステータス'
   , constraint M_REGION_PKC primary key (REGION_ID)
 ) comment '地域' ;
@@ -202,6 +79,7 @@ create table M_FACILITY (
   , STS CHAR(8) not null comment 'ステータス'
   , REGION_ID INT unsigned not null comment '地域ID'
   , PUBLISH_STS CHAR(8) not null comment '公開ステータス'
+  , PARENT_FACILITY_ID INT unsigned comment '親施設ID'
   , constraint M_FACILITY_PKC primary key (FACILITY_ID)
 ) comment '施設' ;
 
@@ -314,6 +192,7 @@ create table M_FACILITY_ATTR_GRP (
   , UPDATE_DATETIME TIMESTAMP not null comment '更新日時'
   , UPDATE_USER INT unsigned not null comment '更新者'
   , STS CHAR(8) not null comment 'ステータス'
+  , ALIAS VARCHAR(200) not null comment 'エイリアス'
   , TYPE CHAR(8) not null comment '種別'
   , CD_GRP_ID INT unsigned comment 'コードグループID'
   , constraint M_FACILITY_ATTR_GRP_PKC primary key (FACILITY_ATTR_GRP_ID)

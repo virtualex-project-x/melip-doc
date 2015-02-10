@@ -23,7 +23,7 @@
 			<th>サブシステム名</th>
 			<td>&nbsp;</td>
 			<th>作成日</th>
-			<td>2015/01/28&nbsp;</td>
+			<td>2015/02/10&nbsp;</td>
 		</tr>
 		<tr>
 			<th>スキーマ名</th>
@@ -142,6 +142,15 @@
 			<td></td>
 			<td></td>
 		</tr>
+		<tr>
+			<td style="text-align:right;">9</td>
+			<td>親施設ID</td>
+			<td>PARENT_FACILITY_ID</td>
+			<td>*FK</td>
+			<td>&nbsp;</td>
+			<td></td>
+			<td></td>
+		</tr>
 	</table>
 
 <br>
@@ -184,6 +193,13 @@
 		<tr>
 			<td style="text-align:right;">1</td>
 			<td></td>
+			<td>PARENT_FACILITY_ID</td>
+			<td>M_FACILITY</td>
+			<td>FACILITY_ID</td>
+		</tr>
+		<tr>
+			<td style="text-align:right;">2</td>
+			<td></td>
 			<td>REGION_ID</td>
 			<td>M_REGION</td>
 			<td>REGION_ID</td>
@@ -212,11 +228,18 @@
 			<td style="text-align:right;">1</td>
 			<td></td>
 			<td>FACILITY_ID</td>
+			<td>M_FACILITY</td>
+			<td>PARENT_FACILITY_ID</td>
+		</tr>
+		<tr>
+			<td style="text-align:right;">2</td>
+			<td></td>
+			<td>FACILITY_ID</td>
 			<td>M_FACILITY_ATTR_VAL</td>
 			<td>FACILITY_ID</td>
 		</tr>
 		<tr>
-			<td style="text-align:right;">2</td>
+			<td style="text-align:right;">3</td>
 			<td></td>
 			<td>FACILITY_ID</td>
 			<td>M_FACILITY_FACILITY_GRP_LINK</td>

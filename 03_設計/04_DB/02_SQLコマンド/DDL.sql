@@ -1,5 +1,5 @@
 ﻿-- Project Name : ProjectX
--- Date/Time    : 2015/02/10 17:33:52
+-- Date/Time    : 2015/02/12 17:17:05
 -- Author       : n-suzuki
 -- RDBMS Type   : MySQL
 -- Application  : A5:SQL Mk-2
@@ -79,6 +79,8 @@ create table M_FACILITY (
   , STS CHAR(8) not null comment 'ステータス'
   , REGION_ID INT unsigned not null comment '地域ID'
   , PUBLISH_STS CHAR(8) not null comment '公開ステータス'
+  , LATITUDE DOUBLE(9,6) not null comment '緯度'
+  , LONGITUDE DOUBLE(9,6) not null comment '経度'
   , PARENT_FACILITY_ID INT unsigned comment '親施設ID'
   , constraint M_FACILITY_PKC primary key (FACILITY_ID)
 ) comment '施設' ;

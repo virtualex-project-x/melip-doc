@@ -1,5 +1,5 @@
 ﻿-- Project Name : ProjectX
--- Date/Time    : 2015/02/12 17:17:05
+-- Date/Time    : 2015/03/04 16:45:38
 -- Author       : n-suzuki
 -- RDBMS Type   : MySQL
 -- Application  : A5:SQL Mk-2
@@ -9,9 +9,9 @@ drop table if exists M_CD_VAL_LANG cascade;
 
 create table M_CD_VAL_LANG (
   CD_VAL_LANG_ID INT unsigned auto_increment not null comment 'コード値_多言語ID'
-  , CREATE_DATETIME TIMESTAMP not null comment '登録日時'
+  , CREATE_DATETIME TIMESTAMP null comment '登録日時'
   , CREATE_USER INT unsigned not null comment '登録者'
-  , UPDATE_DATETIME TIMESTAMP not null comment '更新日時'
+  , UPDATE_DATETIME TIMESTAMP null comment '更新日時'
   , UPDATE_USER INT unsigned not null comment '更新者'
   , STS CHAR(8) not null comment 'ステータス'
   , CD_VAL_ID INT unsigned not null comment 'コード値ID'
@@ -25,9 +25,9 @@ drop table if exists M_CD_VAL cascade;
 
 create table M_CD_VAL (
   CD_VAL_ID INT unsigned auto_increment not null comment 'コード値ID'
-  , CREATE_DATETIME TIMESTAMP not null comment '登録日時'
+  , CREATE_DATETIME TIMESTAMP null comment '登録日時'
   , CREATE_USER INT unsigned not null comment '登録者'
-  , UPDATE_DATETIME TIMESTAMP not null comment '更新日時'
+  , UPDATE_DATETIME TIMESTAMP null comment '更新日時'
   , UPDATE_USER INT unsigned not null comment '更新者'
   , STS CHAR(8) not null comment 'ステータス'
   , CD_GRP_ID INT unsigned not null comment 'コードグループID'
@@ -42,9 +42,9 @@ drop table if exists M_CD_GRP cascade;
 
 create table M_CD_GRP (
   CD_GRP_ID INT unsigned auto_increment not null comment 'コードグループID'
-  , CREATE_DATETIME TIMESTAMP not null comment '登録日時'
+  , CREATE_DATETIME TIMESTAMP null comment '登録日時'
   , CREATE_USER INT unsigned not null comment '登録者'
-  , UPDATE_DATETIME TIMESTAMP not null comment '更新日時'
+  , UPDATE_DATETIME TIMESTAMP null comment '更新日時'
   , UPDATE_USER INT unsigned not null comment '更新者'
   , STS CHAR(8) not null comment 'ステータス'
   , ALIAS VARCHAR(200) not null comment 'エイリアス'
@@ -58,9 +58,9 @@ drop table if exists M_REGION cascade;
 
 create table M_REGION (
   REGION_ID INT unsigned auto_increment not null comment '地域ID'
-  , CREATE_DATETIME TIMESTAMP not null comment '登録日時'
+  , CREATE_DATETIME TIMESTAMP null comment '登録日時'
   , CREATE_USER INT unsigned not null comment '登録者'
-  , UPDATE_DATETIME TIMESTAMP not null comment '更新日時'
+  , UPDATE_DATETIME TIMESTAMP null comment '更新日時'
   , UPDATE_USER INT unsigned not null comment '更新者'
   , STS CHAR(8) not null comment 'ステータス'
   , PUBLISH_STS CHAR(8) not null comment '公開ステータス'
@@ -72,9 +72,9 @@ drop table if exists M_FACILITY cascade;
 
 create table M_FACILITY (
   FACILITY_ID INT unsigned auto_increment not null comment '施設ID'
-  , CREATE_DATETIME TIMESTAMP not null comment '登録日時'
+  , CREATE_DATETIME TIMESTAMP null comment '登録日時'
   , CREATE_USER INT unsigned not null comment '登録者'
-  , UPDATE_DATETIME TIMESTAMP not null comment '更新日時'
+  , UPDATE_DATETIME TIMESTAMP null comment '更新日時'
   , UPDATE_USER INT unsigned not null comment '更新者'
   , STS CHAR(8) not null comment 'ステータス'
   , REGION_ID INT unsigned not null comment '地域ID'
@@ -90,9 +90,9 @@ drop table if exists M_REGION_ATTR_GRP_LANG cascade;
 
 create table M_REGION_ATTR_GRP_LANG (
   REGION_ATTR_GRP_LANG_ID INT unsigned auto_increment not null comment '地域属性グループ_多言語ID'
-  , CREATE_DATETIME TIMESTAMP not null comment '登録日時'
+  , CREATE_DATETIME TIMESTAMP null comment '登録日時'
   , CREATE_USER INT unsigned not null comment '登録者'
-  , UPDATE_DATETIME TIMESTAMP not null comment '更新日時'
+  , UPDATE_DATETIME TIMESTAMP null comment '更新日時'
   , UPDATE_USER INT unsigned not null comment '更新者'
   , STS CHAR(8) not null comment 'ステータス'
   , REGION_ATTR_GRP_ID INT unsigned not null comment '地域属性グループID'
@@ -108,9 +108,9 @@ drop table if exists M_REGION_ATTR_GRP cascade;
 
 create table M_REGION_ATTR_GRP (
   REGION_ATTR_GRP_ID INT unsigned auto_increment not null comment '地域属性グループID'
-  , CREATE_DATETIME TIMESTAMP not null comment '登録日時'
+  , CREATE_DATETIME TIMESTAMP null comment '登録日時'
   , CREATE_USER INT unsigned not null comment '登録者'
-  , UPDATE_DATETIME TIMESTAMP not null comment '更新日時'
+  , UPDATE_DATETIME TIMESTAMP null comment '更新日時'
   , UPDATE_USER INT unsigned not null comment '更新者'
   , STS CHAR(8) not null comment 'ステータス'
   , TYPE CHAR(8) not null comment '種別'
@@ -123,9 +123,9 @@ drop table if exists M_REGION_ATTR_VAL cascade;
 
 create table M_REGION_ATTR_VAL (
   REGION_ATTR_VAL_ID INT unsigned auto_increment not null comment '地域属性値ID'
-  , CREATE_DATETIME TIMESTAMP not null comment '登録日時'
+  , CREATE_DATETIME TIMESTAMP null comment '登録日時'
   , CREATE_USER INT unsigned not null comment '登録者'
-  , UPDATE_DATETIME TIMESTAMP not null comment '更新日時'
+  , UPDATE_DATETIME TIMESTAMP null comment '更新日時'
   , UPDATE_USER INT unsigned not null comment '更新者'
   , STS CHAR(8) not null comment 'ステータス'
   , REGION_ID INT unsigned not null comment '地域ID'
@@ -138,9 +138,9 @@ drop table if exists M_REGION_ATTR_VAL_LANG cascade;
 
 create table M_REGION_ATTR_VAL_LANG (
   REGION_ATTR_VAL_LANG_ID INT unsigned auto_increment not null comment '地域属性値_多言語ID'
-  , CREATE_DATETIME TIMESTAMP not null comment '登録日時'
+  , CREATE_DATETIME TIMESTAMP null comment '登録日時'
   , CREATE_USER INT unsigned not null comment '登録者'
-  , UPDATE_DATETIME TIMESTAMP not null comment '更新日時'
+  , UPDATE_DATETIME TIMESTAMP null comment '更新日時'
   , UPDATE_USER INT unsigned not null comment '更新者'
   , STS CHAR(8) not null comment 'ステータス'
   , REGION_ATTR_VAL_ID INT unsigned not null comment '地域属性値ID'
@@ -156,9 +156,9 @@ drop table if exists M_FACILITY_ATTR_VAL_LANG cascade;
 
 create table M_FACILITY_ATTR_VAL_LANG (
   FACILITY_ATTR_VAL_LANG_ID INT unsigned auto_increment not null comment '施設属性値_多言語ID'
-  , CREATE_DATETIME TIMESTAMP not null comment '登録日時'
+  , CREATE_DATETIME TIMESTAMP null comment '登録日時'
   , CREATE_USER INT unsigned not null comment '登録者'
-  , UPDATE_DATETIME TIMESTAMP not null comment '更新日時'
+  , UPDATE_DATETIME TIMESTAMP null comment '更新日時'
   , UPDATE_USER INT unsigned not null comment '更新者'
   , STS CHAR(8) not null comment 'ステータス'
   , FACILITY_ATTR_VAL_ID INT unsigned not null comment '施設属性値ID'
@@ -174,9 +174,9 @@ drop table if exists M_FACILITY_ATTR_VAL cascade;
 
 create table M_FACILITY_ATTR_VAL (
   FACILITY_ATTR_VAL_ID INT unsigned auto_increment not null comment '施設属性値ID'
-  , CREATE_DATETIME TIMESTAMP not null comment '登録日時'
+  , CREATE_DATETIME TIMESTAMP null comment '登録日時'
   , CREATE_USER INT unsigned not null comment '登録者'
-  , UPDATE_DATETIME TIMESTAMP not null comment '更新日時'
+  , UPDATE_DATETIME TIMESTAMP null comment '更新日時'
   , UPDATE_USER INT unsigned not null comment '更新者'
   , STS CHAR(8) not null comment 'ステータス'
   , FACILITY_ID INT unsigned not null comment '施設ID'
@@ -189,9 +189,9 @@ drop table if exists M_FACILITY_ATTR_GRP cascade;
 
 create table M_FACILITY_ATTR_GRP (
   FACILITY_ATTR_GRP_ID INT unsigned auto_increment not null comment '施設属性グループID'
-  , CREATE_DATETIME TIMESTAMP not null comment '登録日時'
+  , CREATE_DATETIME TIMESTAMP null comment '登録日時'
   , CREATE_USER INT unsigned not null comment '登録者'
-  , UPDATE_DATETIME TIMESTAMP not null comment '更新日時'
+  , UPDATE_DATETIME TIMESTAMP null comment '更新日時'
   , UPDATE_USER INT unsigned not null comment '更新者'
   , STS CHAR(8) not null comment 'ステータス'
   , ALIAS VARCHAR(200) not null comment 'エイリアス'
@@ -205,9 +205,9 @@ drop table if exists M_FACILITY_ATTR_GRP_LANG cascade;
 
 create table M_FACILITY_ATTR_GRP_LANG (
   FACILITY_ATTR_GRP_LANG_ID INT unsigned auto_increment not null comment '施設属性グループ_多言語ID'
-  , CREATE_DATETIME TIMESTAMP not null comment '登録日時'
+  , CREATE_DATETIME TIMESTAMP null comment '登録日時'
   , CREATE_USER INT unsigned not null comment '登録者'
-  , UPDATE_DATETIME TIMESTAMP not null comment '更新日時'
+  , UPDATE_DATETIME TIMESTAMP null comment '更新日時'
   , UPDATE_USER INT unsigned not null comment '更新者'
   , STS CHAR(8) not null comment 'ステータス'
   , FACILITY_ATTR_GRP_ID INT unsigned not null comment '施設属性グループID'
@@ -223,9 +223,9 @@ drop table if exists M_FACILITY_FACILITY_GRP_LINK cascade;
 
 create table M_FACILITY_FACILITY_GRP_LINK (
   FACILITY_FACILITY_GRP_LINK_ID INT unsigned auto_increment not null comment '施設_施設グループ_リンクID'
-  , CREATE_DATETIME TIMESTAMP not null comment '登録日時'
+  , CREATE_DATETIME TIMESTAMP null comment '登録日時'
   , CREATE_USER INT unsigned not null comment '登録者'
-  , UPDATE_DATETIME TIMESTAMP not null comment '更新日時'
+  , UPDATE_DATETIME TIMESTAMP null comment '更新日時'
   , UPDATE_USER INT unsigned not null comment '更新者'
   , STS CHAR(8) not null comment 'ステータス'
   , FACILITY_ID INT unsigned not null comment '施設ID'
@@ -238,9 +238,9 @@ drop table if exists M_FACILITY_GRP cascade;
 
 create table M_FACILITY_GRP (
   FACILITY_GRP_ID INT unsigned auto_increment not null comment '施設グループID'
-  , CREATE_DATETIME TIMESTAMP not null comment '登録日時'
+  , CREATE_DATETIME TIMESTAMP null comment '登録日時'
   , CREATE_USER INT unsigned not null comment '登録者'
-  , UPDATE_DATETIME TIMESTAMP not null comment '更新日時'
+  , UPDATE_DATETIME TIMESTAMP null comment '更新日時'
   , UPDATE_USER INT unsigned not null comment '更新者'
   , STS CHAR(8) not null comment 'ステータス'
   , REGION_I INT unsigned not null comment '地域ID'
@@ -253,9 +253,9 @@ drop table if exists M_FACILITY_FACILITY_GRP_LINK_ATTR_GRP_LANG cascade;
 
 create table M_FACILITY_FACILITY_GRP_LINK_ATTR_GRP_LANG (
   FACILITY_FACILITY_GRP_LINK_ATTR_GRP_LANG_ID INT unsigned auto_increment not null comment '施設_施設グループ_リンク属性グループ_多言語ID'
-  , CREATE_DATETIME TIMESTAMP not null comment '登録日時'
+  , CREATE_DATETIME TIMESTAMP null comment '登録日時'
   , CREATE_USER INT unsigned not null comment '登録者'
-  , UPDATE_DATETIME TIMESTAMP not null comment '更新日時'
+  , UPDATE_DATETIME TIMESTAMP null comment '更新日時'
   , UPDATE_USER INT unsigned not null comment '更新者'
   , STS CHAR(8) not null comment 'ステータス'
   , FACILITY_FACILITY_GRP_LINK_ATTR_GRP_ID INT unsigned not null comment '施設_施設グループ_リンク属性グループID'
@@ -271,9 +271,9 @@ drop table if exists M_FACILITY_FACILITY_GRP_LINK_ATTR_GRP cascade;
 
 create table M_FACILITY_FACILITY_GRP_LINK_ATTR_GRP (
   FACILITY_FACILITY_GRP_LINK_ATTR_GRP_ID INT unsigned auto_increment not null comment '施設_施設グループ_リンク属性グループID'
-  , CREATE_DATETIME TIMESTAMP not null comment '登録日時'
+  , CREATE_DATETIME TIMESTAMP null comment '登録日時'
   , CREATE_USER INT unsigned not null comment '登録者'
-  , UPDATE_DATETIME TIMESTAMP not null comment '更新日時'
+  , UPDATE_DATETIME TIMESTAMP null comment '更新日時'
   , UPDATE_USER INT unsigned not null comment '更新者'
   , STS CHAR(8) not null comment 'ステータス'
   , TYPE CHAR(8) not null comment '種別'
@@ -286,9 +286,9 @@ drop table if exists M_FACILITY_FACILITY_GRP_LINK_ATTR_VAL cascade;
 
 create table M_FACILITY_FACILITY_GRP_LINK_ATTR_VAL (
   FACILITY_FACILITY_GRP_LINK_ATTR_VAL_ID INT unsigned auto_increment not null comment '施設_施設グループ_リンク属性値ID'
-  , CREATE_DATETIME TIMESTAMP not null comment '登録日時'
+  , CREATE_DATETIME TIMESTAMP null comment '登録日時'
   , CREATE_USER INT unsigned not null comment '登録者'
-  , UPDATE_DATETIME TIMESTAMP not null comment '更新日時'
+  , UPDATE_DATETIME TIMESTAMP null comment '更新日時'
   , UPDATE_USER INT unsigned not null comment '更新者'
   , STS CHAR(8) not null comment 'ステータス'
   , FACILITY_FACILITY_GRP_LINK_ID INT unsigned not null comment '施設_施設グループ_リンクID'
@@ -301,9 +301,9 @@ drop table if exists M_FACILITY_FACILITY_GRP_LINK_ATTR_VAL_LANG cascade;
 
 create table M_FACILITY_FACILITY_GRP_LINK_ATTR_VAL_LANG (
   FACILITY_FACILITY_GRP_LINK_ATTR_VAL_LANG_ID INT unsigned auto_increment not null comment '施設_施設グループ_リンク属性値_多言語ID'
-  , CREATE_DATETIME TIMESTAMP not null comment '登録日時'
+  , CREATE_DATETIME TIMESTAMP null comment '登録日時'
   , CREATE_USER INT unsigned not null comment '登録者'
-  , UPDATE_DATETIME TIMESTAMP not null comment '更新日時'
+  , UPDATE_DATETIME TIMESTAMP null comment '更新日時'
   , UPDATE_USER INT unsigned not null comment '更新者'
   , STS CHAR(8) not null comment 'ステータス'
   , FACILITY_FACILITY_GRP_LINK_ATTR_VAL_ID INT unsigned not null comment '施設_施設グループ_リンク属性値ID'
@@ -319,9 +319,9 @@ drop table if exists M_FACILITY_GRP_ATTR_GRP_LANG cascade;
 
 create table M_FACILITY_GRP_ATTR_GRP_LANG (
   FACILITY_GRP_ATTR_GRP_LANG_ID INT unsigned auto_increment not null comment '施設グループ属性グループ_多言語ID'
-  , CREATE_DATETIME TIMESTAMP not null comment '登録日時'
+  , CREATE_DATETIME TIMESTAMP null comment '登録日時'
   , CREATE_USER INT unsigned not null comment '登録者'
-  , UPDATE_DATETIME TIMESTAMP not null comment '更新日時'
+  , UPDATE_DATETIME TIMESTAMP null comment '更新日時'
   , UPDATE_USER INT unsigned not null comment '更新者'
   , STS CHAR(8) not null comment 'ステータス'
   , FACILITY_GRP_ATTR_GRP_ID INT unsigned not null comment '施設グループ属性グループID'
@@ -337,9 +337,9 @@ drop table if exists M_FACILITY_GRP_ATTR_GRP cascade;
 
 create table M_FACILITY_GRP_ATTR_GRP (
   FACILITY_GRP_ATTR_GRP_ID INT unsigned auto_increment not null comment '施設グループ属性グループID'
-  , CREATE_DATETIME TIMESTAMP not null comment '登録日時'
+  , CREATE_DATETIME TIMESTAMP null comment '登録日時'
   , CREATE_USER INT unsigned not null comment '登録者'
-  , UPDATE_DATETIME TIMESTAMP not null comment '更新日時'
+  , UPDATE_DATETIME TIMESTAMP null comment '更新日時'
   , UPDATE_USER INT unsigned not null comment '更新者'
   , STS CHAR(8) not null comment 'ステータス'
   , TYPE CHAR(8) not null comment '種別'
@@ -352,9 +352,9 @@ drop table if exists M_FACILITY_GRP_ATTR_VAL cascade;
 
 create table M_FACILITY_GRP_ATTR_VAL (
   FACILITY_GRP_ATTR_VAL_ID INT unsigned auto_increment not null comment '施設グループ属性値ID'
-  , CREATE_DATETIME TIMESTAMP not null comment '登録日時'
+  , CREATE_DATETIME TIMESTAMP null comment '登録日時'
   , CREATE_USER INT unsigned not null comment '登録者'
-  , UPDATE_DATETIME TIMESTAMP not null comment '更新日時'
+  , UPDATE_DATETIME TIMESTAMP null comment '更新日時'
   , UPDATE_USER INT unsigned not null comment '更新者'
   , STS CHAR(8) not null comment 'ステータス'
   , FACILITY_GRP_ID INT unsigned not null comment '施設グループID'
@@ -367,9 +367,9 @@ drop table if exists M_FACILITY_GRP_ATTR_VAL_LANG cascade;
 
 create table M_FACILITY_GRP_ATTR_VAL_LANG (
   FACILITY_GRP_ATTR_VAL_LANG_ID INT unsigned auto_increment not null comment '施設グループ属性値_多言語ID'
-  , CREATE_DATETIME TIMESTAMP not null comment '登録日時'
+  , CREATE_DATETIME TIMESTAMP null comment '登録日時'
   , CREATE_USER INT unsigned not null comment '登録者'
-  , UPDATE_DATETIME TIMESTAMP not null comment '更新日時'
+  , UPDATE_DATETIME TIMESTAMP null comment '更新日時'
   , UPDATE_USER INT unsigned not null comment '更新者'
   , STS CHAR(8) not null comment 'ステータス'
   , FACILITY_GRP_ATTR_VAL_ID INT unsigned not null comment '施設グループ属性値ID'

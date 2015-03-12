@@ -1,6 +1,6 @@
-﻿-- Project Name : ProjectX
--- Date/Time    : 2015/03/10 14:03:51
--- Author       : n-suzuki
+﻿-- Project Name : MELIP
+-- Date/Time    : 2015/03/12 16:00:36
+-- Author       : Virtualex Consulting, Inc.
 -- RDBMS Type   : MySQL
 -- Application  : A5:SQL Mk-2
 

@@ -1,5 +1,5 @@
 ﻿-- Project Name : ProjectX
--- Date/Time    : 2015/03/04 16:45:38
+-- Date/Time    : 2015/03/10 14:03:51
 -- Author       : n-suzuki
 -- RDBMS Type   : MySQL
 -- Application  : A5:SQL Mk-2
@@ -199,6 +199,8 @@ create table M_FACILITY_ATTR_GRP (
   , CD_GRP_ID INT unsigned comment 'コードグループID'
   , constraint M_FACILITY_ATTR_GRP_PKC primary key (FACILITY_ATTR_GRP_ID)
 ) comment '施設属性グループ' ;
+
+alter table M_FACILITY_ATTR_GRP add unique M_FACILITY_ATTR_GRP_IX1 (ALIAS) ;
 
 -- 施設属性グループ_多言語
 drop table if exists M_FACILITY_ATTR_GRP_LANG cascade;

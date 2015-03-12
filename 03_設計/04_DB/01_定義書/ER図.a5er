@@ -652,10 +652,11 @@ Field="ステータス","STS","*CD","NOT NULL",,"","",$00808080,""
 Field="エイリアス","ALIAS","*ALIAS","NOT NULL",,"","",$FFFFFFFF,""
 Field="種別","TYPE","*CD","NOT NULL",,"","",$FFFFFFFF,""
 Field="コードグループID","CD_GRP_ID","*FK",,,"","",$00000000,""
+Index==2,ALIAS
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20150304163925
+ModifiedDateTime=20150310135844
 Position="MELIP_MAIN",1000,900
 
 [Entity]
